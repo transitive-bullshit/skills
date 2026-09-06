@@ -8,6 +8,7 @@
   "repository": "https://github.com/transitive-bullshit/skills",
   "type": "module",
   "scripts": {
+    "link:skills": "bash scripts/link-skills.sh",
     "lint": "oxlint",
     "test": "run-s test:*",
     "test:format": "oxfmt --check",

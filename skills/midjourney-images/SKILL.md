@@ -1,6 +1,7 @@
 ---
 name: midjourney-images
 description: Craft expressive Midjourney prompts and create images in the midjourney.com web app. Use for explicit Midjourney requests or open-ended aesthetic exploration.
+license: MIT
 ---
 
 # Midjourney Images
