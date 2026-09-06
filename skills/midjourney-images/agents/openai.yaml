@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Midjourney Images'
+  short_description: 'Expressive prompts and Midjourney web creation'
+  default_prompt: 'Use $midjourney-images to develop an expressive visual direction and create it in Midjourney.'
