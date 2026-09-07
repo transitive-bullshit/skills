@@ -4,6 +4,8 @@ Reusable skills for AI coding agents.
 
 ## Midjourney Images
 
+[![skills.sh installs](https://skills.sh/b/transitive-bullshit/skills)](https://skills.sh/transitive-bullshit/skills)
+
 [`midjourney-images`](skills/midjourney-images/SKILL.md) writes focused Midjourney prompts and can create images in the Midjourney web app. Use it to explore a visual style, build a brand world, or develop concept art.
 
 <p align="center">
