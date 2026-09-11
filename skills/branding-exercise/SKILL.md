@@ -21,9 +21,11 @@ Build a compact brief covering:
 
 Use a gentle version of the grilling approach: identify decisions whose prerequisites are settled, ask the most consequential unresolved questions, and update the brief from the answers. This method is self-contained; invoking the full relentless `grilling` skill is unnecessary.
 
-Ask one to three focused questions at a time, usually over one or two short rounds. Offer a recommended interpretation or a few concrete choices when helpful. Resolve facts from the supplied context or environment yourself. Focus user questions on intent, taste, conflicting signals, and hard constraints; avoid repeating answered questions or turning the brief into an exhaustive questionnaire.
+Ask the user one to three focused clarifying questions at a time, usually over one or two short rounds. Resolve facts from the supplied context or environment yourself. Focus user questions on intent, taste, conflicting signals, and hard constraints; avoid repeating answered questions or turning the brief into an exhaustive questionnaire.
 
-Before exploration, reflect back the project, audience, main promise, desired feeling, and constraints in a short alignment summary. Proceed when these are established or the user has invited assumptions; label remaining assumptions. Wait for answers to material unresolved decisions. A detailed brief or an earlier confirmation can already establish alignment—do not add a redundant approval step. Leave low-stakes aesthetic questions for the visual exploration to answer.
+**First response when clarification is needed:** Include the actual questions directly in your response to the user. Introduce them with an explicit invitation such as “Please answer these questions so I can shape the brand directions.” These are questions for **the user to answer, not the model**. Leave them unanswered; do not simulate the user's replies or treat your own recommendations as their answers. Offer a recommended interpretation or a few concrete choices when helpful, clearly labeled as suggestions for the user to confirm or revise. End the response with the questions and wait for the user's answers to material unresolved decisions before exploring identities, unless the user has explicitly delegated those decisions or invited assumptions.
+
+Before exploration, reflect back the project, audience, main promise, desired feeling, and constraints in a short alignment summary. Proceed when these are established or the user has invited assumptions; label remaining assumptions. A detailed brief or an earlier confirmation can already establish alignment—do not add a redundant approval step. Leave low-stakes aesthetic questions for the visual exploration to answer.
 
 ## 2. Explore whole identities
 
