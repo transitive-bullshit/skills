@@ -24,6 +24,28 @@ Install it with the Skills CLI:
 npx skills add transitive-bullshit/skills --skill midjourney-images
 ```
 
+## Branding Exercise
+
+[![skills.sh installs](https://skills.sh/b/transitive-bullshit/skills)](https://skills.sh/transitive-bullshit/skills)
+
+[`branding-exercise`](skills/branding-exercise/SKILL.md) develops a project brand through a short context interview, distinct visual identity directions, and iteration. Use it to create a new brand identity or intentionally rebrand an existing project.
+
+<p align="center">
+  <img src="skills/branding-exercise/docs/brand-identity-onepager-example.jpg" alt="Repaint brand identity poster with a paint roller hero, positioning, messaging, logo, and color palette" width="100%">
+</p>
+
+The skill produces:
+
+- **Visual directions:** At least three distinct brand concepts with one-page posters to compare and refine.
+- **Accepted identity:** A brand guide, reusable logo and imagery assets, favicons, a social image, and a reproducible one-page poster.
+- **Project guidance:** A pointer in the project's agent instructions so future customer-facing work follows the accepted identity.
+
+Install it with the Skills CLI:
+
+```sh
+npx skills add transitive-bullshit/skills --skill branding-exercise
+```
+
 ## Keep local skills in sync
 
 Run this command from the repository:
