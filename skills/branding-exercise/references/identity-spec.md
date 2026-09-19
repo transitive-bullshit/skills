@@ -40,13 +40,13 @@ Explain which asset belongs on each surface. A logo embedded in a poster is not 
 
 ## Color and typography
 
-Use a color table with **token/name, exact value, role, and approved pairings**. Explain dominance and accent behavior, any light/dark adaptation, and tested text/background pairings. Separate brand colors from product states or content-driven colors when that distinction matters.
+Use a color table with **token/name, exact value, role, and approved pairings**. Explain dominance and accent behavior, any light/dark adaptation, and tested text/background pairings for the accepted system. Proposed pairings may remain provisional during exploration. Separate brand colors from product states or content-driven colors when that distinction matters.
 
 Specify type families, available weights, fallbacks, source or license notes when relevant, and roles for headlines, body, labels, and wordmark. Describe scale, spacing, and hierarchy through usable rules and samples. Record font dependencies required to reproduce the exported artifacts.
 
 ## Imagery and visual behavior
 
-Link the canonical hero and supporting imagery. Describe subject matter, visual metaphor, medium/materials, composition, crop, lighting, texture, shape language, and density where these define the identity. Include alt text, generation provider/prompt or provenance needed to reproduce or locate assets, and known usage limitations.
+Link the canonical hero and supporting imagery. Describe subject matter, visual metaphor, medium/materials, composition, crop, lighting, texture, shape language, and density where these define the identity. Include generation provider/prompt or provenance needed to reproduce or locate assets, and known usage limitations. Add alt text for accepted assets.
 
 Explain how the identity appears in a real touchpoint suited to the form factor. Distinguish conceptual mockups from screenshots or verified product evidence. Explain how the visual system stays recognizable as content changes.
 

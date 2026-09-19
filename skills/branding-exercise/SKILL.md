@@ -29,7 +29,7 @@ Before exploration, reflect back the project, audience, main promise, desired fe
 
 ## 2. Explore whole identities
 
-Read [references/identity-spec.md](references/identity-spec.md) to write each candidate's semi-structured Markdown specification. Read [references/visual-artifacts.md](references/visual-artifacts.md) before constructing the posters and build sources.
+Read [references/identity-spec.md](references/identity-spec.md) to write each candidate's semi-structured Markdown specification. Read [references/visual-artifacts.md](references/visual-artifacts.md) before constructing the posters and build sources; follow its lightweight review scope during exploration and feedback.
 
 Create **at least three distinct brand directions** in the initial exploration, unless the user explicitly changes that scope. Give each a memorable territory name and a coherent argument for how it serves the brief. Vary meaningful dimensions such as positioning angle, emotion, voice, visual metaphor, composition, typography, and mark language while honoring fixed constraints. Three colorways of one concept do not satisfy this step. Keep the actual product and supported claims consistent across directions.
 

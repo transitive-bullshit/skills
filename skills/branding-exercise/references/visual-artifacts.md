@@ -2,6 +2,12 @@
 
 Read when building exploration posters and when exporting the accepted identity. Author the project's composition and build script to suit its brand; a fixed bundled layout would constrain the visual exploration.
 
+## Review artifacts
+
+During exploration and feedback, generated HTML pages, comparison views, mockups, posters, and supporting assets are lightweight aids for choosing a design direction. Prioritize clear visual expression, comparability, and quick iteration. Desktop-only presentation is sufficient; mobile/responsive layouts, accessibility implementation or audits, production hardening, and comprehensive testing are outside this phase unless the user requests them.
+
+A brief desktop visual check is enough: confirm the directions display, key copy is readable, assets load, and any essential review controls work. Fix issues that obstruct comparison or feedback, then return to the user for feedback. Apply the accepted export verification below after selection.
+
 ## One-page posters
 
 Include the following in every direction's poster:
@@ -43,7 +49,7 @@ Persist these files after acceptance or delegated selection; use the project's e
 
 Construct logo vectors from editable geometry; a bitmap inside an SVG wrapper does not satisfy the native logo requirement. Use transparent icon backgrounds where the intended surface requires them. Keep important social-preview content comfortably within the image and inspect it at reduced size.
 
-## Export verification
+## Accepted export verification
 
 Run the build and visually inspect the actual poster, social image, logo, and icons. Check clipping, wrapping, contrast, crops, font substitution, exact copy, and consistency with the accepted identity. Inspect favicons at their real display sizes. Verify image dimensions and file formats, including the ICO's embedded sizes.
 
