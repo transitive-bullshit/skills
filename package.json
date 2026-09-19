@@ -18,12 +18,12 @@
   },
   "devDependencies": {
     "@fisch0920/config": "^2.1.4",
-    "@types/node": "^26.4.1",
-    "lint-staged": "^17.4.1",
+    "@types/node": "^26.6.1",
+    "lint-staged": "^17.5.1",
     "npm-run-all2": "^9.0.3",
-    "oxfmt": "^0.66.0",
-    "oxlint": "^1.81.0",
-    "oxlint-tsgolint": "^7.0.2001",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "oxlint-tsgolint": "^7.0.2002",
     "simple-git-hooks": "^2.14.0",
     "typescript": "^7.0.2"
   },
