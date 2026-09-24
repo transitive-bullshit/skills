@@ -1,0 +1,4 @@
+interface:
+  display_name: "Storytelling"
+  short_description: "Create and critique marketing and personal stories"
+  default_prompt: "Use $storytelling to sharpen this narrative for its audience and purpose."

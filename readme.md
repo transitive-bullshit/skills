@@ -46,6 +46,29 @@ Install it with the Skills CLI:
 npx skills add transitive-bullshit/skills --skill branding-exercise
 ```
 
+## Storytelling
+
+[![skills.sh installs](https://skills.sh/b/transitive-bullshit/skills)](https://skills.sh/transitive-bullshit/skills)
+
+[`storytelling`](skills/storytelling/SKILL.md) creates and critiques marketing narratives, product or project pitches, and personal stories. Use it to sharpen a hook, clarify emotional stakes, connect story beats, or make an ending land.
+
+This skill is based on work by [Edmund Tian](https://www.instagram.com/edmund.tian).
+
+<p align="center">
+  <img src="skills/storytelling/docs/storytelling.jpg" alt="Storytelling skill preview" width="100%">
+</p>
+
+The skill supports two tasks:
+
+- **Create:** Draft a narrative around a clear message, causal story beats, and a memorable payoff while preserving your voice and grounding claims in supplied facts.
+- **Critique:** Identify the changes that most improve clarity, stakes, credibility, or payoff, with concrete revisions to weak passages.
+
+Install it with the Skills CLI:
+
+```sh
+npx skills add transitive-bullshit/skills --skill storytelling
+```
+
 ## Keep local skills in sync
 
 Run this command from the repository:
