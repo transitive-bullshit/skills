@@ -1,6 +1,6 @@
 ---
 name: branding-exercise
-description: Collaboratively develop a project brand through a short context interview, multiple visual identity directions, and iteration, then persist the accepted identity and reusable assets. Use for a branding exercise, a new brand identity, or an intentional rebrand; ordinary UI or copy edits should follow the project's existing identity.
+description: "Develop a new brand identity or intentional rebrand through a brief, visual directions, and iteration. Persist the accepted identity and assets."
 ---
 
 # Branding Exercise
@@ -57,7 +57,7 @@ Complete the schema in [references/identity-spec.md](references/identity-spec.md
 
 Add or update one concise pointer in the relevant project `AGENTS.md`, preserving unrelated instructions. Ensure it covers the project's customer-facing surfaces; use the correct relative path. For example:
 
-> Before creating or changing customer-facing product UX/UI, marketing pages, README content, social assets, or other public touchpoints, read [Brand identity](docs/brand-identity.md). Apply its accepted copy, visual rules, and reusable assets. Treat linked exploration as history; changes to the core identity are brand decisions to resolve with the user.
+> For changes affecting brand voice, visual identity, positioning, or reusable brand assets, consult [Brand identity](docs/brand-identity.md) and apply its accepted rules and assets. Routine typo fixes and changes with no brand impact do not require rereading it. Treat exploration as history; resolve core identity changes with the user unless already delegated.
 
 If no project `AGENTS.md` exists, create a minimal one with this pointer. Follow an established alternate agent-instruction entrypoint as well when needed for discovery. Link the document instead of duplicating its palette and voice throughout instruction files.
 
