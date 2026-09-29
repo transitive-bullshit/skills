@@ -1,6 +1,6 @@
 ---
 name: storytelling
-description: "Create and critique marketing narratives, product or project pitches, and personal stories. Use for story structure, hooks, emotional stakes, and memorable endings."
+description: 'Create and critique marketing narratives, product or project pitches, and personal stories. Use for story structure, hooks, emotional stakes, and memorable endings.'
 ---
 
 # Storytelling
@@ -22,7 +22,7 @@ Use supplied events, outcomes, quotes, and metrics. Label invented examples or m
 Choose the smallest useful structure; use these patterns / frameworks as guidance, not as mandatory.
 
 | Tool | Apply it |
-|---|---|
+| --- | --- |
 | **SUCCESs** | **Simple:** one core message. **Unexpected:** a meaningful surprise. **Concrete:** a scene or recognizable experience. **Credible:** something believable, with evidence for factual claims. **Emotional:** stakes this audience cares about. **Story:** change through events. |
 | **Three acts** | Beginning → middle → end. Practical expansion: establish the situation, develop its conflict, resolve it through a consequential choice or change. |
 | **Curiosity gap** | Bridge what the audience knows and wants to know. Give enough context to form a specific question, then pay it off. Keep them curious without making them confused. |

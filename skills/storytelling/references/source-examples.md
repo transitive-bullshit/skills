@@ -1,11 +1,11 @@
 # Source examples
 
-Examples from *Addicting Storytelling* (HRG deck and workshop) and the user-supplied launch article. PDF page numbers start at 1; talk times are elapsed minutes. Quotes retain source wording apart from punctuation, line breaks, and capitalization. “Stronger” means the source's preferred version, not a universal wording rule.
+Examples from _Addicting Storytelling_ (HRG deck and workshop) and the user-supplied launch article. PDF page numbers start at 1; talk times are elapsed minutes. Quotes retain source wording apart from punctuation, line breaks, and capitalization. “Stronger” means the source's preferred version, not a universal wording rule.
 
 ## Workshop: weak → strong
 
 | Technique | Weaker source version | Stronger source version | Transferable lesson |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | A consequence carries the message (PDF 6–7) | “Don't wander off at night. It's dangerous.” | “There was once a child who wandered off at night. He was eaten by a saber tooth tiger.” | Let an event make the stakes felt. This is an illustrative tale. |
 | Clear, unexpected framing (PDF 23) | “Is music hacking your brain?” | “Is music a drug?” | A short, familiar analogy can open a sharper question. |
 | Concrete experience (PDF 37–38) | “We all love music because it sounds nice.” | “We all love music because it can turn any boring moment into a freaking movie.” | Replace bland evaluation with an experience the audience can picture. |
@@ -32,10 +32,10 @@ Its music story moves through **appeal → hidden cost → consequence → value
 
 ## Launch article: claims that travel
 
-Source: user-pasted *The Five Layers Behind an “Everywhere” Launch*; author and URL were not supplied. Section names below identify its layers.
+Source: user-pasted _The Five Layers Behind an “Everywhere” Launch_; author and URL were not supplied. Section names below identify its layers.
 
 | Weaker | Stronger | Lesson |
-|---|---|---|
+| --- | --- | --- |
 | “An AI-powered platform for collaborative application development.” | “Build an app by describing it.” | State a repeatable change in what someone can do (Layer 1). |
 | Logo animation → founder introduction → dashboard tour → eventual result. | One meaningful result in the opening five seconds, clear without sound or prior context. | Let the demo make the claim believable (Layer 2; paraphrased comparison). |
 | Many accounts repeat identical copy. | Different people explain the same core idea through their own experience and perspective. | Keep the claim consistent and the voices distinct (Layer 3; paraphrased comparison). |
@@ -51,6 +51,6 @@ Source: user-pasted *The Five Layers Behind an “Everywhere” Launch*; author 
 - The workshop compares 20.9K and 1.3M views, describing the revision as roughly 60× better with the same footage and editing (PDF 20–22). This is a presenter-reported comparison, not a controlled test or a forecast.
 - “Drug,” “addicted,” and “conditions your brain to hate silence” illustrate charged language; these materials do not establish the implied medical claims. Preserve the vividness technique while grounding new stories in supported facts.
 - Treat the peak-end rule as a craft heuristic here, not a guarantee of audience memory.
-- The speaker attributes SUCCESs to *Made to Stick* (10:41–11:11). Three-act structure receives only “beginning, middle, and end” (17:45–17:51); the setup/conflict/change expansion in the skill is an adaptation.
+- The speaker attributes SUCCESs to _Made to Stick_ (10:41–11:11). Three-act structure receives only “beginning, middle, and end” (17:45–17:51); the setup/conflict/change expansion in the skill is an adaptation.
 
-Sources: user-supplied *HRG Storytelling.pdf* (62 pages), [accompanying talk](https://photos.app.goo.gl/k71EV6s7DuYW8iKH7), and the launch article identified above. The five-second target is a short-demo heuristic; the article's claims about spread are not guarantees. Application patterns in `SKILL.md` are identified as sourced or adapted.
+Sources: user-supplied _HRG Storytelling.pdf_ (62 pages), [accompanying talk](https://photos.app.goo.gl/k71EV6s7DuYW8iKH7), and the launch article identified above. The five-second target is a short-demo heuristic; the article's claims about spread are not guarantees. Application patterns in `SKILL.md` are identified as sourced or adapted.
