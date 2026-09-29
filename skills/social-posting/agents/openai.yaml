@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Social Posting'
+  short_description: "Plan, write and schedule Travis's social posts across platforms"
+  default_prompt: 'Use $social-posting to make a launch game plan for this project and schedule it across my Postiz channels.'

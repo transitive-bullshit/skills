@@ -69,6 +69,10 @@ Install it with the Skills CLI:
 npx skills add transitive-bullshit/skills --skill storytelling
 ```
 
+## Personal workflows
+
+[`social-posting`](skills/social-posting/SKILL.md) and [`x-mirror`](skills/x-mirror/SKILL.md) are my own social posting setup: launch game plans and scheduled posts across Threads, Bluesky, LinkedIn, Instagram and TikTok through [Postiz](https://postiz.com), using my X posts as the guide. They're wired to my accounts, so they're here as a reference rather than for installing as-is.
+
 ## Keep local skills in sync
 
 Run this command from the repository:
