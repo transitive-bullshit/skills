@@ -1,0 +1,5 @@
+interface:
+  display_name: 'Init Git Repo'
+  short_description: 'Turn a raw local project into a clean, shareable public git repo on GitHub.'
+policy:
+  allow_implicit_invocation: false
