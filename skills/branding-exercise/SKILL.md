@@ -1,6 +1,6 @@
 ---
 name: branding-exercise
-description: "Develop a new brand identity or intentional rebrand through a brief, visual directions, and iteration. Persist the accepted identity and assets."
+description: 'Develop a new brand identity or intentional rebrand through a brief, visual directions, and iteration. Persist the accepted identity and assets.'
 ---
 
 # Branding Exercise

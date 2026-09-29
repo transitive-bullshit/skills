@@ -1,0 +1,3 @@
+interface:
+  display_name: 'X Mirror'
+  short_description: "Mirror Travis's new X posts to Bluesky and Threads"
