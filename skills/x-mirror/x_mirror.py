@@ -290,9 +290,12 @@ def main():
     if "user_id" not in state:
         state["user_id"] = cli_json("xurl", f"/2/users/by/username/{HANDLE}")["data"]["id"]
     since = iso(now - dt.timedelta(hours=args.lookback_hours))
-    window = tuple(int(h) for h in args.window.split("-")) if args.window else None
-    slot_kw = {"mirror_gap": dt.timedelta(hours=args.gap_hours), "window": window,
-               "horizon": HORIZON if args.gap_hours <= 1 and not window else dt.timedelta(days=21)}
+    run_opts = {"include_launches": args.include_launches, "gap_hours": args.gap_hours, "window": args.window}
+
+    def slot_kw_for(opts):
+        window = tuple(int(h) for h in opts["window"].split("-")) if opts.get("window") else None
+        return {"mirror_gap": dt.timedelta(hours=opts["gap_hours"]), "window": window,
+                "horizon": HORIZON if opts["gap_hours"] <= 1 and not window else dt.timedelta(days=21)}
     if args.only:  # specific posts, any age
         res = cli_json("xurl", f"/2/tweets?ids={','.join(args.only)}&{FIELDS}")
     else:
@@ -303,6 +306,11 @@ def main():
     if args.only:  # a backfill goes out in the order given (e.g. strongest first)
         roots.sort(key=lambda p: args.only.index(p["id"]))
     media_by_key = {m["media_key"]: m for m in res.get("includes", {}).get("media", [])}
+    pending = [k for k, e in state["posts"].items() if e.get("pending") and k not in {p["id"] for p in roots}]
+    if pending and not args.only:  # retry waiting posts from earlier runs, whatever their age
+        more = cli_json("xurl", f"/2/tweets?ids={','.join(pending)}&{FIELDS}")
+        roots += more.get("data", [])
+        media_by_key.update({m["media_key"]: m for m in more.get("includes", {}).get("media", [])})
 
     listed = [i for i in cli_json("postiz", "integrations:list") if not i.get("disabled")]
     integrations = {i["identifier"]: i["id"] for i in listed}
@@ -320,6 +328,8 @@ def main():
             if (args.only and pid not in args.only) or (entry and not entry.get("pending")):
                 continue
             todo = [c for c in channels if not entry or c in entry["pending"]]
+            opts = (entry or {}).get("opts") or run_opts
+            slot_kw = slot_kw_for(opts)
             x_url = f"https://x.com/{HANDLE}/status/{pid}"
             first = x_text(root)[0].split("\n")[0]
             if now - parse_time(root["created_at"]) < MIN_AGE:
@@ -342,7 +352,7 @@ def main():
                     own = old.get("data", [])
             thread = self_thread(root, [p for p in own if p["id"] != pid])
             all_links = [l for p in [root] + own for l in x_text(p)[1]]
-            if not args.include_launches and any("transitivebullsh.it/projects/" in l for l in all_links):
+            if not opts.get("include_launches") and any("transitivebullsh.it/projects/" in l for l in all_links):
                 state["posts"][pid] = {"x_url": x_url, "skipped": "project launch (handled by launch-social)"}
                 report.append(f"skip   {x_url} (project launch: {first[:50]!r})")
                 continue
@@ -403,8 +413,11 @@ def main():
                     prev = entry.get("skipped")
                     entry["skipped"] = {**prev, **skipped} if isinstance(prev, dict) else skipped
                 entry["pending"] = {c: v["pending"] for c, v in done.items() if "pending" in v}
-                if not entry["pending"]:
+                if entry["pending"]:
+                    entry["opts"] = opts
+                else:
                     entry.pop("pending")
+                    entry.pop("opts", None)
                 state["posts"][pid] = entry
                 save_state(state)
     if not args.dry_run:

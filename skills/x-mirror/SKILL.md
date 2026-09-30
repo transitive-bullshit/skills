@@ -18,7 +18,7 @@ python3 ~/.agents/skills/x-mirror/x_mirror.py --lookback-hours 168   # one-off b
 python3 ~/.agents/skills/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 20 --window 13-23
 ```
 
-`--only` fetches the given posts directly at any age. Threads older than X search's 7-day window come from the local birdclaw archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X.
+`--only` fetches the given posts directly at any age. Threads older than X search's 7-day window come from the local birdclaw archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X. A post that quotes one of his own posts whose Bluesky or Threads version isn't live yet waits. Every later run retries it, whatever its age, with the options it was queued with.
 
 It prints one line per decision (`posted`, `skip`, `wait`, or `plan` in a dry run). Report those lines as they are.
 
