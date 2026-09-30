@@ -72,7 +72,8 @@ Use this for a new project launch, or a backfilled one (see below).
 4. **Schedule through Postiz.** Follow [Postiz mechanics](references/postiz.md) for uploads, per-platform settings and gotchas. The defaults:
    - Real links, never short links: `--no-shortLink`. Link the write-up in every post except TikTok, where links aren't clickable. It's also how `x-mirror` recognizes a launch. When there's a live product, link it first, then the write-up.
    - Staggered slots in US daytime (roughly 14:00–19:00 UTC), one platform per slot.
-   - LinkedIn on a weekday morning ET (13:00 UTC).
+   - LinkedIn on a weekday morning ET (around 13:00 UTC).
+   - **Natural times.** Vary every slot by a random offset of up to about 45 minutes, and avoid round times like :00, :15 or :30. Space platforms unevenly. Evenly spaced posts at round times read as automated.
    - At least 3.5 hours from other Postiz posts on the same channel. A launch is the main post of the day there.
    - Set the AI-generated labels wherever the platform offers them.
 5. **Verify and report.** Run `postiz posts:list` and confirm every post is `QUEUE` with the right time and settings. Report a table: platform, UTC time, Travis's local time, and the framing used. Also report anything he has to do by hand, like Instagram's AI label and the X and YouTube items.
@@ -81,7 +82,7 @@ Use this for a new project launch, or a backfilled one (see below).
 
 - **His non-launch X posts** go to Bluesky and Threads through the [`x-mirror`](../x-mirror/SKILL.md) skill, which runs twice a day. It skips anything linking to a `transitivebullsh.it/projects/...` write-up, because launches belong to this workflow. So always include the write-up link in launch posts.
 - **Backfilling past projects:** run the launch game plan for one past project per platform per week, interleaved with new launches. Frame it as a throwback or "behind the build" post, with fresh copy and a different cut or cover than the original. Spam filters punish bursts, and TikTok caps a creator at about 15 posts a day.
-- **Backfilling Bluesky and Threads from X:** take his top-performing X posts (the 90th percentile and up by likes) since a start date he names, from the local archive (`~/.birdclaw/birdclaw.sqlite`, his top-level posts only). Mirror them strongest-first with `x-mirror --only <ids> --include-launches --gap-hours 20 --window 13-23`, which gives about one a day per channel in US daytime, clear of launch posts. Launch videos that did well on X belong in this set.
+- **Backfilling Bluesky and Threads from X:** take his top-performing X posts (the 90th percentile and up by likes) since a start date he names, from the local archive (`~/.birdclaw/birdclaw.sqlite`, his top-level posts only). Mirror them strongest-first with `x-mirror --only <ids> --include-launches --gap-hours 8-15 --window 12-4`. That spaces them a random 8–15 hours apart per channel, between 8am and midnight ET, at irregular minutes and clear of launch posts. Launch videos that did well on X belong in this set.
 - **A second shot at exposure:**
   - Postiz Plugs already handle Bluesky (repost at 5 likes) and Threads and Bluesky (a reply linking his projects page at 50 likes).
   - On the other platforms, don't repost the same video. Schedule a new post 3–5 days later with a different hook or clip.
