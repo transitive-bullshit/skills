@@ -24,7 +24,7 @@ from other mirrors, falling back to "soon" when the next 36 h have no such slot.
 State (which X posts were mirrored, skipped or are pending, and why) lives in ~/.local/state/x-mirror/state.json.
 Needs the `xurl` and `postiz` CLIs, both already authenticated.
 """
-import argparse, datetime as dt, html, json, pathlib, re, sqlite3, subprocess, sys, tempfile, urllib.request
+import argparse, datetime as dt, html, json, pathlib, random, re, sqlite3, subprocess, sys, tempfile, urllib.request
 
 HANDLE = "transitive_bs"
 CHANNELS = {"bluesky": 300, "threads": 500}  # Postiz provider identifier -> max characters per post
@@ -174,17 +174,33 @@ def media_files(post, media_by_key, tmp):
     return files
 
 
-def pick_slot(now, launch_times, mirror_times, mirror_gap=MIRROR_GAP, window=None, horizon=HORIZON):
-    """Earliest slot clear of launch posts (LAUNCH_GAP) and other mirrors (mirror_gap), optionally only within a
-    window of UTC hours (start, end). Falls back to the first allowed slot when nothing fits within the horizon."""
-    t = (now + dt.timedelta(minutes=10)).replace(second=0, microsecond=0)
+JITTER_MIN = 45  # up to this many minutes of random offset, so posting times look human rather than scheduled
+
+
+def pick_slot(now, launch_times, mirror_times, mirror_gap=(MIRROR_GAP, MIRROR_GAP), window=None, horizon=HORIZON):
+    """A natural-looking slot: clear of launch posts (LAUNCH_GAP) and of other mirrors by a gap drawn at random from
+    the mirror_gap range, optionally only within a window of UTC hours (start, end), then nudged by a random offset
+    that never lands on a round five-minute mark. Falls back to the first allowed slot when nothing fits."""
+    gap = mirror_gap[0] + (mirror_gap[1] - mirror_gap[0]) * random.random()
+    # Mirrors go out in order: start after the last queued mirror plus this post's gap, never ahead of it.
+    t = max([now + dt.timedelta(minutes=10)] + [m + gap for m in mirror_times]).replace(second=0, microsecond=0)
     t += dt.timedelta(minutes=-t.minute % 5)
-    in_window = (lambda t: window[0] <= t.hour < window[1]) if window else (lambda t: True)
+    def in_window(t):  # UTC hours [start, end), wrapping past midnight when start > end (e.g. 12-4)
+        if not window:
+            return True
+        start, end = window
+        return start <= t.hour < end if start < end else (t.hour >= start or t.hour < end)
+    ok = lambda t: in_window(t) and all(abs(t - l) >= LAUNCH_GAP for l in launch_times) and \
+        all(abs(t - m) >= gap for m in mirror_times)
     fallback = None
     while t < now + horizon:
         if in_window(t):
             fallback = fallback or t
-            if all(abs(t - l) >= LAUNCH_GAP for l in launch_times) and all(abs(t - m) >= mirror_gap for m in mirror_times):
+            if ok(t):
+                for _ in range(10):  # jitter within the rules, off the round five-minute marks
+                    j = t + dt.timedelta(minutes=random.randint(1, JITTER_MIN))
+                    if j.minute % 5 and ok(j):
+                        return j
                 return t
         t += STEP
     return fallback or t
@@ -281,9 +297,10 @@ def main():
     ap.add_argument("--only", nargs="*", help="limit to these X post ids (fetched directly, any age)")
     ap.add_argument("--include-launches", action="store_true",
                     help="mirror project-launch posts too (for a deliberate backfill of posts that did well on X)")
-    ap.add_argument("--gap-hours", type=float, default=MIRROR_GAP.total_seconds() / 3600,
-                    help="minimum hours between mirrors on a channel (default 0.75; raise it to spread a backfill out)")
-    ap.add_argument("--window", help="only schedule within these UTC hours, e.g. 13-23 for US daytime")
+    ap.add_argument("--gap-hours", default="0.75",
+                    help="hours between mirrors on a channel: a minimum (0.75, the default) or a random range (8-15) "
+                         "to spread a backfill out")
+    ap.add_argument("--window", help="only schedule within these UTC hours, e.g. 12-4 for 8am to midnight ET")
     args = ap.parse_args()
 
     state, now = load_state(), dt.datetime.now(UTC)
@@ -294,8 +311,10 @@ def main():
 
     def slot_kw_for(opts):
         window = tuple(int(h) for h in opts["window"].split("-")) if opts.get("window") else None
-        return {"mirror_gap": dt.timedelta(hours=opts["gap_hours"]), "window": window,
-                "horizon": HORIZON if opts["gap_hours"] <= 1 and not window else dt.timedelta(days=21)}
+        lo, _, hi = str(opts["gap_hours"]).partition("-")
+        gap = (dt.timedelta(hours=float(lo)), dt.timedelta(hours=float(hi or lo)))
+        return {"mirror_gap": gap, "window": window,
+                "horizon": HORIZON if gap[1] <= dt.timedelta(hours=1) and not window else dt.timedelta(days=21)}
     if args.only:  # specific posts, any age
         res = cli_json("xurl", f"/2/tweets?ids={','.join(args.only)}&{FIELDS}")
     else:
