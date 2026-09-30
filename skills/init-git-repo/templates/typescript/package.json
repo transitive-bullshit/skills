@@ -1,0 +1,48 @@
+{
+  "name": "<repo-name>",
+  "version": "0.0.0",
+  "private": true,
+  "description": "<one-line pitch>",
+  "license": "MIT",
+  "author": "Travis Fischer <travis@transitivebullsh.it>",
+  "repository": "https://github.com/transitive-bullshit/<repo-name>",
+  "type": "module",
+  "scripts": {
+    "test": "run-s test:*",
+    "test:format": "oxfmt --check",
+    "test:lint": "oxlint",
+    "test:types": "tsc --noEmit",
+    "test:unit": "vitest run",
+    "lint": "oxlint",
+    "typecheck": "pnpm test:types",
+    "fix": "run-s fix:*",
+    "fix:format": "oxfmt",
+    "fix:lint": "oxlint --fix"
+  },
+  "devDependencies": {
+    "@fisch0920/config": "^2.2.0",
+    "@types/node": "^26.6.1",
+    "lint-staged": "^17.5.1",
+    "npm-run-all2": "^9.0.3",
+    "oxfmt": "^0.68.0",
+    "oxlint": "^1.83.0",
+    "oxlint-tsgolint": "^7.0.2002",
+    "simple-git-hooks": "^2.14.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "oxfmt --no-error-on-unmatched-pattern",
+      "oxlint --fix"
+    ]
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.3.4"
+}

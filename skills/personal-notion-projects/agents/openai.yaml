@@ -1,0 +1,5 @@
+interface:
+  display_name: 'Personal Notion Projects'
+  short_description: "Draft project stories for Travis's personal Notion CMS"
+policy:
+  allow_implicit_invocation: false
