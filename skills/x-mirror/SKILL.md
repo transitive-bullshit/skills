@@ -14,8 +14,8 @@ python3 ~/.agents/skills/x-mirror/x_mirror.py            # mirror posts from the
 python3 ~/.agents/skills/x-mirror/x_mirror.py --dry-run  # show the plan only
 python3 ~/.agents/skills/x-mirror/x_mirror.py --lookback-hours 168   # one-off backfill of a week
 
-# spaced-out backfill of specific posts, in the order given: about one a day per channel, in US daytime
-python3 ~/.agents/skills/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 20 --window 13-23
+# spaced-out backfill of specific posts, in the order given: a random 8–15 h apart per channel, 8am to midnight ET
+python3 ~/.agents/skills/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 8-15 --window 12-4
 ```
 
 `--only` fetches the given posts directly at any age. Threads older than X search's 7-day window come from the local birdclaw archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X. A post that quotes one of his own posts whose Bluesky or Threads version isn't live yet waits. Every later run retries it, whatever its age, with the options it was queued with.
@@ -33,6 +33,7 @@ It prints one line per decision (`posted`, `skip`, `wait`, or `plan` in a dry ru
 - **Nothing posts twice on a platform.** A post is also skipped when its opening line is already in any Postiz post on that channel, or already published on his Bluesky profile (read from the public API, which catches posts made outside Postiz). Threads has no public read API, so posts made there by hand aren't checked.
 - **Text stays as written.** t.co links are expanded and X media links dropped. `@handles` lose the `@` on Threads so they can't tag the wrong person. Text over the limit (Bluesky 300, Threads 500) becomes extra thread posts rather than being cut.
 - **Media is carried over.** Photos (up to 4) or the first video are re-uploaded to Postiz.
+- **Timing looks natural.** Each slot gets a random offset of up to 45 minutes, never on a round five-minute mark. `--gap-hours` can be a random range, and mirrors stay in order after the last queued one.
 - **Timing is best effort.** The earliest slot at least 3.5 h from other Postiz posts on that channel (launch posts are the main post of the day) and 45 min from other mirrors. If there is no such slot in 36 h, it posts soon anyway.
 - **Posts must be at least 1 h old** (X's edit window, and time to finish a thread). Younger ones wait for the next run.
 - **Real links only** (`shortLink: false`). Mirrors carry the Postiz tag `x-mirror`.

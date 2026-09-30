@@ -243,9 +243,11 @@ class Queue:
 
     def launches(self, channel): return [p for p in self.by_channel.get(channel, []) if not p["_mirror"]]
 
-    def add(self, channel, slot, text):
-        self.by_channel.setdefault(channel, []).append(
-            {"_time": slot, "_norm": norm(text), "content": text, "_mirror": True, "id": None})
+    def add(self, channel, slot, text, postiz_id=None):
+        post = {"_time": slot, "_norm": norm(text), "content": text, "_mirror": True, "id": postiz_id}
+        self.by_channel.setdefault(channel, []).append(post)
+        if postiz_id:  # visible to later posts in this run, e.g. a quote waiting for it to go live
+            self.by_id[postiz_id] = post
 
     def slot(self, now, channel, **kw):
         posts = self.by_channel.get(channel, [])
@@ -422,7 +424,7 @@ def main():
                     postiz_id = create_post(channel, cid, slot, parts, tmp, pid)
                     done[channel] = {"postiz_id": postiz_id, "date": iso(slot), "parts": n_parts}
                     report.append(f"posted {x_url} -> {channel} at {iso(slot)}: {desc}")
-                queue.add(channel, slot, swapped[0])
+                queue.add(channel, slot, swapped[0], done.get(channel, {}).get("postiz_id"))
             if not args.dry_run:
                 entry = state["posts"].get(pid) or {"x_url": x_url, "text": first[:120]}
                 entry.update(thread_ids=[p["id"] for p in thread], checked_at=iso(now))
