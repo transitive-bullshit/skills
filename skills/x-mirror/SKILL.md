@@ -13,7 +13,12 @@ Run it:
 python3 ~/.agents/skills/x-mirror/x_mirror.py            # mirror posts from the last 48 h
 python3 ~/.agents/skills/x-mirror/x_mirror.py --dry-run  # show the plan only
 python3 ~/.agents/skills/x-mirror/x_mirror.py --lookback-hours 168   # one-off backfill of a week
+
+# spaced-out backfill of specific posts, in the order given: about one a day per channel, in US daytime
+python3 ~/.agents/skills/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 20 --window 13-23
 ```
+
+`--only` fetches the given posts directly at any age. Threads older than X search's 7-day window come from the local birdclaw archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X.
 
 It prints one line per decision (`posted`, `skip`, `wait`, or `plan` in a dry run). Report those lines as they are.
 

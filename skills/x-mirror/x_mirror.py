@@ -2,6 +2,7 @@
 """Mirror new top-level X posts and threads from @transitive_bs to Bluesky and Threads through Postiz.
 
 usage: x_mirror.py [--dry-run] [--lookback-hours 48] [--only X_POST_ID ...]
+       x_mirror.py --only ID ... --include-launches --gap-hours 20 --window 13-23   (a spaced-out backfill)
 
 What gets mirrored: original top-level posts, plus the thread Travis continues under one (his own chain of replies
 to himself), as a thread. Replies to other people and reposts are never mirrored; the X API query excludes them and
@@ -23,7 +24,7 @@ from other mirrors, falling back to "soon" when the next 36 h have no such slot.
 State (which X posts were mirrored, skipped or are pending, and why) lives in ~/.local/state/x-mirror/state.json.
 Needs the `xurl` and `postiz` CLIs, both already authenticated.
 """
-import argparse, datetime as dt, html, json, pathlib, re, subprocess, sys, tempfile, urllib.request
+import argparse, datetime as dt, html, json, pathlib, re, sqlite3, subprocess, sys, tempfile, urllib.request
 
 HANDLE = "transitive_bs"
 CHANNELS = {"bluesky": 300, "threads": 500}  # Postiz provider identifier -> max characters per post
@@ -35,6 +36,7 @@ MIN_AGE = dt.timedelta(minutes=60)  # X allows edits for an hour, and threads ge
 UTC = dt.timezone.utc
 FIELDS = ("tweet.fields=created_at,note_tweet,entities,attachments,conversation_id,referenced_tweets,author_id"
           "&expansions=attachments.media_keys&media.fields=type,url,variants")
+BIRDCLAW_DB = pathlib.Path.home() / ".birdclaw/birdclaw.sqlite"  # local X archive: threads older than search's 7 days
 X_STATUS = re.compile(r"https?://(?:www\.|mobile\.)?(?:x|twitter)\.com/\w+/status/(\d+)[^\s]*")
 
 
@@ -142,6 +144,18 @@ def self_thread(root, replies):
     return chain
 
 
+def archive_thread_ids(root_id, user_id):
+    """His self-reply chain under root_id from the local birdclaw archive (X search only reaches back 7 days)."""
+    if not BIRDCLAW_DB.exists():
+        return []
+    con = sqlite3.connect(f"file:{BIRDCLAW_DB}?mode=ro", uri=True)
+    rows = con.execute("""with recursive chain(id) as (select ? union all
+        select t.id from tweets t join chain c on t.reply_to_id = c.id
+        where t.author_profile_id = ? and t.deleted_at is null and t.superseded_at is null)
+        select id from chain where id != ?""", (root_id, f"profile_user_{user_id}", root_id)).fetchall()
+    return [r[0] for r in rows]
+
+
 def media_files(post, media_by_key, tmp):
     """Download a post's media: its first video if it has one (Bluesky takes a single video), else up to 4 photos."""
     items = [media_by_key[k] for k in post.get("attachments", {}).get("media_keys", []) if k in media_by_key]
@@ -160,15 +174,20 @@ def media_files(post, media_by_key, tmp):
     return files
 
 
-def pick_slot(now, launch_times, mirror_times):
+def pick_slot(now, launch_times, mirror_times, mirror_gap=MIRROR_GAP, window=None, horizon=HORIZON):
+    """Earliest slot clear of launch posts (LAUNCH_GAP) and other mirrors (mirror_gap), optionally only within a
+    window of UTC hours (start, end). Falls back to the first allowed slot when nothing fits within the horizon."""
     t = (now + dt.timedelta(minutes=10)).replace(second=0, microsecond=0)
     t += dt.timedelta(minutes=-t.minute % 5)
-    fallback = t
-    while t < now + HORIZON:
-        if all(abs(t - l) >= LAUNCH_GAP for l in launch_times) and all(abs(t - m) >= MIRROR_GAP for m in mirror_times):
-            return t
+    in_window = (lambda t: window[0] <= t.hour < window[1]) if window else (lambda t: True)
+    fallback = None
+    while t < now + horizon:
+        if in_window(t):
+            fallback = fallback or t
+            if all(abs(t - l) >= LAUNCH_GAP for l in launch_times) and all(abs(t - m) >= mirror_gap for m in mirror_times):
+                return t
         t += STEP
-    return fallback
+    return fallback or t
 
 
 def bluesky_published(handle):
@@ -212,10 +231,10 @@ class Queue:
         self.by_channel.setdefault(channel, []).append(
             {"_time": slot, "_norm": norm(text), "content": text, "_mirror": True, "id": None})
 
-    def slot(self, now, channel):
+    def slot(self, now, channel, **kw):
         posts = self.by_channel.get(channel, [])
         return pick_slot(now, [p["_time"] for p in posts if not p["_mirror"]],
-                         [p["_time"] for p in posts if p["_mirror"]])
+                         [p["_time"] for p in posts if p["_mirror"]], **kw)
 
 
 def resolve_x_refs(ids, channel, lookup, state, queue):
@@ -259,17 +278,30 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--dry-run", action="store_true", help="show the plan; upload and schedule nothing")
     ap.add_argument("--lookback-hours", type=float, default=48)
-    ap.add_argument("--only", nargs="*", help="limit to these X post ids")
+    ap.add_argument("--only", nargs="*", help="limit to these X post ids (fetched directly, any age)")
+    ap.add_argument("--include-launches", action="store_true",
+                    help="mirror project-launch posts too (for a deliberate backfill of posts that did well on X)")
+    ap.add_argument("--gap-hours", type=float, default=MIRROR_GAP.total_seconds() / 3600,
+                    help="minimum hours between mirrors on a channel (default 0.75; raise it to spread a backfill out)")
+    ap.add_argument("--window", help="only schedule within these UTC hours, e.g. 13-23 for US daytime")
     args = ap.parse_args()
 
     state, now = load_state(), dt.datetime.now(UTC)
     if "user_id" not in state:
         state["user_id"] = cli_json("xurl", f"/2/users/by/username/{HANDLE}")["data"]["id"]
     since = iso(now - dt.timedelta(hours=args.lookback_hours))
-    res = cli_json("xurl", f"/2/users/{state['user_id']}/tweets?max_results=50&exclude=retweets,replies"
-                           f"&start_time={since}&{FIELDS}")
+    window = tuple(int(h) for h in args.window.split("-")) if args.window else None
+    slot_kw = {"mirror_gap": dt.timedelta(hours=args.gap_hours), "window": window,
+               "horizon": HORIZON if args.gap_hours <= 1 and not window else dt.timedelta(days=21)}
+    if args.only:  # specific posts, any age
+        res = cli_json("xurl", f"/2/tweets?ids={','.join(args.only)}&{FIELDS}")
+    else:
+        res = cli_json("xurl", f"/2/users/{state['user_id']}/tweets?max_results=50&exclude=retweets,replies"
+                               f"&start_time={since}&{FIELDS}")
     # The timeline's exclude=replies still lets his thread continuations through; they ride along with their root.
     roots = sorted((p for p in res.get("data", []) if not refs(p, "replied_to")), key=lambda p: p["created_at"])
+    if args.only:  # a backfill goes out in the order given (e.g. strongest first)
+        roots.sort(key=lambda p: args.only.index(p["id"]))
     media_by_key = {m["media_key"]: m for m in res.get("includes", {}).get("media", [])}
 
     listed = [i for i in cli_json("postiz", "integrations:list") if not i.get("disabled")]
@@ -302,9 +334,15 @@ def main():
                                     f"&max_results=50&{FIELDS}")
             media_by_key.update({m["media_key"]: m for m in conv.get("includes", {}).get("media", [])})
             own = conv.get("data", [])
+            if not own and now - parse_time(root["created_at"]) > dt.timedelta(days=6):
+                ids = archive_thread_ids(pid, state["user_id"])
+                if ids:
+                    old = cli_json("xurl", f"/2/tweets?ids={','.join(ids)}&{FIELDS}")
+                    media_by_key.update({m["media_key"]: m for m in old.get("includes", {}).get("media", [])})
+                    own = old.get("data", [])
             thread = self_thread(root, [p for p in own if p["id"] != pid])
             all_links = [l for p in [root] + own for l in x_text(p)[1]]
-            if any("transitivebullsh.it/projects/" in l for l in all_links):
+            if not args.include_launches and any("transitivebullsh.it/projects/" in l for l in all_links):
                 state["posts"][pid] = {"x_url": x_url, "skipped": "project launch (handled by launch-social)"}
                 report.append(f"skip   {x_url} (project launch: {first[:50]!r})")
                 continue
@@ -341,7 +379,7 @@ def main():
                 n_parts = sum(len(c) for c in chunked)
                 desc = (f"{len(thread)}-post X thread -> {n_parts} {channel} posts" if len(thread) > 1
                         else f"{n_parts} post(s)") + (f", {len(urls)} X link(s) swapped for {channel} posts" if urls else "")
-                slot = queue.slot(now, channel)
+                slot = queue.slot(now, channel, **slot_kw)
                 if args.dry_run:
                     n_media = sum(len(p.get("attachments", {}).get("media_keys", [])) for p in thread)
                     report.append(f"plan   {x_url} -> {channel} at {iso(slot)}: {desc}, {n_media} media: {first[:60]!r}")
