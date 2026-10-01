@@ -21,8 +21,12 @@ scheduled at the earliest slot at least 3.5 h from any other Postiz post on that
 from other mirrors, falling back to "soon" when the next 36 h have no such slot. Mirrors carry the Postiz tag
 "x-mirror".
 
+Posts, threads, media and quoted posts are read from the local birdclaw archive (~/.birdclaw/birdclaw.sqlite), which
+a separate job keeps in sync with X, so a run costs no X API credits. The paid X API (`xurl`) is only a fallback for a
+quoted or linked X post that isn't in the archive.
+
 State (which X posts were mirrored, skipped or are pending, and why) lives in ~/.local/state/x-mirror/state.json.
-Needs the `xurl` and `postiz` CLIs, both already authenticated.
+Needs the `postiz` CLI, already authenticated, and the birdclaw archive.
 """
 import argparse, datetime as dt, html, json, pathlib, random, re, sqlite3, subprocess, sys, tempfile, urllib.request
 
@@ -34,9 +38,9 @@ LAUNCH_GAP, MIRROR_GAP = dt.timedelta(hours=3.5), dt.timedelta(minutes=45)
 STEP, HORIZON = dt.timedelta(minutes=15), dt.timedelta(hours=36)
 MIN_AGE = dt.timedelta(minutes=60)  # X allows edits for an hour, and threads get finished; mirror the settled version
 UTC = dt.timezone.utc
-FIELDS = ("tweet.fields=created_at,note_tweet,entities,attachments,conversation_id,referenced_tweets,author_id"
-          "&expansions=attachments.media_keys&media.fields=type,url,variants")
-BIRDCLAW_DB = pathlib.Path.home() / ".birdclaw/birdclaw.sqlite"  # local X archive: threads older than search's 7 days
+BIRDCLAW_DB = pathlib.Path.home() / ".birdclaw/birdclaw.sqlite"  # local X archive, synced by a separate job
+STALE_SYNC = dt.timedelta(hours=26)  # birdclaw syncs every 12 h; say so when it's fallen well behind
+MEDIA_TYPES = {"image": "photo", "photo": "photo", "video": "video", "gif": "animated_gif", "animated_gif": "animated_gif"}
 X_STATUS = re.compile(r"https?://(?:www\.|mobile\.)?(?:x|twitter)\.com/\w+/status/(\d+)[^\s]*")
 
 
@@ -144,16 +148,82 @@ def self_thread(root, replies):
     return chain
 
 
-def archive_thread_ids(root_id, user_id):
-    """His self-reply chain under root_id from the local birdclaw archive (X search only reaches back 7 days)."""
-    if not BIRDCLAW_DB.exists():
-        return []
-    con = sqlite3.connect(f"file:{BIRDCLAW_DB}?mode=ro", uri=True)
-    rows = con.execute("""with recursive chain(id) as (select ? union all
-        select t.id from tweets t join chain c on t.reply_to_id = c.id
-        where t.author_profile_id = ? and t.deleted_at is null and t.superseded_at is null)
-        select id from chain where id != ?""", (root_id, f"profile_user_{user_id}", root_id)).fetchall()
-    return [r[0] for r in rows]
+class Archive:
+    """The local birdclaw archive, read-only. Rows come back shaped like X API v2 posts (the raw API payload birdclaw
+    keeps where it has one), and their media lands in `media_by_key`."""
+    SELECT = """select t.*, p.handle, (select r.payload_json from tweet_revisions r where r.root_tweet_id = t.id
+        order by r.observed_at desc limit 1) payload
+        from tweets t left join profiles p on p.id = t.author_profile_id"""
+    LIVE = "t.deleted_at is null and t.superseded_at is null"
+
+    def __init__(self):
+        if not BIRDCLAW_DB.exists():
+            raise RuntimeError(f"no birdclaw archive at {BIRDCLAW_DB}")
+        self.con = sqlite3.connect(f"file:{BIRDCLAW_DB}?mode=ro", uri=True)
+        self.con.row_factory = sqlite3.Row
+        self.media_by_key = {}
+
+    def user_id(self, handle):
+        row = self.con.execute("select id from profiles where lower(handle) = lower(?)", (handle,)).fetchone()
+        if not row:
+            raise RuntimeError(f"@{handle} isn't in the birdclaw archive")
+        return row["id"].removeprefix("profile_user_")
+
+    def last_sync(self):
+        """When birdclaw last pulled his authored posts from X, or None if it never has."""
+        row = self.con.execute("select updated_at from sync_cache where cache_key like 'authored:%:cursor'"
+                               " order by updated_at desc limit 1").fetchone()
+        return parse_time(row["updated_at"]) if row else None
+
+    def posts(self, where, params=(), order="t.created_at"):
+        sql = f"{self.SELECT} where {self.LIVE} and ({where}) order by {order}"
+        return [self._post(r) for r in self.con.execute(sql, params)]
+
+    def by_ids(self, ids):
+        return self.posts(f"t.id in ({','.join('?' * len(ids))})", ids) if ids else []
+
+    def roots(self, user_id, since):
+        """His top-level posts since `since`, oldest first; reposts left out."""
+        posts = self.posts("t.author_profile_id = ? and t.created_at >= ? and t.reply_to_id is null",
+                           (f"profile_user_{user_id}", since.strftime("%Y-%m-%dT%H:%M:%S.000Z")))
+        return [p for p in posts if not refs(p, "retweeted") and not p["text"].startswith("RT @")]
+
+    def own_in_conversation(self, root, user_id):
+        """His posts under `root`: the self-reply chain (his thread) plus his other replies in the conversation."""
+        author = f"profile_user_{user_id}"
+        chain = [r[0] for r in self.con.execute(f"""with recursive chain(id) as (select ? union all
+            select t.id from tweets t join chain c on t.reply_to_id = c.id where t.author_profile_id = ? and {self.LIVE})
+            select id from chain where id != ?""", (root["id"], author, root["id"]))]
+        conv = [r[0] for r in self.con.execute(f"""select t.id from tweets t join tweet_revisions r on r.root_tweet_id = t.id
+            where t.author_profile_id = ? and t.created_at > ? and t.id != ? and {self.LIVE}
+            and json_extract(r.payload_json, '$.conversation_id') = ?""", (author, root["created_at"], root["id"], root["id"]))]
+        return self.by_ids(list(dict.fromkeys(chain + conv)))
+
+    def _post(self, row):
+        raw = json.loads(row["payload"] or "{}")
+        snake = lambda urls: [{**u, "expanded_url": u.get("expanded_url") or u.get("expandedUrl"),
+                               "unwound_url": u.get("unwound_url") or u.get("unwoundUrl")} for u in urls]
+        entities = raw.get("entities") or json.loads(row["entities_json"] or "{}")
+        post = {"id": row["id"], "created_at": row["created_at"], "text": row["text"],
+                "author_id": raw.get("author_id") or row["author_profile_id"].removeprefix("profile_user_"),
+                "_username": row["handle"] or "", "entities": {**entities, "urls": snake(entities.get("urls", []))},
+                "referenced_tweets": raw.get("referenced_tweets") or
+                    ([{"type": "replied_to", "id": row["reply_to_id"]}] if row["reply_to_id"] else []) +
+                    ([{"type": "quoted", "id": row["quoted_tweet_id"]}] if row["quoted_tweet_id"] else [])}
+        if row["note_tweet_json"]:  # a long post's full text
+            note = json.loads(row["note_tweet_json"])
+            ents = note.get("entities") or {}
+            post["note_tweet"] = {"text": note["text"], "entities": {**ents, "urls": snake(ents.get("urls", []))}}
+        keys = []
+        for k, m in enumerate(json.loads(row["media_json"] or "[]")):
+            key = f"{row['id']}_{k}"
+            self.media_by_key[key] = {"type": MEDIA_TYPES.get(m.get("type"), m.get("type")), "url": m.get("url"),
+                                      "variants": [{"url": v["url"], "content_type": v.get("contentType") or v.get("content_type"),
+                                                    "bit_rate": v.get("bitRate") or v.get("bit_rate") or 0}
+                                                   for v in m.get("variants", [])]}
+            keys.append(key)
+        post["attachments"] = {**raw.get("attachments", {}), "media_keys": keys}
+        return post
 
 
 def media_files(post, media_by_key, tmp):
@@ -260,6 +330,8 @@ def resolve_x_refs(ids, channel, lookup, state, queue):
     urls = {}
     for xid in ids:
         post = lookup.get(xid)
+        if post is None:  # neither the archive nor the X API had it; try again next run
+            return {}, ("wait", f"quotes or links X post {xid}, which isn't in birdclaw and the X API couldn't read")
         if not post:
             return {}, ("skip", f"quotes or links an X post that can't be read ({xid})")
         if post.get("author_id") != state["user_id"]:
@@ -305,10 +377,9 @@ def main():
     ap.add_argument("--window", help="only schedule within these UTC hours, e.g. 12-4 for 8am to midnight ET")
     args = ap.parse_args()
 
-    state, now = load_state(), dt.datetime.now(UTC)
+    state, now, archive = load_state(), dt.datetime.now(UTC), Archive()
     if "user_id" not in state:
-        state["user_id"] = cli_json("xurl", f"/2/users/by/username/{HANDLE}")["data"]["id"]
-    since = iso(now - dt.timedelta(hours=args.lookback_hours))
+        state["user_id"] = archive.user_id(HANDLE)
     run_opts = {"include_launches": args.include_launches, "gap_hours": args.gap_hours, "window": args.window}
 
     def slot_kw_for(opts):
@@ -317,21 +388,21 @@ def main():
         gap = (dt.timedelta(hours=float(lo)), dt.timedelta(hours=float(hi or lo)))
         return {"mirror_gap": gap, "window": window,
                 "horizon": HORIZON if gap[1] <= dt.timedelta(hours=1) and not window else dt.timedelta(days=21)}
-    if args.only:  # specific posts, any age
-        res = cli_json("xurl", f"/2/tweets?ids={','.join(args.only)}&{FIELDS}")
+    report = []
+    synced = archive.last_sync()
+    if not synced or now - synced > STALE_SYNC:
+        ago = f"{(now - synced).total_seconds() / 3600:.0f} h ago" if synced else "never"
+        report.append(f"note   birdclaw last synced @{HANDLE}'s posts {ago}; newer X posts wait for its next sync")
+    if args.only:  # specific posts, any age; a backfill goes out in the order given (e.g. strongest first)
+        roots = sorted((p for p in archive.by_ids(args.only) if not refs(p, "replied_to")),
+                       key=lambda p: args.only.index(p["id"]))
+        found = {p["id"] for p in archive.by_ids(args.only)}
+        report += [f"skip   https://x.com/{HANDLE}/status/{i} (not in the birdclaw archive)" for i in args.only if i not in found]
     else:
-        res = cli_json("xurl", f"/2/users/{state['user_id']}/tweets?max_results=50&exclude=retweets,replies"
-                               f"&start_time={since}&{FIELDS}")
-    # The timeline's exclude=replies still lets his thread continuations through; they ride along with their root.
-    roots = sorted((p for p in res.get("data", []) if not refs(p, "replied_to")), key=lambda p: p["created_at"])
-    if args.only:  # a backfill goes out in the order given (e.g. strongest first)
-        roots.sort(key=lambda p: args.only.index(p["id"]))
-    media_by_key = {m["media_key"]: m for m in res.get("includes", {}).get("media", [])}
-    pending = [k for k, e in state["posts"].items() if e.get("pending") and k not in {p["id"] for p in roots}]
-    if pending and not args.only:  # retry waiting posts from earlier runs, whatever their age
-        more = cli_json("xurl", f"/2/tweets?ids={','.join(pending)}&{FIELDS}")
-        roots += more.get("data", [])
-        media_by_key.update({m["media_key"]: m for m in more.get("includes", {}).get("media", [])})
+        roots = archive.roots(state["user_id"], now - dt.timedelta(hours=args.lookback_hours))
+        pending = [k for k, e in state["posts"].items() if e.get("pending") and k not in {p["id"] for p in roots}]
+        roots += archive.by_ids(pending)  # retry waiting posts from earlier runs, whatever their age
+    media_by_key = archive.media_by_key
 
     listed = [i for i in cli_json("postiz", "integrations:list") if not i.get("disabled")]
     integrations = {i["identifier"]: i["id"] for i in listed}
@@ -341,7 +412,6 @@ def main():
     queue = Queue(now, mirror_ids)
     published = {"bluesky": bluesky_published(profiles["bluesky"])} if profiles.get("bluesky") else {}
 
-    report = []
     with tempfile.TemporaryDirectory() as tmp:
         for root in roots:
             pid = root["id"]
@@ -361,16 +431,7 @@ def main():
                 report.append(f"skip   {x_url} (poll)")
                 continue
             # His own posts in the conversation: the thread to mirror, and a project-launch signal.
-            conv = cli_json("xurl", f"/2/tweets/search/recent?query=conversation_id:{pid}%20from:{HANDLE}"
-                                    f"&max_results=50&{FIELDS}")
-            media_by_key.update({m["media_key"]: m for m in conv.get("includes", {}).get("media", [])})
-            own = conv.get("data", [])
-            if not own and now - parse_time(root["created_at"]) > dt.timedelta(days=6):
-                ids = archive_thread_ids(pid, state["user_id"])
-                if ids:
-                    old = cli_json("xurl", f"/2/tweets?ids={','.join(ids)}&{FIELDS}")
-                    media_by_key.update({m["media_key"]: m for m in old.get("includes", {}).get("media", [])})
-                    own = old.get("data", [])
+            own = archive.own_in_conversation(root, state["user_id"])
             thread = self_thread(root, [p for p in own if p["id"] != pid])
             all_links = [l for p in [root] + own for l in x_text(p)[1]]
             if not opts.get("include_launches") and any("transitivebullsh.it/projects/" in l for l in all_links):
@@ -379,12 +440,18 @@ def main():
                 continue
             texts = [x_text(p)[0] for p in thread]
             ref_ids = list(dict.fromkeys(i for t in texts for i in x_refs(t)))
-            lookup = {}
-            if ref_ids:
-                got = cli_json("xurl", f"/2/tweets?ids={','.join(ref_ids)}&tweet.fields=author_id,note_tweet,entities"
-                                       f"&expansions=author_id&user.fields=username")
-                names = {u["id"]: u["username"] for u in got.get("includes", {}).get("users", [])}
-                lookup = {p["id"]: {**p, "_username": names.get(p.get("author_id"), "")} for p in got.get("data", [])}
+            lookup = {p["id"]: p for p in archive.by_ids(ref_ids)}
+            missing = [i for i in ref_ids if i not in lookup]
+            if missing:  # the one paid X API read left: a quoted or linked post the archive doesn't have
+                try:
+                    got = cli_json("xurl", f"/2/tweets?ids={','.join(missing)}&tweet.fields=author_id,note_tweet,entities"
+                                           f"&expansions=author_id&user.fields=username")
+                    names = {u["id"]: u["username"] for u in got.get("includes", {}).get("users", [])}
+                    lookup.update({p["id"]: {**p, "_username": names.get(p.get("author_id"), "")}
+                                   for p in got.get("data", [])})
+                    lookup.update({i: {} for i in missing if i not in lookup})  # deleted or private: can't be read
+                except RuntimeError:
+                    lookup.update({i: None for i in missing})
             uploads, done = None, {}
             for channel in todo:
                 cid = channels[channel]
@@ -443,7 +510,9 @@ def main():
                 save_state(state)
     if not args.dry_run:
         save_state(state)
-    print("\n".join(report) or f"No new top-level X posts from @{HANDLE} in the last {args.lookback_hours:g} h.")
+    if all(line.startswith("note") for line in report):
+        report.append(f"No new top-level X posts from @{HANDLE} in the last {args.lookback_hours:g} h.")
+    print("\n".join(report))
 
 
 if __name__ == "__main__":
