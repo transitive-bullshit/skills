@@ -77,14 +77,49 @@ Two more follow my own conventions: [`init-git-repo`](skills/init-git-repo/SKILL
 
 ## Keep local skills in sync
 
-Run this command from the repository:
+For a shared setup across Codex and Claude, give your agent this prompt:
 
-```sh
-pnpm link:skills
+```text
+Set up transitive-bullshit/skills for my coding agents. Read AGENTS.md,
+inspect existing skills, and use the mac profile for a fresh installation.
+Preserve existing profiles and local edits, review conflicts before adopting
+them, and finish with the doctor check.
 ```
 
-It links each repository skill to `~/.agents/skills`. Edits made through either path appear as changes in this repository. The command stops if a regular file or directory already uses a skill name.
+From the repository, with Python 3.11+:
+
+```sh
+python3 scripts/skillset.py apply
+python3 scripts/skillset.py doctor
+```
+
+This reuses your installed profile (or defaults to `mac`) and symlinks skills into `~/.agents/skills` and `~/.claude/skills`. Edits through either path are Git changes here. Commit and push normally; pull and apply on other machines. Existing files are preserved; conflicts stop installation.
+
+See [setup notes](docs/setup.md) for profiles and adoption, or the [dotfiles repo](https://github.com/transitive-bullshit/dotfiles) for full environment setup and `agent-env` synchronization.
+
+## Other installed skills
+
+I also keep these 47 third-party skills in this checkout. Links point to their original sources; [skills.json](skills.json) records provenance and profile membership.
+
+- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill): [`security-audit`](https://github.com/cloudflare/security-audit-skill/blob/main/skills/security-audit/SKILL.md).
+- [cloudflare/skills](https://github.com/cloudflare/skills): [`web-perf`](https://github.com/cloudflare/skills/blob/main/skills/web-perf/SKILL.md).
+- [cursor/plugins](https://github.com/cursor/plugins): [`unslop`](https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md).
+- [dzhng/skills](https://github.com/dzhng/skills): [`auto-research`](https://github.com/dzhng/skills/blob/main/skills/engineering/auto-research/SKILL.md).
+- [emilkowalski/skills](https://github.com/emilkowalski/skills): [`animation-vocabulary`](https://github.com/emilkowalski/skills/blob/main/skills/animation-vocabulary/SKILL.md), [`find-animation-opportunities`](https://github.com/emilkowalski/skills/blob/main/skills/find-animation-opportunities/SKILL.md), [`improve-animations`](https://github.com/emilkowalski/skills/blob/main/skills/improve-animations/SKILL.md), [`prototype`](https://github.com/emilkowalski/skills/blob/main/skills/prototype/SKILL.md), [`review-animations`](https://github.com/emilkowalski/skills/blob/main/skills/review-animations/SKILL.md).
+- [gitroomhq/postiz-agent](https://github.com/gitroomhq/postiz-agent): [`postiz`](https://github.com/gitroomhq/postiz-agent/blob/main/SKILL.md).
+- [humanlayer/skills](https://github.com/humanlayer/skills): [`show-me`](https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md).
+- [ibelick/ui-skills](https://github.com/ibelick/ui-skills): [`improve-ui`](https://github.com/ibelick/ui-skills/blob/main/skills/improve-ui/SKILL.md).
+- [jakubkrehel/skills](https://github.com/jakubkrehel/skills): [`better-accessibility`](https://github.com/jakubkrehel/skills/blob/main/skills/better-accessibility/SKILL.md), [`better-colors`](https://github.com/jakubkrehel/skills/blob/main/skills/better-colors/SKILL.md), [`better-layout`](https://github.com/jakubkrehel/skills/blob/main/skills/better-layout/SKILL.md), [`better-typography`](https://github.com/jakubkrehel/skills/blob/main/skills/better-typography/SKILL.md), [`better-ui`](https://github.com/jakubkrehel/skills/blob/main/skills/better-ui/SKILL.md), [`better-writing`](https://github.com/jakubkrehel/skills/blob/main/skills/better-writing/SKILL.md), [`break`](https://github.com/jakubkrehel/skills/blob/main/skills/break/SKILL.md), [`explain-interface`](https://github.com/jakubkrehel/skills/blob/main/skills/explain-interface/SKILL.md), [`variant`](https://github.com/jakubkrehel/skills/blob/main/skills/variant/SKILL.md).
+- [mattpocock/skills](https://github.com/mattpocock/skills): [`codebase-design`](https://github.com/mattpocock/skills/blob/main/skills/engineering/codebase-design/SKILL.md), [`diagnosing-bugs`](https://github.com/mattpocock/skills/blob/main/skills/engineering/diagnosing-bugs/SKILL.md), [`domain-modeling`](https://github.com/mattpocock/skills/blob/main/skills/engineering/domain-modeling/SKILL.md), [`grill-me`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grill-me/SKILL.md), [`grill-with-docs`](https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-with-docs/SKILL.md), [`grilling`](https://github.com/mattpocock/skills/blob/main/skills/productivity/grilling/SKILL.md), [`handoff`](https://github.com/mattpocock/skills/blob/main/skills/productivity/handoff/SKILL.md), [`implement`](https://github.com/mattpocock/skills/blob/main/skills/engineering/implement/SKILL.md), [`improve-codebase-architecture`](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md), [`research`](https://github.com/mattpocock/skills/blob/main/skills/engineering/research/SKILL.md), [`resolving-merge-conflicts`](https://github.com/mattpocock/skills/blob/153fc1b93de6584562765cdce299324e1ff9e661/skills/engineering/resolving-merge-conflicts/SKILL.md), [`tdd`](https://github.com/mattpocock/skills/blob/main/skills/engineering/tdd/SKILL.md), [`teach`](https://github.com/mattpocock/skills/blob/main/skills/productivity/teach/SKILL.md), [`to-tickets`](https://github.com/mattpocock/skills/blob/main/skills/engineering/to-tickets/SKILL.md), [`triage`](https://github.com/mattpocock/skills/blob/main/skills/engineering/triage/SKILL.md), [`wizard`](https://github.com/mattpocock/skills/blob/main/skills/engineering/wizard/SKILL.md), [`writing-for-agents`](https://github.com/mattpocock/skills/blob/main/skills/productivity/writing-for-agents/SKILL.md).
+- [openclaw/openclaw](https://github.com/openclaw/openclaw): [`xurl`](https://github.com/openclaw/openclaw/blob/main/skills/xurl/SKILL.md).
+- [pbakaus/impeccable](https://github.com/pbakaus/impeccable): [`impeccable`](https://github.com/pbakaus/impeccable/blob/main/.agents/skills/impeccable/SKILL.md).
+- [shadcn-ui/ui](https://github.com/shadcn-ui/ui): [`shadcn`](https://github.com/shadcn-ui/ui/blob/main/skills/shadcn/SKILL.md).
+- [typesafe-ai/skills](https://github.com/typesafe-ai/skills): [`typesafe-ai`](https://github.com/typesafe-ai/skills/blob/main/skills/typesafe-ai/SKILL.md).
+- [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills): [`vercel-composition-patterns`](https://github.com/vercel-labs/agent-skills/blob/main/skills/composition-patterns/SKILL.md), [`vercel-optimize`](https://github.com/vercel-labs/agent-skills/blob/main/skills/vercel-optimize/SKILL.md), [`vercel-react-best-practices`](https://github.com/vercel-labs/agent-skills/blob/main/skills/react-best-practices/SKILL.md), [`web-design-guidelines`](https://github.com/vercel-labs/agent-skills/blob/main/skills/web-design-guidelines/SKILL.md).
+- [vercel-labs/phase](https://github.com/vercel-labs/phase): [`phase`](https://github.com/vercel-labs/phase/blob/main/skills/phase/SKILL.md).
+
+Also preserved locally: [`birdclaw`](skills/birdclaw/SKILL.md) and [`eli5`](skills/eli5/SKILL.md), whose original sources were not recorded. `resolving-merge-conflicts` links to its last upstream version before removal.
 
 ## License
 
-[MIT](license) by [Travis Fischer](https://x.com/transitive_bs).
+Personal skills are [MIT](license) by [Travis Fischer](https://x.com/transitive_bs). Third-party skills retain their upstream licenses and attribution; available license files and unresolved provenance are recorded in [skills.json](skills.json).

@@ -14,7 +14,9 @@
     "test:lint": "oxlint",
     "fix": "run-s fix:*",
     "fix:format": "oxfmt",
-    "fix:lint": "oxlint --fix"
+    "fix:lint": "oxlint --fix",
+    "test:skills": "python3 scripts/skillset.py check",
+    "test:installer": "python3 -m unittest discover -s tests"
   },
   "devDependencies": {
     "@fisch0920/config": "^2.1.4",

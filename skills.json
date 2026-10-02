@@ -1,0 +1,1109 @@
+{
+  "version": 1,
+  "skills": {
+    "animation-vocabulary": {
+      "path": "skills/animation-vocabulary",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/animation-vocabulary/SKILL.md",
+        "tree": "e6dc24ca1ff1e70c9677df9a1d2d1c80415cbb3c",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
+          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "auto-research": {
+      "path": "skills/auto-research",
+      "origin": {
+        "kind": "adopted",
+        "repository": "dzhng/skills",
+        "path": "skills/engineering/auto-research/SKILL.md",
+        "tree": "488a73ff2dfd6f272ff9ab493a078bd2d11c436d",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/dzhng--skills.txt",
+          "url": "https://github.com/dzhng/skills/blob/main/LICENSE",
+          "blob": "c92e086f821a15b25a063f684faf3e75b3f67f56",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "better-accessibility": {
+      "path": "skills/better-accessibility",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/better-accessibility/SKILL.md",
+        "tree": "ebf9388ad7f6acc424584674ac97406e2118616f",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "better-colors": {
+      "path": "skills/better-colors",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/better-colors/SKILL.md",
+        "tree": "2bf09c8493b760bc4449fed26079244368eaaa16",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "better-layout": {
+      "path": "skills/better-layout",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/better-layout/SKILL.md",
+        "tree": "8f1f1b163848cec18aea8143b9fe10cfb3226874",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "better-typography": {
+      "path": "skills/better-typography",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/better-typography/SKILL.md",
+        "tree": "b0c51ed316e9cca63f5182bc569066985b25b9c0",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "better-ui": {
+      "path": "skills/better-ui",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/better-ui/SKILL.md",
+        "tree": "710b8e9a1b4086594d24050bbb6768dbc421e9dc",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "better-writing": {
+      "path": "skills/better-writing",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/better-writing/SKILL.md",
+        "tree": "f0637167d46253f6f5d2d09776552df4979ea562",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "birdclaw": {
+      "path": "skills/birdclaw",
+      "origin": {
+        "kind": "local",
+        "baseline": "installed snapshot; upstream provenance not recorded"
+      },
+      "requires": ["birdclaw", "sqlite3"]
+    },
+    "branding-exercise": {
+      "path": "skills/branding-exercise",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
+    "break": {
+      "path": "skills/break",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/break/SKILL.md",
+        "tree": "7a748aa03499cc6974278099154358596c3635c9",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "codebase-design": {
+      "path": "skills/codebase-design",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/codebase-design/SKILL.md",
+        "tree": "20b7cd1dd1fe5b0bd37ba72649f3a29375574b5b",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "diagnosing-bugs": {
+      "path": "skills/diagnosing-bugs",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/diagnosing-bugs/SKILL.md",
+        "tree": "99bd56983e42bc752c52da67f1112e4121781cd1",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "domain-modeling": {
+      "path": "skills/domain-modeling",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/domain-modeling/SKILL.md",
+        "tree": "05c3244ec75b7548bbc2b635b0624bb9f70369c3",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "eli5": {
+      "path": "skills/eli5",
+      "origin": {
+        "kind": "local",
+        "baseline": "installed snapshot; upstream provenance not recorded"
+      },
+      "requires": []
+    },
+    "explain-interface": {
+      "path": "skills/explain-interface",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/explain-interface/SKILL.md",
+        "tree": "1d56e70e250e711690fdf95baa04546d9ad36020",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "find-animation-opportunities": {
+      "path": "skills/find-animation-opportunities",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/find-animation-opportunities/SKILL.md",
+        "tree": "502f891c05c9cade7e7bd815e3f228fdd20b61b6",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
+          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "grill-me": {
+      "path": "skills/grill-me",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/productivity/grill-me/SKILL.md",
+        "tree": "3df14e2d3a89459bf300614be9247e3ce74798f8",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "grill-with-docs": {
+      "path": "skills/grill-with-docs",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/grill-with-docs/SKILL.md",
+        "tree": "eedaf2562c83155115e9c649fa3ecaac2e10e81d",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "grilling": {
+      "path": "skills/grilling",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/productivity/grilling/SKILL.md",
+        "tree": "f0732035b8b1b60ae39454e4191caef32fa91903",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "handoff": {
+      "path": "skills/handoff",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/productivity/handoff/SKILL.md",
+        "tree": "2242e8f05424b8c2ae94194a90d97b88d16108ec",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "impeccable": {
+      "path": "skills/impeccable",
+      "origin": {
+        "kind": "adopted",
+        "repository": "pbakaus/impeccable",
+        "path": ".agents/skills/impeccable/SKILL.md",
+        "tree": "762636d00c5499118088a07237c842e07192046b",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/pbakaus--impeccable.txt",
+          "url": "https://github.com/pbakaus/impeccable/blob/main/LICENSE",
+          "blob": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9",
+          "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812",
+          "spdx": "Apache-2.0",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "implement": {
+      "path": "skills/implement",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/implement/SKILL.md",
+        "tree": "f07d230f645fc9ac390cf13a450bbff12ad791a3",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "improve-animations": {
+      "path": "skills/improve-animations",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/improve-animations/SKILL.md",
+        "tree": "2ff93ddb9833df45f5e83080de838bb668530820",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
+          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "improve-codebase-architecture": {
+      "path": "skills/improve-codebase-architecture",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
+        "tree": "db546af0f3419a8bd261a83708d4cb33d2a915cd",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "improve-ui": {
+      "path": "skills/improve-ui",
+      "origin": {
+        "kind": "adopted",
+        "repository": "ibelick/ui-skills",
+        "path": "skills/improve-ui/SKILL.md",
+        "tree": "dfe1caace864e8a5db1719c4440633cd7f2f7e83",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/ibelick--ui-skills.txt",
+          "url": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
+          "blob": "cac7c466df604fc44527fd89d9662626bab57354",
+          "sha256": "c615621c4cc1676ccde194e7a01b6469ba477780251bd71e007fc473a49c2c2b",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "init-git-repo": {
+      "path": "skills/init-git-repo",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
+    "midjourney-images": {
+      "path": "skills/midjourney-images",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
+    "personal-notion-projects": {
+      "path": "skills/personal-notion-projects",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
+    "phase": {
+      "path": "skills/phase",
+      "origin": {
+        "kind": "adopted",
+        "repository": "vercel-labs/phase",
+        "path": "skills/phase/SKILL.md",
+        "tree": "8fb657c18970d52ab411a799f50849ad9295e4ae",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "unresolved",
+          "reason": "GitHub license endpoint returned no usable license"
+        }
+      },
+      "requires": []
+    },
+    "postiz": {
+      "path": "skills/postiz",
+      "origin": {
+        "kind": "adopted",
+        "repository": "gitroomhq/postiz-agent",
+        "path": "SKILL.md",
+        "tree": "93a823f6fe6074016207a32c7f192b70b1752044",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "adjustments": [
+          "Renamed the identical nested skills/postiz/SKILL.md to SKILL.upstream.md to prevent duplicate discovery.",
+          "Restored COMMAND_LINE_GUIDE.md at the path referenced by the root SKILL.md."
+        ],
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/gitroomhq--postiz-agent.txt",
+          "url": "https://github.com/gitroomhq/postiz-agent/blob/main/LICENSE",
+          "blob": "92bf90614eed21fbaedb13fdb00f195bcc9c5213",
+          "sha256": "ec870bdf185258c0150f238b50567722239a4b2565790a46b239d7d2e60e6510",
+          "spdx": "NOASSERTION",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": ["postiz"]
+    },
+    "prototype": {
+      "path": "skills/prototype",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/prototype/SKILL.md",
+        "tree": "564cf82ef5b17f5e018b439dc7fd1e392dcf6188",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
+          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "research": {
+      "path": "skills/research",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/research/SKILL.md",
+        "tree": "972a34cd8128b7952b7eb279b06715862db906a7",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "resolving-merge-conflicts": {
+      "path": "skills/resolving-merge-conflicts",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/resolving-merge-conflicts/SKILL.md",
+        "tree": "77f0d7de3143abbf03e55a63522d30bff31ae908",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "review-animations": {
+      "path": "skills/review-animations",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/review-animations/SKILL.md",
+        "tree": "82571acae75a97764fa7899f10bd21d93a4f1414",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
+          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "security-audit": {
+      "path": "skills/security-audit",
+      "origin": {
+        "kind": "adopted",
+        "repository": "cloudflare/security-audit-skill",
+        "path": "skills/security-audit/SKILL.md",
+        "tree": "ccbc33ed119b28c3ef7b44a7e2081ab191ad63af",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/cloudflare--security-audit-skill.txt",
+          "url": "https://github.com/cloudflare/security-audit-skill/blob/main/LICENSE",
+          "blob": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",
+          "sha256": "e598e694aa506650c7192d5ea3be0e50aca0d356ea00551c53429f0b01eb6391",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "shadcn": {
+      "path": "skills/shadcn",
+      "origin": {
+        "kind": "adopted",
+        "repository": "shadcn/ui",
+        "path": "skills/shadcn/SKILL.md",
+        "tree": "b5791523e07794a4deb201e78eab3f3adbd022c0",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/shadcn--ui.txt",
+          "url": "https://github.com/shadcn-ui/ui/blob/main/LICENSE.md",
+          "blob": "fad4d887a681dd49233e5ed01ee2c7a1513089a0",
+          "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "show-me": {
+      "path": "skills/show-me",
+      "origin": {
+        "kind": "adopted",
+        "repository": "humanlayer/skills",
+        "path": "plugins/show-me/skills/show-me/SKILL.md",
+        "tree": "0bdb821a21e793a4f6f82a7078c052154447e5cc",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/humanlayer--skills.txt",
+          "url": "https://github.com/humanlayer/skills/blob/main/LICENSE",
+          "blob": "f7ad6f4a1d5ed9bbf0589c172c6360587d1530e3",
+          "sha256": "5f13c18ea00ea5c1384f41745feeca774079164f7f59a92e4ac0899ad217b26f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "social-posting": {
+      "path": "skills/social-posting",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": ["postiz"]
+    },
+    "storytelling": {
+      "path": "skills/storytelling",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
+    "tdd": {
+      "path": "skills/tdd",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/tdd/SKILL.md",
+        "tree": "8c098cfbaf956292d413d1140f5ee68f70dcc9ee",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "teach": {
+      "path": "skills/teach",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/productivity/teach/SKILL.md",
+        "tree": "15f8c86d39ef834e643d092733ca899b59049067",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "to-tickets": {
+      "path": "skills/to-tickets",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/to-tickets/SKILL.md",
+        "tree": "3d8bb99bb91b9203c90bac852302facb58ac63a0",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "triage": {
+      "path": "skills/triage",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/triage/SKILL.md",
+        "tree": "6e908c1423a1b409e85066a6efbbbbc63b063e2b",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "typesafe-ai": {
+      "path": "skills/typesafe-ai",
+      "origin": {
+        "kind": "adopted",
+        "repository": "typesafe-ai/skills",
+        "path": "skills/typesafe-ai/SKILL.md",
+        "tree": "678c375b883794bf4292715a43acbba5c84681aa",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/typesafe-ai--skills.txt",
+          "url": "https://github.com/typesafe-ai/skills/blob/main/LICENSE",
+          "blob": "8c73b41b89d9a76ddf0fdb0edfaafdda800d36e8",
+          "sha256": "835f233f1d6ed84a9b9a351aba0689b47644a4137d6316911fc7957bde523b02",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "unslop": {
+      "path": "skills/unslop",
+      "origin": {
+        "kind": "adopted",
+        "repository": "cursor/plugins",
+        "path": "pstack/skills/unslop/SKILL.md",
+        "tree": "6161508c5c7959b156ff0e4e10b510863b51f9cc",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "unresolved",
+          "reason": "GitHub license endpoint returned no usable license"
+        }
+      },
+      "requires": []
+    },
+    "variant": {
+      "path": "skills/variant",
+      "origin": {
+        "kind": "adopted",
+        "repository": "jakubkrehel/skills",
+        "path": "skills/variant/SKILL.md",
+        "tree": "10e4d83f2f34cf226cf9819ab6b4dd6f8d7a0e6a",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/jakubkrehel--skills.txt",
+          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
+          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "vercel-composition-patterns": {
+      "path": "skills/vercel-composition-patterns",
+      "origin": {
+        "kind": "adopted",
+        "repository": "vercel-labs/agent-skills",
+        "path": "skills/composition-patterns/SKILL.md",
+        "tree": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "unresolved",
+          "reason": "GitHub license endpoint returned no usable license"
+        }
+      },
+      "requires": []
+    },
+    "vercel-optimize": {
+      "path": "skills/vercel-optimize",
+      "origin": {
+        "kind": "adopted",
+        "repository": "vercel-labs/agent-skills",
+        "path": "skills/vercel-optimize/SKILL.md",
+        "tree": "0901aa3667db7a6e5cc40b213327290bf6556373",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "unresolved",
+          "reason": "GitHub license endpoint returned no usable license"
+        }
+      },
+      "requires": [],
+      "capabilities": [
+        "Authenticated Vercel CLI v53+ in the target project; may be run through its package manager"
+      ]
+    },
+    "vercel-react-best-practices": {
+      "path": "skills/vercel-react-best-practices",
+      "origin": {
+        "kind": "adopted",
+        "repository": "vercel-labs/agent-skills",
+        "path": "skills/react-best-practices/SKILL.md",
+        "tree": "343db72180d05814949fef7d46be96b5c6ee86b3",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "unresolved",
+          "reason": "GitHub license endpoint returned no usable license"
+        }
+      },
+      "requires": []
+    },
+    "web-design-guidelines": {
+      "path": "skills/web-design-guidelines",
+      "origin": {
+        "kind": "adopted",
+        "repository": "vercel-labs/agent-skills",
+        "path": "skills/web-design-guidelines/SKILL.md",
+        "tree": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "unresolved",
+          "reason": "GitHub license endpoint returned no usable license"
+        }
+      },
+      "requires": []
+    },
+    "web-perf": {
+      "path": "skills/web-perf",
+      "origin": {
+        "kind": "adopted",
+        "repository": "cloudflare/skills",
+        "path": "skills/web-perf/SKILL.md",
+        "tree": "c4c15a909ae86c00d4fbf841238bbf56eb505ac8",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/cloudflare--skills.txt",
+          "url": "https://github.com/cloudflare/skills/blob/main/LICENSE",
+          "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "spdx": "Apache-2.0",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "wizard": {
+      "path": "skills/wizard",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/wizard/SKILL.md",
+        "tree": "359db2fb13dc168346632556185252cab9dbec77",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "writing-for-agents": {
+      "path": "skills/writing-for-agents",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/productivity/writing-for-agents/SKILL.md",
+        "tree": "ad2925850efb8973a72d2e666f7a975f9a2d4a9b",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "x-mirror": {
+      "path": "skills/x-mirror",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": ["python3"]
+    },
+    "xurl": {
+      "path": "skills/xurl",
+      "origin": {
+        "kind": "adopted",
+        "repository": "openclaw/openclaw",
+        "path": "skills/xurl/SKILL.md",
+        "tree": "098c25020aaf170dd2426281ef4f02c7f83d4bdd",
+        "commit": null,
+        "baseline": "installed snapshot; local modifications may be present",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/openclaw--openclaw.txt",
+          "url": "https://github.com/openclaw/openclaw/blob/main/LICENSE",
+          "blob": "ebaebf7c416761a32f932ad70ebe5d1d2e214f68",
+          "sha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
+          "spdx": "NOASSERTION",
+          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": ["xurl"]
+    }
+  },
+  "profiles": {
+    "core": {
+      "skills": [
+        "animation-vocabulary",
+        "auto-research",
+        "better-accessibility",
+        "better-colors",
+        "better-layout",
+        "better-typography",
+        "better-ui",
+        "better-writing",
+        "branding-exercise",
+        "break",
+        "codebase-design",
+        "diagnosing-bugs",
+        "domain-modeling",
+        "eli5",
+        "explain-interface",
+        "find-animation-opportunities",
+        "grill-me",
+        "grill-with-docs",
+        "grilling",
+        "handoff",
+        "impeccable",
+        "implement",
+        "improve-animations",
+        "improve-codebase-architecture",
+        "improve-ui",
+        "init-git-repo",
+        "phase",
+        "prototype",
+        "research",
+        "resolving-merge-conflicts",
+        "review-animations",
+        "security-audit",
+        "shadcn",
+        "show-me",
+        "storytelling",
+        "tdd",
+        "teach",
+        "to-tickets",
+        "triage",
+        "typesafe-ai",
+        "unslop",
+        "variant",
+        "vercel-composition-patterns",
+        "vercel-react-best-practices",
+        "web-design-guidelines",
+        "web-perf",
+        "wizard",
+        "writing-for-agents"
+      ]
+    },
+    "desktop": {
+      "skills": ["midjourney-images"]
+    },
+    "personal": {
+      "skills": ["personal-notion-projects", "vercel-optimize"]
+    },
+    "social": {
+      "skills": ["postiz", "social-posting", "xurl"]
+    },
+    "archive": {
+      "skills": ["birdclaw", "x-mirror"]
+    },
+    "mac": {
+      "extends": ["core", "desktop"]
+    },
+    "cloud": {
+      "extends": ["core"]
+    },
+    "current": {
+      "extends": ["mac", "personal", "social", "archive"]
+    }
+  }
+}

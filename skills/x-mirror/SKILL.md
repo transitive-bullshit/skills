@@ -18,9 +18,11 @@ python3 ~/.agents/skills/x-mirror/x_mirror.py --lookback-hours 168   # one-off b
 python3 ~/.agents/skills/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 8-15 --window 12-4
 ```
 
-`--only` fetches the given posts directly at any age. Threads older than X search's 7-day window come from the local birdclaw archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X. A post that quotes one of his own posts whose Bluesky or Threads version isn't live yet waits. Every later run retries it, whatever its age, with the options it was queued with.
+Everything is read from the local birdclaw archive (`~/.birdclaw/birdclaw.sqlite`): posts, threads, media and quoted posts. A separate birdclaw job syncs it from X every 12 hours, so a run spends no X API credits, and a new post is mirrored after birdclaw's next sync picks it up. The paid X API (`xurl`) is only a fallback for a quoted or linked X post that isn't in the archive. If that read fails too, the post waits. When birdclaw hasn't synced for over 26 hours, the run prints a `note` line.
 
-It prints one line per decision (`posted`, `skip`, `wait`, or `plan` in a dry run). Report those lines as they are.
+`--only` takes posts of any age from the archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X. A post that quotes one of his own posts whose Bluesky or Threads version isn't live yet waits. Every later run retries it, whatever its age, with the options it was queued with.
+
+It prints one line per decision (`posted`, `skip`, `wait`, or `plan` in a dry run), plus a `note` line when birdclaw's sync is stale. Report those lines as they are.
 
 ## Rules the script enforces
 
@@ -44,5 +46,6 @@ State lives in `~/.local/state/x-mirror/state.json`: each X post is mirrored or 
 
 `x-mirror failed: ...` on stderr, with exit code 1.
 
-- **Auth errors:** `xurl auth status` and `postiz auth:status` show which CLI lost its session. Tell Travis rather than re-authenticating.
+- **Auth errors:** `postiz auth:status` shows whether Postiz lost its session. Tell Travis rather than re-authenticating.
+- **No new posts for a while, or a stale `note`:** birdclaw's sync is behind, often because the X API credits ran out (`credits depleted`). That's fixed in the X developer console, not here.
 - **Anything else:** report the message. Don't hand-post the missing mirrors; the next run retries anything not recorded in state.
