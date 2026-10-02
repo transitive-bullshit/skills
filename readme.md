@@ -1,90 +1,27 @@
-# Personal Skills
+# Skills
 
-Reusable skills for AI coding agents.
+The workflows I use with coding agents: UI and engineering guidance, brand exploration, storytelling, and personal automation. Custom skills and adopted skills share one editable Git checkout.
 
-## Midjourney Images
+[Branding](skills/branding-exercise/SKILL.md) · [Midjourney](skills/midjourney-images/SKILL.md) · [Storytelling](skills/storytelling/SKILL.md) · [All skills and profiles](skills.json)
 
-[![skills.sh installs](https://skills.sh/b/transitive-bullshit/skills)](https://skills.sh/transitive-bullshit/skills)
+![Midjourney example](skills/midjourney-images/docs/midjourney-example-output-0.jpg)
 
-[`midjourney-images`](skills/midjourney-images/SKILL.md) writes focused Midjourney prompts and can create images in the Midjourney web app. Use it to explore a visual style, build a brand world, or develop concept art.
+## Get started
 
-<p align="center">
-  <img src="skills/midjourney-images/docs/midjourney-example-output-0.jpg" alt="A lone artist beneath a vast, translucent structure" width="49%">
-  <img src="skills/midjourney-images/docs/midjourney-example-output-1.jpg" alt="A lone artist facing a vast, cloud-like spiral" width="49%">
-</p>
-
-The skill supports two tasks:
-
-- **Prompt only:** Write or improve a prompt without opening Midjourney.
-- **Create on web:** Submit one standard image batch and report the result.
-
-Install it with the Skills CLI:
-
-```sh
-npx skills add transitive-bullshit/skills --skill midjourney-images
+```text
+Set up transitive-bullshit/skills for my coding agents. Read AGENTS.md,
+inspect existing skills, and use the mac profile. Preserve local edits,
+review conflicts before adopting them, and finish with the doctor check.
+For a complete machine setup, use the companion dotfiles repo.
 ```
 
-## Branding Exercise
-
-[![skills.sh installs](https://skills.sh/b/transitive-bullshit/skills)](https://skills.sh/transitive-bullshit/skills)
-
-[`branding-exercise`](skills/branding-exercise/SKILL.md) develops a project brand through a short context interview, distinct visual identity directions, and iteration. Use it to create a new brand identity or intentionally rebrand an existing project.
-
-<p align="center">
-  <img src="skills/branding-exercise/docs/brand-identity-onepager-example.jpg" alt="Repaint brand identity poster with a paint roller hero, positioning, messaging, logo, and color palette" width="50%">
-</p>
-
-The skill produces:
-
-- **Visual directions:** At least three distinct brand concepts with one-page posters to compare and refine.
-- **Accepted identity:** A brand guide, reusable logo and imagery assets, favicons, a social image, and a reproducible one-page poster.
-- **Project guidance:** A pointer in the project's agent instructions so future customer-facing work follows the accepted identity.
-
-Install it with the Skills CLI:
+Requires Python 3.11+:
 
 ```sh
-npx skills add transitive-bullshit/skills --skill branding-exercise
+python3 scripts/skillset.py apply --profile mac
+python3 scripts/skillset.py doctor
 ```
 
-## Storytelling
+Edits through installed skills appear here as Git changes. Commit/push normally; pull and apply on other machines. [Setup notes](docs/setup.md) · [Full environment](https://github.com/transitive-bullshit/dotfiles)
 
-[![skills.sh installs](https://skills.sh/b/transitive-bullshit/skills)](https://skills.sh/transitive-bullshit/skills)
-
-[`storytelling`](skills/storytelling/SKILL.md) creates and critiques marketing narratives, product or project pitches, and personal stories. Use it to sharpen a hook, clarify emotional stakes, connect story beats, or make an ending land.
-
-This skill is based on work by [Edmund Tian](https://www.instagram.com/edmund.tian).
-
-<p align="center">
-  <img src="skills/storytelling/docs/storytelling.jpg" alt="Storytelling skill preview" width="100%">
-</p>
-
-The skill supports two tasks:
-
-- **Create:** Draft a narrative around a clear message, causal story beats, and a memorable payoff while preserving your voice and grounding claims in supplied facts.
-- **Critique:** Identify the changes that most improve clarity, stakes, credibility, or payoff, with concrete revisions to weak passages.
-
-Install it with the Skills CLI:
-
-```sh
-npx skills add transitive-bullshit/skills --skill storytelling
-```
-
-## Personal workflows
-
-[`social-posting`](skills/social-posting/SKILL.md) and [`x-mirror`](skills/x-mirror/SKILL.md) are my own social posting setup: launch game plans and scheduled posts across Threads, Bluesky, LinkedIn, Instagram and TikTok through [Postiz](https://postiz.com), using my X posts as the guide. They're wired to my accounts, so they're here as a reference rather than for installing as-is.
-
-Two more follow my own conventions: [`init-git-repo`](skills/init-git-repo/SKILL.md) sets up a clean, shareable repo the way I like it (audit, baseline files, my TypeScript tooling, docs), and [`personal-notion-projects`](skills/personal-notion-projects/SKILL.md) drafts project write-ups in the Notion CMS behind my site.
-
-## Keep local skills in sync
-
-Run this command from the repository:
-
-```sh
-pnpm link:skills
-```
-
-It links each repository skill to `~/.agents/skills`. Edits made through either path appear as changes in this repository. The command stops if a regular file or directory already uses a skill name.
-
-## License
-
-[MIT](license) by [Travis Fischer](https://x.com/transitive_bs).
+Personal skills are [MIT](license). Adopted skills retain their upstream licenses and attribution, recorded in `skills.json`. Storytelling draws on [Edmund Tian](https://www.instagram.com/edmund.tian).

@@ -48,3 +48,11 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Local installer state and Python caches
+__pycache__/
+*.pyc
+
+# Preserve the adopted skill's upstream distribution resource.
+!skills/phase/dist/
+!skills/phase/dist/phase-skill.zip
