@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Versioned skills and transactional user-level installation. Python 3.11+."""
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
 import os
@@ -202,10 +204,30 @@ def summary(operations):
     return ', '.join(f'{count} {kind}' for kind, count in sorted(counts.items())) or 'Already applied'
 
 
+@contextmanager
+def installation_lock(home):
+    path = safe_target(home, STATE / 'installation.lock')
+    path.parent.mkdir(parents=True, exist_ok=True)
+    descriptor = os.open(path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+    try:
+        try:
+            fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise Conflict('Another installation or restore is running for this target home; retry when it finishes') from error
+        yield
+    finally:
+        os.close(descriptor)
+
+
 def execute(home, operations):
-    """Preflight every target, apply with backups, and roll back on exceptions."""
+    """Serialize writers, recheck the plan, and roll back on exceptions."""
     if not operations:
         return None
+    with installation_lock(home):
+        return execute_locked(home, operations)
+
+
+def execute_locked(home, operations):
     if len({op['path'] for op in operations}) != len(operations):
         raise Conflict('Multiple operations target the same path')
     for op in operations:
@@ -254,6 +276,13 @@ def execute(home, operations):
 
 
 def restore(home, backup_id, dry_run=False):
+    if dry_run:
+        return restore_locked(home, backup_id, True)
+    with installation_lock(home):
+        return restore_locked(home, backup_id)
+
+
+def restore_locked(home, backup_id, dry_run=False):
     if not re.fullmatch(r'\d{8}T\d{6}Z-[0-9a-f]{8}', backup_id):
         raise Conflict('Use a backup ID printed by apply')
     backup = safe_target(home, STATE / 'backups' / backup_id)

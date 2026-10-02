@@ -1,5 +1,6 @@
 """Exercise the installer's public CLI against disposable user directories."""
 import importlib.util
+import fcntl
 import json
 import os
 from pathlib import Path
@@ -172,6 +173,15 @@ class InstallationTests(unittest.TestCase):
     def test_dry_run_does_not_create_target(self):
         self.cli('apply', '--dry-run')
         self.assertEqual(list(self.home.iterdir()), [])
+
+    def test_concurrent_installer_is_refused_before_changing_links(self):
+        lock = self.home / '.local/state/agent-env/installation.lock'
+        lock.parent.mkdir(parents=True)
+        with lock.open('w') as handle:
+            fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+            result = self.cli('apply', success=False)
+            self.assertIn('Another installation or restore', result.stderr)
+        self.assertFalse((self.home / '.agents').exists())
 
 
 if __name__ == '__main__':
