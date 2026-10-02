@@ -19,7 +19,7 @@ from datetime import datetime, timezone
 API_VERSION = 1
 REPO = Path(__file__).resolve().parents[1]
 STATE = Path('.local/state/agent-env')
-INSTRUCTIONS = {'.codex/AGENTS.md', '.claude/CLAUDE.md'}
+ENVIRONMENT_LINKS = {'.codex/AGENTS.md', '.claude/CLAUDE.md', '.local/bin/agent-env'}
 
 if sys.version_info < (3, 11):
     sys.exit('skillset requires Python 3.11+')
@@ -154,7 +154,7 @@ def desired_links(repo, home, catalog, profile, agents):
 def owned_path(relative):
     path = Path(relative)
     return (len(path.parts) == 3 and path.parts[:2] in [('.agents', 'skills'), ('.claude', 'skills')]
-            and bool(re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', path.name))) or str(path) in INSTRUCTIONS
+            and bool(re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', path.name))) or str(path) in ENVIRONMENT_LINKS
 
 
 def link_plan(home, desired, previous, adopt=False):
@@ -414,7 +414,7 @@ def main(argv=None):
     installed = skill_state(home)
     profile = args.profile or installed.get('profile', 'mac')
     agents = args.agents or installed.get('agents', ['codex', 'claude'])
-    extra = {rel: source for rel, source in installed.get('links', {}).items() if rel in INSTRUCTIONS}
+    extra = {rel: source for rel, source in installed.get('links', {}).items() if rel in ENVIRONMENT_LINKS}
     if args.command == 'check':
         print(f'Valid: {len(catalog["skills"])} skills, {len(catalog["profiles"])} profiles')
     elif args.command == 'list':
