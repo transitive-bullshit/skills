@@ -11,8 +11,8 @@ The goal is a repo that a stranger or a fresh agent can clone, understand in a m
 
 - Run `scripts/audit.sh <project-dir>`. It shows sizes by directory, the largest files, what `git add` would stage, any secret patterns, and absolute local paths. It prints file names only, never values.
 - Classify everything by category:
-  - **source:** code, prompts, configs, docs, small curated data
-  - **derived:** builds, renders, caches, generated media, logs
+  - **source:** code, prompts, configs, docs, curated app/docs assets and data
+  - **derived:** builds, bulk renders, caches, temporary media, logs
   - **third-party:** vendored checkouts, model weights, virtualenvs, `node_modules`
   - **private:** secrets, personal data, local paths
   - **not ours:** copyrighted material the user doesn't own
@@ -20,17 +20,20 @@ The goal is a repo that a stranger or a fresh agent can clone, understand in a m
   - Loose objects left by an earlier `git add` in a repo with no commits: run `git gc --prune=now`.
   - An existing remote and branch: check them before assuming a fresh start.
   - Files that came from another project, such as that project's own `.gitignore` entries: remove them.
-- If the project is already published, find its live URL and hosted media. For the user's site, projects live at `https://www.transitivebullsh.it/projects/<slug>` (from the Notion Projects CMS), with media on R2 at `https://assets.cultural-alignment.com/personal-site/media/<hash>.<ext>`. Parse them from the live page's HTML. The README reuses them instead of committing media.
+- If the project is already published, find its live URL and hosted media. For the user's site, projects live at `https://www.transitivebullsh.it/projects/<slug>` (from the Notion Projects CMS), with media on R2 at `https://assets.cultural-alignment.com/personal-site/media/<hash>.<ext>`. Parse them from the live page's HTML. Reuse stable hosted URLs where useful, following the asset policy below.
 
-## 2. Decide the large-file policy per category, not per file
+## 2. Decide the asset and large-file policy
 
 | What | Where it goes |
 | --- | --- |
-| Derived or regenerable | `.gitignore`. If it's expensive to regenerate, back it up outside git (an R2 prefix or a release asset), and commit the inputs that produce it (prompts, configs, receipts). |
-| Showcase media for docs | Host it on R2 or the project's site, and link it. |
+| App/docs images and GIFs, including curated generated assets | Commit directly by default. |
+| Build outputs, caches, bulk renders, and temporary media | `.gitignore` by output directory. If expensive to regenerate, back it up outside git (an R2 prefix or a release asset), and commit the inputs that produce it (prompts, configs, receipts). |
+| Heavyweight media, including unusually large images or GIFs | Review size and churn. Host on R2, the project's site, or a release asset, then ignore its directory or explicit path. |
 | Third-party code, weights, environments | `.gitignore`. Document how to fetch or rebuild them. |
 | Private or copyrighted material | Never committed, LFS included. |
-| Integral source binaries | Commit directly if small (under ~1 MB) and rarely changing. Use Git LFS only for large binaries the project can't be rebuilt without. |
+| Integral source binaries | Commit directly when size and churn are reasonable. Use Git LFS only for large binaries the project can't be rebuilt without. |
+
+The audit flags files over 10 MB by default for review; its threshold is configurable. File size and role determine the policy, and an audit flag calls for a decision. Ordinary image/GIF extensions stay allowed.
 
 GitHub rejects files over 100 MB and warns over 50 MB. LFS on a public repo spends quota on every clone, and pushed objects are hard to purge, so LFS is the exception.
 
@@ -40,7 +43,7 @@ GitHub rejects files over 100 MB and warns over 50 MB. LFS on a public repo spen
 - **Doc files are lowercase:** `readme.md`, `license`, `contributing.md`. AGENTS.md stays uppercase. Keep whatever casing an existing repo already uses.
 - **The .gitignore:**
   - Start from the common base, which is the user's standard across projects (its Next.js and Vercel sections included), so keep it whole.
-  - Append project-specific sections in this order: environments and third-party checkouts, private and copyrighted material, derived outputs by directory, and last, a safety net that blocks media by extension. A deliberate exception is `git add -f`.
+  - Append project-specific sections in this order: environments and third-party checkouts, private and copyrighted material, derived outputs by directory, then heavyweight assets selected under the policy above. Use directories or explicit paths; extension-wide exclusions apply only when every file of that format is disposable in this project.
   - Drop only entries copied from another project's own additions.
 - **Anchor top-level directories with a leading `/`.** A bare `audio/` also matches `video/audio/`.
 - **Verify the result:**
@@ -81,7 +84,7 @@ GitHub rejects files over 100 MB and warns over 50 MB. LFS on a public repo spen
 
 - **`readme.md` is a developer-facing marketing asset.**
   - Open with the pitch, then the project URL (the live site or published write-up), prominently.
-  - Put featured images up top, hosted rather than committed.
+  - Put featured images up top, using tracked project assets or stable hosted URLs under the asset policy above.
   - Follow with a concise why, what, and how it was made. If a published write-up exists, mirror its wording.
   - No setup instructions or repo internals.
   - End with a short License section, linking the author to `https://x.com/transitive_bs`, then a link to `contributing.md`.
@@ -96,7 +99,7 @@ GitHub rejects files over 100 MB and warns over 50 MB. LFS on a public repo spen
 
 ## 8. Commit and push, when asked
 
-- **Last checks before committing:** staged file count and size, no media, `.env`, or secret matches in the stage, and passing tests.
+- **Last checks before committing:** staged file count and size, large assets reviewed under the policy above, no `.env` or secret matches in the stage, and passing tests.
 - **Check `git ls-remote origin` first.** An empty remote takes a first commit on the default branch. A remote that already has commits (a GitHub-created README or license, say) gets integrated, never force-pushed over.
 - **Follow the environment's commit-attribution rules.** After pushing, check the CI run once.
 

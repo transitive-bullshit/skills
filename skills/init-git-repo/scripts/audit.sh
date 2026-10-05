@@ -36,8 +36,9 @@ echo "${n} files, ~$(( ${kb:-0} / 1024 )) MB"
 echo "largest:"
 tr '\n' '\0' < "$LIST" | xargs -0 ls -l 2>/dev/null | sort -k5 -rn | head -10 | awk '{ printf "  %10.1f KB  %s\n", $5 / 1024, $NF }'
 
-hr "Media, archives, weights, or binaries a commit would contain"
-none_if_empty "$(grep -iE '\.(wav|mp3|m4a|flac|aiff?|mp4|mov|webm|mkv|avi|png|jpe?g|webp|gif|psd|tiff?|zip|tar|t?gz|7z|rar|pt|pth|ckpt|safetensors|onnx|bin|h5|parquet|sqlite3?|db)$' "$LIST" | head -40)"
+# Media is reviewed by actual size above, not by extension.
+hr "Archives, model weights, or data binaries a commit would contain"
+none_if_empty "$(grep -iE '\.(zip|tar|t?gz|7z|rar|pt|pth|ckpt|safetensors|onnx|bin|h5|parquet|sqlite3?|db)$' "$LIST" | head -40)"
 
 hr "Env files a commit would contain"
 none_if_empty "$(grep -E '(^|/)\.env($|\.)' "$LIST" | grep -v '\.env\.example$')"

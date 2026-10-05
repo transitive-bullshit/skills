@@ -10,14 +10,14 @@ Don't duplicate content across them. Link instead.
 
 ## readme.md: developer-facing marketing
 
-Keep it short. It should pitch, show, and link, and it must not turn into a manual. If the project has a published write-up (a project page or blog post), mirror its structure and wording. Use hosted media only: R2 or site URLs, never committed files.
+Keep it short. It should pitch, show, and link, and it must not turn into a manual. If the project has a published write-up (a project page or blog post), mirror its structure and wording. Choose tracked images/GIFs or stable hosted URLs under the [asset policy](../SKILL.md#2-decide-the-asset-and-large-file-policy).
 
 ```markdown
 # <Project Name>
 
 > <One-line hook>
 
-[![<Project Name>](<hosted hero image URL>)](<project URL>)
+[![<Project Name>](<hero image path or URL>)](<project URL>)
 
 **[▶ <Primary call to action: watch / try / read>](<project URL>)**
 
