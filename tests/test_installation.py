@@ -108,6 +108,29 @@ class InstallationTests(unittest.TestCase):
         self.assertEqual((extra / 'SKILL.md').read_text(), 'Experimental skill')
         self.assertFalse(os.path.lexists(self.home / '.agents/skills/alpha'))
 
+    def test_claude_synced_cache_remains_host_owned(self):
+        cached = self.home / '.claude/skills/synced/session/docx/SKILL.md'
+        cached.parent.mkdir(parents=True)
+        cached.write_text('Claude desktop synchronized skill')
+        self.cli('apply')
+        self.cli('doctor')
+        self.cli('apply', '--profile', 'cloud', '--agents', 'codex')
+        self.cli('doctor')
+        self.assertEqual(cached.read_text(), 'Claude desktop synchronized skill')
+        self.assertFalse((self.home / '.claude/skills/synced').is_symlink())
+
+    def test_synced_name_does_not_hide_standalone_skills(self):
+        for root in ['.agents/skills', '.claude/skills']:
+            with self.subTest(root=root):
+                extra = self.home / root / 'synced'
+                extra.mkdir(parents=True)
+                (extra / 'SKILL.md').write_text('Unregistered standalone skill')
+                self.assertIn('Unexpected installed skill', self.cli('apply', success=False).stderr)
+                shutil.rmtree(extra)
+                extra.symlink_to(self.repo / 'skills/alpha')
+                self.assertIn('Unexpected installed skill', self.cli('apply', success=False).stderr)
+                extra.unlink()
+
     def test_changed_owned_link_is_not_pruned(self):
         self.cli('apply')
         target = self.home / '.agents/skills/beta'

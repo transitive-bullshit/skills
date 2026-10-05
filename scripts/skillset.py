@@ -350,6 +350,10 @@ def unexpected_skills(home, expected):
         if not path.exists():
             continue
         for entry in sorted(path.iterdir()):
+            # Claude desktop owns this session-scoped cache of synchronized skills.
+            if (root == '.claude/skills' and entry.name == 'synced' and entry.is_dir()
+                    and not entry.is_symlink() and not (entry / 'SKILL.md').exists()):
+                continue
             discovered = entry.is_symlink() or (entry.is_dir() and any(entry.rglob('SKILL.md')))
             if discovered and f'{root}/{entry.name}' not in expected:
                 problems.append(f'Unexpected installed skill: {entry}; import/select it or move it outside discovery')

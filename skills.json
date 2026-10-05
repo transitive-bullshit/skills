@@ -318,6 +318,26 @@
       },
       "requires": []
     },
+    "find-skills": {
+      "path": "skills/find-skills",
+      "origin": {
+        "kind": "adopted",
+        "repository": "vercel-labs/skills",
+        "path": "skills/find-skills/SKILL.md",
+        "tree": "76a98a285cb0434f3d39e1a873823556330e398b",
+        "commit": "18f96ea131dab3b0fcc9b27cf7c6f6cbb6174680",
+        "baseline": "Existing installed snapshot verified byte-for-byte against the recorded upstream commit",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/vercel-labs--skills.txt",
+          "url": "https://github.com/vercel-labs/skills/blob/main/LICENSE",
+          "blob": "eabe3008f6c0275929faa8b07d406e82717648cc",
+          "sha256": "661142e53c313d2bb5e1b055f5c0a39001450ff1b5e27b89dc4bc7de9a6352ca",
+          "spdx": "MIT"
+        }
+      },
+      "requires": []
+    },
     "grill-me": {
       "path": "skills/grill-me",
       "origin": {
@@ -628,6 +648,26 @@
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
           "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+        }
+      },
+      "requires": []
+    },
+    "retro": {
+      "path": "skills/retro",
+      "origin": {
+        "kind": "adopted",
+        "repository": "mattpocock/skills",
+        "path": "skills/engineering/retro/SKILL.md",
+        "tree": "335c1862a43da9d629abafdb79ca0c0de118be08",
+        "commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
+        "baseline": "Existing installed snapshot verified byte-for-byte against the recorded upstream commit",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/mattpocock--skills.txt",
+          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "spdx": "MIT"
         }
       },
       "requires": []
@@ -1111,7 +1151,8 @@
       "extends": ["core"]
     },
     "current": {
-      "extends": ["mac", "personal", "social", "archive"]
+      "extends": ["mac", "personal", "social", "archive"],
+      "skills": ["find-skills", "retro"]
     }
   }
 }

@@ -10,4 +10,4 @@ Requires Python 3.11+. The CLI help and `skills.json` define the supported comma
 - Update upstream skills separately from machine sync. Use the recorded source to compare a temporary upstream checkout with your effective files. The imported snapshots may include local edits and lack exact upstream commits; do not overwrite them or invent a baseline commit.
 - Preserve upstream licenses. Retrieved license files describe upstream at migration time; they do not establish the unknown historical snapshot revision. Records marked `unresolved` need investigation before public redistribution.
 
-System and marketplace-managed skills remain owned by their hosts. This installer manages standalone user skills only.
+System and marketplace-managed skills remain owned by their hosts, including Claude desktop's session cache at `~/.claude/skills/synced/`. This installer manages standalone user skills only.
