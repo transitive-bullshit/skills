@@ -1002,6 +1002,13 @@
       },
       "requires": []
     },
+    "x-data": {
+      "path": "skills/x-data",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
     "x-mirror": {
       "path": "skills/x-mirror",
       "origin": {
@@ -1081,7 +1088,8 @@
         "web-design-guidelines",
         "web-perf",
         "wizard",
-        "writing-for-agents"
+        "writing-for-agents",
+        "x-data"
       ]
     },
     "desktop": {

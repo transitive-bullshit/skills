@@ -1,6 +1,6 @@
 ---
 name: xurl
-description: "xurl CLI for authenticated X posts, replies, reads/search, DMs, media upload, followers, auth status, or raw v2 API calls."
+description: "Paid X API fallback through xurl after cheaper X reads fail, or for authorized account actions unsupported by bird."
 metadata:
   {
     "openclaw":
@@ -30,7 +30,9 @@ metadata:
 
 # xurl
 
-Use `xurl` for X API work. Shortcut commands return JSON; raw mode works for any v2 endpoint.
+Use this as the paid X API reference. For reads/search, follow [x-data](../x-data/SKILL.md), which owns source precedence, freshness, and the paid-fallback conditions.
+
+For authorized posts/replies, prefer a supported `bird` command. Use `xurl` for an unavailable or failed operation, including account actions that the installed `bird` does not implement. Shortcut commands return JSON; raw mode works for any v2 endpoint.
 
 ## Secret safety
 

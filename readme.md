@@ -71,6 +71,8 @@ npx skills add transitive-bullshit/skills --skill storytelling
 
 ## Personal workflows
 
+[`x-data`](skills/x-data/SKILL.md) sets my X lookup order: local Birdclaw → authenticated `bird` → public FxTwitter → paid `xurl`. The archive, API, and posting skills follow this shared policy.
+
 [`social-posting`](skills/social-posting/SKILL.md) and [`x-mirror`](skills/x-mirror/SKILL.md) are my own social posting setup: launch game plans and scheduled posts across Threads, Bluesky, LinkedIn, Instagram and TikTok through [Postiz](https://postiz.com), using my X posts as the guide. They're wired to my accounts, so they're here as a reference rather than for installing as-is.
 
 Two more follow my own conventions: [`init-git-repo`](skills/init-git-repo/SKILL.md) sets up a clean, shareable repo the way I like it (audit, baseline files, my TypeScript tooling, docs), and [`personal-notion-projects`](skills/personal-notion-projects/SKILL.md) drafts project write-ups in the Notion CMS behind my site.

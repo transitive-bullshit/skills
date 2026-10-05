@@ -21,9 +21,9 @@ scheduled at the earliest slot at least 3.5 h from any other Postiz post on that
 from other mirrors, falling back to "soon" when the next 36 h have no such slot. Mirrors carry the Postiz tag
 "x-mirror".
 
-Posts, threads, media and quoted posts are read from the local birdclaw archive (~/.birdclaw/birdclaw.sqlite), which
-a separate job keeps in sync with X, so a run costs no X API credits. The paid X API (`xurl`) is only a fallback for a
-quoted or linked X post that isn't in the archive.
+Posts, threads, media and quoted posts start in the local birdclaw archive (~/.birdclaw/birdclaw.sqlite), which a
+separate bird-backed job keeps in sync. Missing quoted/linked posts or video mp4s try bird, then public FxTwitter,
+then paid xurl. A paid fallback prints a note explaining the cheaper-source failures.
 
 State (which X posts were mirrored, skipped or are pending, and why) lives in ~/.local/state/x-mirror/state.json.
 Needs the `postiz` CLI, already authenticated, and the birdclaw archive.
@@ -44,9 +44,9 @@ MEDIA_TYPES = {"image": "photo", "photo": "photo", "video": "video", "gif": "ani
 X_STATUS = re.compile(r"https?://(?:www\.|mobile\.)?(?:x|twitter)\.com/\w+/status/(\d+)[^\s]*")
 
 
-def cli_json(*cmd):
+def cli_json(*cmd, timeout=None):
     """Run a CLI and parse the JSON it prints (postiz prefixes its JSON with status lines)."""
-    out = subprocess.run(cmd, capture_output=True, text=True)
+    out = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     if out.returncode:
         raise RuntimeError(f"{' '.join(cmd[:2])} failed: {(out.stderr or out.stdout).strip()[:400]}")
     lines = out.stdout.splitlines()
@@ -226,6 +226,120 @@ class Archive:
         return post
 
 
+class MediaUnavailable(RuntimeError):
+    """A post's video can't be downloaded yet; the post waits for a later run."""
+
+
+def mp4s(variants): return [v for v in variants if v.get("content_type") == "video/mp4"]
+
+
+def normalize_x_post(payload, post_id):
+    """Adapt bird, FxTwitter, or X API data to the shape used by the archive reader."""
+    if not isinstance(payload, dict):
+        raise ValueError("API response is not an object")
+    if payload.get("code", 200) != 200:
+        raise ValueError(f"API code {payload['code']}")
+    data = payload.get("data")
+    post = next((p for p in data if isinstance(p, dict) and str(p.get("id")) == post_id), {}) if isinstance(data, list) else \
+        payload.get("status") or payload.get("tweet") or data or payload
+    if not isinstance(post, dict) or str(post.get("id")) != post_id:
+        raise ValueError("requested post unavailable")
+    author = post.get("author") or {}
+    author_id = post.get("author_id") or post.get("authorId") or author.get("id")
+    if not author_id:
+        raise ValueError("post author ID unavailable")
+    includes = payload.get("includes") or {}
+    names = {str(u["id"]): u["username"] for u in includes.get("users", [])}
+    username = author.get("username") or author.get("screen_name") or names.get(str(author_id), "")
+    media = post.get("media") or []
+    if isinstance(media, dict):
+        media = media.get("all") or media.get("photos", []) + media.get("videos", [])
+    if not media:
+        keys = (post.get("attachments") or {}).get("media_keys", [])
+        media = [m for m in includes.get("media", []) if m.get("media_key") in keys]
+    normalized_media = []
+    for m in media:
+        kind = MEDIA_TYPES.get(m.get("type"), m.get("type"))
+        variants = [{"url": v["url"], "content_type": v.get("content_type") or v.get("contentType"),
+                     "bit_rate": v.get("bit_rate") or v.get("bitRate") or v.get("bitrate") or 0}
+                    for v in m.get("variants", []) if v.get("url")]
+        video_url = m.get("videoUrl") or m.get("video_url")
+        if not video_url and kind in ("video", "animated_gif") and ".mp4" in (m.get("url") or ""):
+            video_url = m["url"]
+        if video_url and not mp4s(variants):
+            variants.append({"url": video_url, "content_type": "video/mp4", "bit_rate": 0})
+        normalized_media.append({"type": kind, "url": m.get("url"), "variants": variants})
+    return {**post, "id": post_id, "author_id": str(author_id), "_username": username,
+            "created_at": post.get("created_at") or post.get("createdAt"), "_media": normalized_media}
+
+
+def fxtwitter_post(post_id):
+    request = urllib.request.Request(f"https://api.fxtwitter.com/2/status/{post_id}",
+                                     headers={"User-Agent": "personal-x-mirror/1.0"})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return json.load(response)
+
+
+def read_x_posts(ids, require_video=False):
+    """Fill known archive gaps in cost order; batch only the unresolved paid reads."""
+    ids = list(dict.fromkeys(str(i) for i in ids))
+    if any(not re.fullmatch(r"\d+", i) for i in ids):
+        raise ValueError("X post IDs must be numeric")
+    found, failures = {}, {i: [] for i in ids}
+
+    def accept(payload, post_id):
+        post = normalize_x_post(payload, post_id)
+        videos = [m for m in post["_media"] if m["type"] in ("video", "animated_gif")]
+        if require_video and (not videos or not mp4s(videos[0]["variants"])):
+            raise ValueError("video mp4 unavailable")
+        found[post_id] = post
+
+    for post_id in ids:
+        for source, read in [("bird", lambda: cli_json("bird", "--timeout", "30000", "read", post_id,
+                                                       "--json", timeout=45)),
+                             ("FxTwitter", lambda: fxtwitter_post(post_id))]:
+            try:
+                accept(read(), post_id)
+                break
+            except (RuntimeError, OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as e:
+                failures[post_id].append(f"{source}: {str(e)[:140]}")
+    missing = [i for i in ids if i not in found]
+    for start in range(0, len(missing), 100):
+        batch = missing[start:start + 100]
+        for post_id in batch:
+            print(f"note   paid xurl fallback for X post {post_id} ({'; '.join(failures[post_id])})")
+        try:
+            got = cli_json("xurl", f"/2/tweets?ids={','.join(batch)}&tweet.fields=author_id,note_tweet,entities"
+                                  "&expansions=author_id,attachments.media_keys&user.fields=username&media.fields=type,variants",
+                           timeout=45)
+            for post_id in batch:
+                try:
+                    accept(got, post_id)
+                except (ValueError, KeyError, TypeError):
+                    pass
+        except (RuntimeError, OSError, ValueError, subprocess.SubprocessError):
+            pass
+    return {i: found.get(i) for i in ids}
+
+
+def lookup_x_posts(archive, ids):
+    """Return complete local references before asking any live transport."""
+    lookup = {p["id"]: p for p in archive.by_ids(ids)}
+    missing = [i for i in ids if i not in lookup]
+    if missing:
+        lookup.update(read_x_posts(missing))
+    return lookup
+
+
+def x_video_variants(post_id):
+    """Try cheaper live sources first for a video the archive stored without mp4 variants."""
+    post = read_x_posts([post_id], require_video=True)[post_id]
+    if not post:
+        raise MediaUnavailable(f"video variants unavailable for X post {post_id} after bird, FxTwitter, and xurl")
+    videos = [m for m in post["_media"] if m.get("type") in ("video", "animated_gif")]
+    return mp4s(videos[0].get("variants", [])) if videos else []
+
+
 def media_files(post, media_by_key, tmp):
     """Download a post's media: its first video if it has one (Bluesky takes a single video), else up to 4 photos."""
     items = [media_by_key[k] for k in post.get("attachments", {}).get("media_keys", []) if k in media_by_key]
@@ -236,8 +350,10 @@ def media_files(post, media_by_key, tmp):
         if m["type"] == "photo":
             url = m["url"]
         else:
-            mp4s = [v for v in m.get("variants", []) if v.get("content_type") == "video/mp4"]
-            url = max(mp4s, key=lambda v: v.get("bit_rate", 0))["url"]
+            variants = mp4s(m.get("variants", [])) or x_video_variants(post["id"])
+            if not variants:
+                raise MediaUnavailable(f"no mp4 for the video in X post {post['id']}")
+            url = max(variants, key=lambda v: v.get("bit_rate", 0))["url"]
         path = pathlib.Path(tmp) / f"{post['id']}_{k}{'.jpg' if m['type'] == 'photo' else '.mp4'}"
         urllib.request.urlretrieve(url, path)
         files.append(path)
@@ -330,8 +446,8 @@ def resolve_x_refs(ids, channel, lookup, state, queue):
     urls = {}
     for xid in ids:
         post = lookup.get(xid)
-        if post is None:  # neither the archive nor the X API had it; try again next run
-            return {}, ("wait", f"quotes or links X post {xid}, which isn't in birdclaw and the X API couldn't read")
+        if post is None:  # all read sources failed; try again next run
+            return {}, ("wait", f"quotes or links X post {xid}, unavailable from Birdclaw, bird, FxTwitter, and xurl")
         if not post:
             return {}, ("skip", f"quotes or links an X post that can't be read ({xid})")
         if post.get("author_id") != state["user_id"]:
@@ -440,18 +556,7 @@ def main():
                 continue
             texts = [x_text(p)[0] for p in thread]
             ref_ids = list(dict.fromkeys(i for t in texts for i in x_refs(t)))
-            lookup = {p["id"]: p for p in archive.by_ids(ref_ids)}
-            missing = [i for i in ref_ids if i not in lookup]
-            if missing:  # the one paid X API read left: a quoted or linked post the archive doesn't have
-                try:
-                    got = cli_json("xurl", f"/2/tweets?ids={','.join(missing)}&tweet.fields=author_id,note_tweet,entities"
-                                           f"&expansions=author_id&user.fields=username")
-                    names = {u["id"]: u["username"] for u in got.get("includes", {}).get("users", [])}
-                    lookup.update({p["id"]: {**p, "_username": names.get(p.get("author_id"), "")}
-                                   for p in got.get("data", [])})
-                    lookup.update({i: {} for i in missing if i not in lookup})  # deleted or private: can't be read
-                except RuntimeError:
-                    lookup.update({i: None for i in missing})
+            lookup = lookup_x_posts(archive, ref_ids)
             uploads, done = None, {}
             for channel in todo:
                 cid = channels[channel]
@@ -483,9 +588,16 @@ def main():
                     report.append(f"plan   {x_url} -> {channel} at {iso(slot)}: {desc}, {n_media} media: {first[:60]!r}")
                 else:
                     if uploads is None:
-                        uploads = [[{"id": u["id"], "path": u["path"]}
-                                    for u in (cli_json("postiz", "upload", str(f))
-                                              for f in media_files(p, media_by_key, tmp))] for p in thread]
+                        try:
+                            uploads = [[{"id": u["id"], "path": u["path"]}
+                                        for u in (cli_json("postiz", "upload", str(f))
+                                                  for f in media_files(p, media_by_key, tmp))] for p in thread]
+                        except MediaUnavailable as e:
+                            uploads = e
+                    if isinstance(uploads, MediaUnavailable):  # wait for a later run rather than mirror without it
+                        done[channel] = {"pending": str(uploads)}
+                        report.append(f"wait   {x_url} on {channel} ({uploads})")
+                        continue
                     parts = [{"content": c, "image": uploads[i] if k == 0 else []}
                              for i, chunks in enumerate(chunked) for k, c in enumerate(chunks)]
                     postiz_id = create_post(channel, cid, slot, parts, tmp, pid)

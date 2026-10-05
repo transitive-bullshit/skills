@@ -1,21 +1,15 @@
 ---
 name: birdclaw
-description: "Search the user’s local X archive for remembered posts, DMs, people, or links. Use for history questions; use live lookup for current posts and supplied URLs."
+description: "Search or sync the user's local X archive: posts, supplied URLs, DMs, people, links, and historical analysis."
 ---
 
 # Birdclaw
 
-Use the local archive for history and remembered-content questions. A supplied public post URL or a request for current content should use live lookup unless the user asks about its archived context.
-
-Mere mention of X/Twitter does not select this archive workflow.
+Use the latest local snapshot first for X reads, including supplied URLs and recent content. Follow the [X data lookup order](../x-data/SKILL.md) for missing or stale evidence. For a requested or scheduled personal archive sync, read [incremental sync](references/sync.md).
 
 ## Data
 
-Prefer:
-
-1. Installed `birdclaw`
-2. SQLite DB `~/.birdclaw/birdclaw.sqlite`
-3. `xurl` fallback - X API v2 CLI. birdclaw's other transport. You rarely need it directly.
+Read through the installed `birdclaw` CLI or read-only SQLite at `~/.birdclaw/birdclaw.sqlite`. Lookup precedence lives in `x-data`; explicit `--mode bird` avoids Birdclaw's automatic paid fallback during live syncs.
 
 Check basic health/freshness before analysis:
 
@@ -54,7 +48,7 @@ birdclaw search dms "blacksmith" --context 4 --resolve-profiles --expand-urls --
 Caching model:
 
 - profile resolution reads local `profiles`, then `sync_cache`, then `bird user`
-- `xurl` is the last fallback; pass `--no-xurl-fallback` when avoiding X API spend matters
+- pass `--no-xurl-fallback` by default so enrichment cannot bypass the shared lookup order with a paid API call
 - failed profile lookups are cached briefly to avoid repeated live calls
 - URL expansion reads `sync_cache` first and mirrors results into persistent `url_expansions`; use `--refresh-url-cache` only when stale links matter
 - resolved profiles preserve bio, profile URL, location, verification type, structured URL entities, raw profile JSON, and X affiliation badge metadata when available
@@ -62,7 +56,7 @@ Caching model:
 
 How the richer identity evidence works:
 
-- `bird profiles ... --json` is the preferred batch profile hydrator when several archive profile IDs need refreshing; `bird user --profile-only --json` is the single-profile fallback. Both can expose X GraphQL profile URL entities and highlighted-label affiliations without using the paid X API.
+- When the installed `bird --help` advertises `profiles` or `user --profile-only`, those commands can hydrate GraphQL profile URL entities and highlighted-label affiliations without the paid X API. Some builds lack these commands; check help and use the shared lookup order for unsupported profile reads.
 - Birdclaw stores profile metadata on `profiles`, active organization/badge edges in `profile_affiliations`, profile-change history in `profile_snapshots`, and extracted bio identity hints in `profile_bio_entities`; backups include all four shards.
 - Birdclaw also keeps a derived `identity_search_index` for fast local whois lookups. It is rebuilt from profile/bio/affiliation/history data and should not be treated as source-of-truth evidence.
 - When X only gives a highlighted-label badge such as "Vercel" plus an org handle, Birdclaw first stores a deterministic synthetic org id, then resolves the handle through `bird` on a fresh profile hydration and rewrites the edge to the real local organization profile id when available.
