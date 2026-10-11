@@ -1,0 +1,25 @@
+diff --git a/SKILL.md b/SKILL.md
+index b9d8296..5b454de 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: impeccable
+-description: Use when the user wants to design, redesign, shape, critique, audit, polish, clarify, distill, harden, optimize, adapt, animate, colorize, extract, or otherwise improve a frontend interface. Covers websites, landing pages, dashboards, product UI, app shells, components, forms, settings, onboarding, and empty states. Handles UX review, visual hierarchy, information architecture, cognitive load, accessibility, performance, responsive behavior, theming, anti-patterns, typography, fonts, spacing, layout, alignment, color, motion, micro-interactions, UX copy, error states, edge cases, i18n, and reusable design systems or tokens. Also use for bland designs that need to become bolder or more delightful, loud designs that should become quieter, live browser iteration on UI elements, or ambitious visual effects that should feel technically extraordinary. Not for backend-only or non-UI tasks.
++description: "Design or critique a frontend interface when explicitly invoked. Use the relevant design workflow while preserving the project’s identity."
+ metadata:
+   version: 4.5.2
+ ---
+diff --git a/agents/openai.yaml b/agents/openai.yaml
+index ee6cae7..63d36ba 100644
+--- a/agents/openai.yaml
++++ b/agents/openai.yaml
+@@ -1,4 +1,6 @@
+ interface:
+   display_name: Impeccable
+   short_description: Use when the user wants to design, redesign, shape, critique, audit, polish, clarify,...
+-  default_prompt: Use Impeccable to redesign, critique, audit, or polish this frontend.
+\ No newline at end of file
++  default_prompt: Use Impeccable to redesign, critique, audit, or polish this frontend.
++policy:
++  allow_implicit_invocation: false

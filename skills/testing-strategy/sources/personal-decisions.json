@@ -1,0 +1,5 @@
+{
+  "date": "2026-10-11",
+  "question": "For changes that warrant new tests, how strongly should testing-strategy prefer TDD?",
+  "answer": "Use TDD when useful; require it only when requested (Recommended)"
+}

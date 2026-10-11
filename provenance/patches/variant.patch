@@ -1,0 +1,30 @@
+diff --git a/SKILL.md b/SKILL.md
+index dda07d2..df5e9e8 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: variant
+-description: Builds multiple variants of a component you're working on and helps you iterate and pick one.
++description: "Build distinct component alternatives and help the user choose. Use when explicitly invoked for design comparison."
+ disable-model-invocation: true
+ ---
+ 
+@@ -8,7 +8,7 @@ disable-model-invocation: true
+ 
+ This skill takes one described piece of UI and builds three versions that differ on purpose. They go behind a picker in the real page, so you can flip between them and choose.
+ 
+-It produces candidates and never ranks them. Reviewing existing UI is `interface-review` and `better-interface`, stress testing one component is `break` and working through a component's states is `state-machine`.
++It produces candidates and never ranks them. Use the relevant `better-*` domain guides for a review; this workflow builds alternatives and leaves the choice to the user.
+ 
+ ## Different answers, not different tints
+ 
+@@ -26,7 +26,7 @@ Pick **one primary axis** and give each variant a different position on it. The
+ 
+ ## The floor every variant clears
+ 
+-Before a variant enters the picker it clears `better-interface`'s escalation triggers, which are:
++Before a variant enters the picker it clears the relevant accessibility and layout checks:
+ 
+ - Every control has an accessible name and a visible focus indicator.
+ - Keyboard reaches everything a pointer does.

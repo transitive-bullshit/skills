@@ -1,0 +1,19 @@
+diff --git a/SKILL.md b/SKILL.md
+index 12149ac..6626750 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -8,7 +8,7 @@ The user has asked for a **retrospective**. You are suggesting improvements to t
+ 
+ ## Steps
+ 
+-1. Call the Skill tool with `writing-for-agents` for the writing style guide.
++1. When proposing changes to agent instructions, read [write-skills](../write-skills/SKILL.md) for the installed authoring guidance.
+ 
+ 2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
+ 
+@@ -41,4 +41,4 @@ You have access to several files in the repo:
+ - `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
+ - `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
+ - Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
+-- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
++- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Use the installed [write-skills](../write-skills/SKILL.md) authoring guidance.

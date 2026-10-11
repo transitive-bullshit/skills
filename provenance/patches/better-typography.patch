@@ -1,0 +1,43 @@
+diff --git a/SKILL.md b/SKILL.md
+index e23e310..5430860 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,17 +1,17 @@
+ ---
+ name: better-typography
+-description: Sets and reviews how text renders in your product, from the type scale and spacing to font features, wrapping, truncation and punctuation.
++description: "Implement or review type scale, wrapping, font rendering, and text spacing. Use for typography work in the existing design system."
+ ---
+ 
+ # Typography
+ 
+-This skill sets and reviews how text renders, from the type scale and spacing to font loading, wrapping and punctuation. It writes every fix in the project's styling system, and the [cheat sheet](css-cheat-sheet.md) maps each declaration to its Tailwind utility.
++This skill sets and reviews how text renders, from the type scale and spacing to font loading, wrapping and punctuation. Write fixes in the project’s styling system. Preserve established type tokens; treat values below as defaults where the project has no applicable choice. The [cheat sheet](css-cheat-sheet.md) maps each declaration to its Tailwind utility.
+ 
+ The words belong to `better-writing`, semantic heading structure to `better-accessibility` and spatial RTL layout to `better-layout`. Measure contrast with `better-colors`; whether it passes is `better-accessibility`'s.
+ 
+ ## Measured, not preferred
+ 
+-Some values here are exact. Unitless line-height, weight `400` or heavier below `18px`, a 60–75 character measure, `16px` inputs on iOS and `tabular-nums` on changing values are findings when missed.
++Use unitless line-height, appropriate text weight and measure, `16px` inputs on iOS and `tabular-nums` on changing values as checks. Report supported legibility, layout or interaction problems and violations of the project’s type system; a different intentional weight or measure alone is not a defect.
+ 
+ Letter-spacing, pairing and scale ratios are heuristics. Report them only where they break the project's own scale. Never propose a new typeface, paid or free, unless the task asks for a type change.
+ 
+@@ -90,7 +90,7 @@ Color is the only part of a real underline that animates reliably. Any other und
+ 
+ ## Inputs at 16px on mobile
+ 
+-iOS Safari zooms the whole page when an input's text is smaller than `16px`. Two fixes hold `16px` and look different, so ask which one the design wants:
++iOS Safari zooms the whole page when an input's text is smaller than `16px`. Two approaches hold `16px`. Follow the established design; ask only if the unresolved choice materially changes the requested result:
+ 
+ - Size the input up on mobile (`text-base sm:text-sm`). Changes how it looks on small screens.
+ - Keep `font-size: 16px` and render the intended size with `transform: scale()`. Identical at every viewport, more code to maintain.
+@@ -151,7 +151,7 @@ Keep text selectable by default. `::selection` can carry brand into the reading
+ 
+ ## Reporting
+ 
+-**Severity.** `HIGH` makes text unreadable, truncates content with no way back to it or clips text at 320px width or 200% zoom. The last two are `better-interface` escalation triggers, so they stay `HIGH` however minor the surface. `MEDIUM` breaks the type system or the visual heading hierarchy. `LOW` is isolated polish.
++**Severity.** `HIGH` makes text unreadable, truncates content with no way back to it or clips text at 320px width or 200% zoom. The last two remain `HIGH` however minor the surface. `MEDIUM` breaks the type system or the visual heading hierarchy. `LOW` is isolated polish.
+ 
+ **Verification.** Without a browser, check declared size and weight per heading level, descending within each semantic section. Check declared line-height, units and measure. Check truncation rules against realistic string lengths. With one, compare computed values, then resize the viewport with real content to catch wrapping, lone last-line words and truncation. Report every check you could not run as `Not verified`.
+ 

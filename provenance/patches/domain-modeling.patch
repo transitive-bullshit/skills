@@ -1,0 +1,58 @@
+diff --git a/GLOSSARY-FORMAT.md b/GLOSSARY-FORMAT.md
+index 9c0b4c7..1950c50 100644
+--- a/GLOSSARY-FORMAT.md
++++ b/GLOSSARY-FORMAT.md
+@@ -1,4 +1,6 @@
+-# GLOSSARY.md Format
++# Glossary format
++
++Use the existing repository name and structure, including `CONTEXT.md` / `CONTEXT-MAP.md` when established. The examples use `GLOSSARY.md` for a new glossary.
+ 
+ ## Structure
+ 
+@@ -55,6 +57,6 @@ The skill infers which structure applies:
+ 
+ - If `GLOSSARY-MAP.md` exists, read it to find contexts
+ - If only a root `GLOSSARY.md` exists, single context
+-- If neither exists, create a root `GLOSSARY.md` lazily when the first term is resolved
++- If neither exists, look for the repository’s documented glossary or context convention before creating a root `GLOSSARY.md` lazily when the first term is resolved
+ 
+ When multiple contexts exist, infer which one the current topic relates to. If unclear, ask.
+diff --git a/SKILL.md b/SKILL.md
+index a4438c6..5a1a4b9 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,12 +1,14 @@
+ ---
+ name: domain-modeling
+-description: Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
++description: Build and sharpen a project’s domain model. Use when discussing domain terminology, editing its glossary (such as GLOSSARY.md or CONTEXT.md), or recording an ADR.
+ ---
+ 
+ # Domain Modeling
+ 
+ Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
+ 
++Follow the repository’s existing glossary paths and format, including `CONTEXT.md` / `CONTEXT-MAP.md` where established. The examples below use upstream’s current `GLOSSARY.md` naming for new glossaries; they do not require renaming or duplicating an existing glossary. Preserve other sections in existing context documents and update only their domain-model content.
++
+ ## File structure
+ 
+ Most repos have a single context:
+@@ -37,7 +39,7 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
+ │       └── docs/adr/
+ ```
+ 
+-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
++Create files lazily: only when you have something to write. If no project glossary exists, create `GLOSSARY.md` when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+ 
+ ## During the session
+ 
+@@ -61,7 +63,7 @@ When the user states how something works, check whether the code agrees. If you
+ 
+ When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up: capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
+ 
+-`GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
++Keep glossary entries focused on domain language. Record implementation decisions in the project’s decision records rather than adding them to the glossary. Existing context documents may have other established sections; preserve those sections.
+ 
+ ### Offer ADRs sparingly
+ 

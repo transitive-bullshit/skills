@@ -1,0 +1,23 @@
+diff --git a/SKILL.md b/SKILL.md
+index bd49e47..0f613f5 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -4,14 +4,10 @@ description: "Implement a piece of work based on a spec or set of tickets."
+ disable-model-invocation: true
+ ---
+ 
+-Implement the work described by the user in the spec or tickets.
++Implement the work described by the user in the spec or tickets. Reuse established decisions and public interfaces.
+ 
+-If the user passes a ticket reference, fetch it from the issue tracker and state its title before starting. If the reference is ambiguous, ask.
++If the user passes a ticket reference, fetch it from the configured tracker and state its title before starting. Resolve genuinely ambiguous references before acting on them.
+ 
+-Call the Skill tool with "tdd" where possible, at pre-agreed seams.
++Use a failing-test-first loop when the user requests test-first work; otherwise choose verification appropriate to the change. Complete the implementation, run relevant checks, inspect the result where needed, and fix failures caused by the change.
+ 
+-Run typechecking regularly, single test files regularly, and the full test suite once at the end.
+-
+-Once done, call the Skill tool with "code-review" to review the work.
+-
+-Commit your work to the current branch.
++Review the diff for defects and missed requirements before delivery. Follow the user’s requested commit/PR workflow; do not create an unrelated commit merely to satisfy this skill.

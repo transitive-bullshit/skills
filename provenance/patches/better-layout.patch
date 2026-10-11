@@ -1,0 +1,12 @@
+diff --git a/SKILL.md b/SKILL.md
+index 5bff16d..95c89b8 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: better-layout
+-description: Helps with grouping, alignment, reading order, responsive structure and room for translated text, so a layout holds up when it is resized, translated or mirrored.
++description: "Implement or review grouping, alignment, reading order, and responsive layout. Use for focused layout work."
+ ---
+ 
+ # Layout

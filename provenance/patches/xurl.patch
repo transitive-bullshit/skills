@@ -1,0 +1,35 @@
+diff --git a/SKILL.md b/SKILL.md
+index 13aa9bd..cf4db91 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: xurl
+-description: "xurl CLI for authenticated X posts, replies, reads/search, DMs, media upload, followers, auth status, or raw v2 API calls."
++description: "Paid X API fallback through xurl after cheaper X reads fail, or for authorized account actions unsupported by bird."
+ metadata:
+   {
+     "openclaw":
+@@ -30,13 +30,17 @@ metadata:
+ 
+ # xurl
+ 
+-Use `xurl` for X API work. Shortcut commands return JSON; raw mode works for any v2 endpoint.
++Use this as the paid X API reference. For reads/search, follow [x-data](../x-data/SKILL.md), which owns source precedence, freshness, and the paid-fallback conditions.
+ 
+-## Auth
++For authorized posts/replies, prefer a supported `bird` command. Use `xurl` for an unavailable or failed operation, including account actions that the installed `bird` does not implement. Shortcut commands return JSON; raw mode works for any v2 endpoint.
+ 
+-- `~/.xurl` holds tokens; check auth with `xurl auth status` instead of reading it.
+-- Pass secrets to auth commands through the prompt, not inline, so they stay out of shell history.
+-- `--verbose` prints auth headers into tool output.
++## Secret safety
++
++- Never read, print, summarize, upload, or inspect `~/.xurl`.
++- Never ask user to paste tokens/secrets into chat.
++- Do not run auth commands with inline secrets.
++- Do not use `--verbose` in agent sessions; it can expose auth headers.
++- Check auth with `xurl auth status`.
+ 
+ ## Common shortcuts
+ 

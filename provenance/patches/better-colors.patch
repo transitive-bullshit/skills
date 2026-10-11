@@ -1,0 +1,21 @@
+diff --git a/SKILL.md b/SKILL.md
+index 24a5662..8279d42 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: better-colors
+-description: Helps you build and check a color system for your project. It generates palettes, names semantic tokens, converts between formats and measures contrast.
++description: "Build or review UI color palettes, tokens, themes, and contrast. Use for color-system work."
+ ---
+ 
+ # Colors
+@@ -81,7 +81,7 @@ The space is a look, not a correctness setting. Default to `in oklab`, and reach
+ 
+ **Severity.** `HIGH` makes content unreadable or assigns a misleading semantic color. `MEDIUM` is a noticeable theme, token or gamut failure. `LOW` is isolated polish.
+ 
+-Three symptoms are `HIGH` on sight whatever the surface, matching `better-interface`'s escalation triggers. They are body or control text whose rendered pair fails its required ratio, state or meaning carried by color alone and a semantic color used against its meaning.
++Three symptoms are `HIGH` on sight whatever the surface. They are body or control text whose rendered pair fails its required ratio, state or meaning carried by color alone and a semantic color used against its meaning.
+ 
+ **Verification.** Without a browser: token values, the gamut of every declared color, both theme blocks present and contrast computed from the declared token pair. With one: the background actually rendered behind the text, including opacity and any image beneath it, measured in both light and dark. Report every check you could not run as `Not verified`.
+ 

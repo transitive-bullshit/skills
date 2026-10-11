@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-11",
+  "beforeSkills": 60,
+  "afterSkills": 50,
+  "automatic": 37,
+  "explicitOnly": 13,
+  "added": [
+    "eval-skills",
+    "claude",
+    "codex",
+    "compare-screenshots"
+  ],
+  "replaced": {
+    "writing-for-agents": "write-skills"
+  },
+  "removed": [
+    "security-audit",
+    "tdd",
+    "break",
+    "handoff",
+    "triage",
+    "to-tickets",
+    "typesafe-ai",
+    "wizard",
+    "vercel-composition-patterns",
+    "web-design-guidelines",
+    "find-animation-opportunities",
+    "explain-interface",
+    "teach",
+    "postiz"
+  ],
+  "adoptedIntoSharedSystem": [
+    "good-css"
+  ],
+  "narrowed": [
+    "find-skills"
+  ],
+  "pendingDecision": [
+    "prototype",
+    "variant"
+  ],
+  "derivedSkillsCreated": 0,
+  "upstreamTracking": {
+    "pinnedSkills": 40,
+    "currentUpstreamHead": 39,
+    "lastAvailable": [
+      "resolving-merge-conflicts"
+    ],
+    "command": "python3 scripts/upstream.py check"
+  },
+  "installation": {
+    "profile": "current",
+    "agents": 50,
+    "claude": 50,
+    "backup": "20261011T071944Z-187b4c5d",
+    "doctor": "passed",
+    "secondApplyDryRun": "Already applied",
+    "portableSettingsChanged": false
+  },
+  "validation": {
+    "pnpm test": "passed",
+    "repositoryTests": 29,
+    "dotfilesTests": 14,
+    "compareScreenshotsTests": 33,
+    "git diff --check": "passed"
+  },
+  "history": [
+    "provenance/history/2026-10-11-before.json",
+    "provenance/history/2026-10-11-licenses-before.json",
+    "provenance/history/2026-10-11-retired.json"
+  ]
+}

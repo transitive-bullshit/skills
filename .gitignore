@@ -56,3 +56,7 @@ __pycache__/
 # Preserve the adopted skill's upstream distribution resource.
 !skills/phase/dist/
 !skills/phase/dist/phase-skill.zip
+
+# Keep complete pinned upstream resources, including distribution assets.
+!provenance/upstream/**/dist/
+!provenance/upstream/**/dist/**

@@ -16,6 +16,7 @@
     "fix:format": "oxfmt",
     "fix:lint": "oxlint --fix",
     "test:skills": "python3 scripts/skillset.py check",
+    "test:upstream": "python3 scripts/upstream.py check",
     "test:installer": "python3 -m unittest discover -s tests"
   },
   "devDependencies": {

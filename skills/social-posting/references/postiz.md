@@ -1,6 +1,6 @@
 # Postiz mechanics
 
-The `postiz` CLI is installed and authenticated globally (`postiz auth:status` checks). The official `postiz` skill documents every command. This file records the choices and gotchas specific to Travis's setup.
+The `postiz` CLI is installed and authenticated globally (`postiz auth:status` checks). Use `postiz --help` and command-specific `--help` for the current command reference. This file records the choices and gotchas specific to Travis's setup.
 
 ## Channels
 
@@ -30,7 +30,7 @@ Run `postiz integrations:settings <id>` before a platform's first post in a sess
 
    - `--no-shortLink` keeps real URLs. The CLI shortens links by default.
    - `-t schedule` queues the post. Travis doesn't review Postiz posts, so don't create drafts for approval.
-   - For threads, or media on individual thread posts, use `--json` with one `value` entry per post. The official `postiz` skill has examples.
+   - For threads, or media on individual thread posts, use `--json` with one `value` entry per post. Use `postiz posts:create --help` for the current JSON schema.
 
 3. **Verify:** run `postiz posts:list --startDate … --endDate …` and check each post's `state` (`QUEUE`), `publishDate` and `settings`. The list doesn't show media. To check an attachment, open the post in the Postiz UI (Calendar → list view). The video is the small tile under the text.
 

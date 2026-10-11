@@ -1,0 +1,12 @@
+diff --git a/SKILL.md b/SKILL.md
+index 55ad48e..dc38939 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: better-writing
+-description: Writes and reviews your interface copy, from labels and errors to empty states and confirmations, so it matches your product's voice and tells people what to do next.
++description: Focuses on improving product copy in your project.
+ ---
+ 
+ # Writing

@@ -4,4 +4,4 @@ description: A relentless interview to sharpen a plan or design.
 disable-model-invocation: true
 ---
 
-Call the Skill tool with "grilling".
+Read [grilling](../grilling/SKILL.md) and use its interview workflow.

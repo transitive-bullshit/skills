@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-11",
+  "skill": "testing-strategy",
+  "skillSha256": "84b7ff4dc948068ab0013f3b89a6d81eb77ef46711d7f6c9aaf3f1e44d526ccb",
+  "model": "gpt-6-luna",
+  "method": "Fresh-context skill-use smoke checks, not a scored benchmark",
+  "planningCases": [
+    {
+      "request": "Update a static footer year; required lint; no behavior change.",
+      "result": "Chose required lint without new tests or build."
+    },
+    {
+      "request": "Use TDD for free shipping strictly above $50.",
+      "result": "Selected focused red-green slices and exact boundary cases through the existing interface."
+    },
+    {
+      "request": "Repair flaky exact-count assertions for uniform random worker selection.",
+      "result": "Selected controlled conditions, justified distribution bounds, exact invariants, and a biased-selector check."
+    },
+    {
+      "request": "Add regression protection after an already-fixed handle normalization bug.",
+      "result": "Selected exact persisted canonical values and preservation of unrelated edits; the plan was ambiguous about executing original-bug falsification, so a separate fresh agent performed the task."
+    }
+  ],
+  "executionCase": {
+    "request": "Add regression coverage to an already-fixed SQLite-backed save_handles API: @ALICE and alice must persist as exactly alice; preserve unrelated dirty notes.",
+    "result": "Added an exact-value regression through the public API and real in-memory SQLite harness; ran focused and full tests plus required static checks; exercised the original committed implementation and observed the expected assertion failure; preserved unrelated edits.",
+    "limits": "One small Python fixture. Other cases assessed planned behavior only; this does not establish broad real-project reliability."
+  },
+  "validation": {
+    "skillValidator": "passed",
+    "pnpmTest": "passed; 50 catalog skills, 39 adopted source/patch replays, one derived lock, 35 Python tests",
+    "independentReview": "Codex read-only static review of derived-source integrity code, tests, and lock: no actionable findings; review process completed successfully."
+  }
+}

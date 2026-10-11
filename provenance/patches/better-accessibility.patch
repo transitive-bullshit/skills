@@ -1,0 +1,21 @@
+diff --git a/SKILL.md b/SKILL.md
+index 799e521..92ed7b4 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: better-accessibility
+-description: Reviews and fixes keyboard and focus behavior, ARIA, accessible names, forms, screen-reader announcements, motion and zoom in your project against WCAG 2.2.
++description: "Implement or review accessible UI semantics, keyboard behavior, focus, and motion preferences. Use for accessibility work."
+ ---
+ 
+ # Accessibility
+@@ -126,7 +126,7 @@ Text must survive 200% resize (1.4.4), and the page must reflow at 320px width w
+ 
+ ## Reporting
+ 
+-**Severity.** `HIGH` prevents a task, hides content from assistive technology or creates a systemic failure. `MEDIUM` makes an interaction meaningfully harder. `LOW` is isolated polish. This domain's share of `better-interface`'s escalation triggers is `HIGH` on sight. That is a missing accessible name, a missing focus indicator and a pointer path with no keyboard path. It is also motion ignoring reduced motion, loss at 320px or 200% and meaning carried by color alone.
++**Severity.** `HIGH` prevents a task, hides content from assistive technology or creates a systemic failure. `MEDIUM` makes an interaction meaningfully harder. `LOW` is isolated polish. The following accessibility failures are `HIGH`: a missing accessible name, a missing focus indicator and a pointer path with no keyboard path. It is also motion ignoring reduced motion, loss at 320px or 200% and meaning carried by color alone.
+ 
+ **Verification.** Without a browser: accessible names on every interactive element, keyboard handlers on non-native controls, focus styles, `prefers-reduced-motion` guards and form labels bound to their inputs. With one: tab the flow in order, read computed names and roles from the accessibility tree, confirm a visible focus indicator at every stop and run an automated audit. Report every check you could not run as `Not verified`.
+ 

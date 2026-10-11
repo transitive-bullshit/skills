@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "method": "reviewed-synthesis",
+  "recipeVersion": 1,
+  "verifiedAt": "2026-10-11T08:26:20.156437+00:00",
+  "sourceNaming": "Every source basename SKILL.md is stored as SKILL.upstream.md; all file bytes and Git modes are unchanged. Repository LICENSE is included separately from the skill subtree.",
+  "sources": [
+    {
+      "id": "mattpocock-tdd",
+      "repository": "mattpocock/skills",
+      "commit": "49dd158d1076134a641b33efb035946536778336",
+      "sourcePath": "skills/engineering/tdd",
+      "sourceTree": "667dbdd00c09d0e2189e082986e6a4d61a67c2a6",
+      "root": "sources/mattpocock-tdd/49dd158d1076134a641b33efb035946536778336",
+      "url": "https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills/engineering/tdd",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSE",
+          "upstreamPath": "LICENSE",
+          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "gitBlob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "gitMode": "100644"
+        },
+        {
+          "path": "SKILL.upstream.md",
+          "upstreamPath": "skills/engineering/tdd/SKILL.md",
+          "sha256": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+          "gitBlob": "01eadaa34e7c9a63a67d6dc3cce1cc81b0e49985",
+          "gitMode": "100644"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "upstreamPath": "skills/engineering/tdd/agents/openai.yaml",
+          "sha256": "ea6f01cf1b8c06a4b0f5b649d74b1b8ce8685e72af1b38d70d877693e092af0b",
+          "gitBlob": "651b838a7663e027b1b8884491e867f26bb9a021",
+          "gitMode": "100644"
+        },
+        {
+          "path": "mocking.md",
+          "upstreamPath": "skills/engineering/tdd/mocking.md",
+          "sha256": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef",
+          "gitBlob": "71cbfee674d93244ce81d1830b930ca9a69200bd",
+          "gitMode": "100644"
+        },
+        {
+          "path": "tests.md",
+          "upstreamPath": "skills/engineering/tdd/tests.md",
+          "sha256": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a",
+          "gitBlob": "7ab86479f925a1f9e8ba680af33cb3b12e015381",
+          "gitMode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "dzhng-write-tests",
+      "repository": "dzhng/skills",
+      "commit": "d51322866ffa298838346960414d18a221b52588",
+      "sourcePath": "skills/engineering/write-tests",
+      "sourceTree": "4eebcaa30206c328ff846dc1dba7a1d004c9fece",
+      "root": "sources/dzhng-write-tests/d51322866ffa298838346960414d18a221b52588",
+      "url": "https://github.com/dzhng/skills/tree/d51322866ffa298838346960414d18a221b52588/skills/engineering/write-tests",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "LICENSE",
+          "upstreamPath": "LICENSE",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
+          "gitBlob": "c92e086f821a15b25a063f684faf3e75b3f67f56",
+          "gitMode": "100644"
+        },
+        {
+          "path": "SKILL.upstream.md",
+          "upstreamPath": "skills/engineering/write-tests/SKILL.md",
+          "sha256": "40fae6ef816fb8285347f229a6d8d2e23e558f55a91f752bda2e991aebca07fe",
+          "gitBlob": "b295d2abd923bdf966572dfabf8e892373a6f0b6",
+          "gitMode": "100644"
+        }
+      ]
+    }
+  ],
+  "personalInputs": [
+    {
+      "path": "sources/personal-guidance.md",
+      "sha256": "e192d3a68f37587f610a0297b48985da9036910be95948d7f424d8545e86f326"
+    },
+    {
+      "path": "sources/personal-decisions.json",
+      "sha256": "23f870d98d6d8c757e21866dac8fdb4e7c97646aa5c9d4a6f7b12280940c7171"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "SKILL.md",
+      "sha256": "84b7ff4dc948068ab0013f3b89a6d81eb77ef46711d7f6c9aaf3f1e44d526ccb"
+    },
+    {
+      "path": "references/derivation.md",
+      "sha256": "84a7c90cdbdae549bcb4a35088ddf391a50092ba961cead9386a0a6e6bcd77f9"
+    }
+  ]
+}

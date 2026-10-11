@@ -6,6 +6,7 @@ export default {
   ignorePatterns: [
     ...(base.ignorePatterns ?? []),
     'provenance/**',
+    'skills/*/sources/**',
     ...Object.entries(manifest.skills)
       .filter(([, skill]) => skill.origin.kind !== 'personal')
       .map(([name]) => `skills/${name}/**`)

@@ -1,0 +1,15 @@
+# Audit existing tests
+
+Audit independent proof: what defect could escape if this test disappeared? Apply the main skill's retention policy; fewer tests is not the objective, and complementary protection can justify overlap.
+
+## Workflow
+
+1. **Bound the audit.** Choose the production responsibility and locate its tests, fixtures, shared suites, and discovery or CI selection rules. Note the starting revision, local changes, and relevant baseline results; distinguish failures from checks that could not run. For a focused audit, inspect only the relevant candidates. For a requested subsystem sweep, inventory every owned case, including parameter rows and coverage in shared or non-routine suites.
+2. **Trace the actual claim.** Read candidate assertions beside the production path they exercise. Inspect callers, dependencies, and history when needed to understand the contract or reason for a test. Check which defect each assertion detects and whether each parameter row reaches its intended condition. Investigate circular expectations, behavior supplied by the harness, failures caused by a different guard, and declarations that never exercise the promised behavior. These are prompts for investigation, not automatic deletion rules; static checks can protect real contracts.
+3. **Record a disposition.** For each candidate, record its location, protected contract or detectable failure, decision and supporting evidence, surviving owner or unique cases to transfer, and validation gaps. Keep records concise; parameter rows may share a record only when the evidence and decision apply to all of them. Share material findings as they emerge. An audit-only request ends with these findings and proposed changes, without edits.
+   - **Keep:** identify useful independent or complementary protection.
+   - **Repair:** preserve the contract while fixing a weak assertion or inappropriate boundary.
+   - **Combine:** name the receiving suite and the cases it must absorb.
+   - **Remove:** show adequate surviving protection or evidence that no intended contract remains. Missing evidence stays an open question.
+4. **Preserve proof when changing tests.** If implementation is in scope, work on one coherent boundary. Transfer valuable cases before removing their old home, and falsify repaired or transferred regression checks using the main skill's test-writing rules. Compare removed assertions with survivors; a passing smaller suite alone proves nothing about lost protection. Check production consumers before removing supporting hooks or exports. Update discovery and CI registration when moving suites, and preserve unrelated work. For broad removals, use an independent review of the coverage comparison to find lost contracts.
+5. **Close the audit.** Apply the main skill's verification and stopping rules to any changes. Report the contract map, decisions, useful coverage retained, verification actually run, and unresolved gaps or baseline failures. Claim a complete subsystem audit only when the bounded inventory has no unexamined cases; otherwise name the remaining scope. Size reductions describe the outcome, never a deletion target.

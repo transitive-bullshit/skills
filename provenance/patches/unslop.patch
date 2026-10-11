@@ -1,0 +1,32 @@
+diff --git a/SKILL.md b/SKILL.md
+index c37b036..9df1683 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: unslop
+-description: Cut AI tells from any writing. Must always apply.
++description: "Edit writing to remove formulaic language and filler while preserving meaning. Use when explicitly invoked."
+ disable-model-invocation: true
+ ---
+ 
+@@ -8,6 +8,8 @@ disable-model-invocation: true
+ 
+ Edit text to remove AI patterns. Scan for the patterns below, then rewrite. Preserve meaning and match the intended tone.
+ 
++Apply this guidance only to user-facing output, not internal reasoning.
++
+ ## Patterns to detect and fix
+ 
+ Rule numbers are stable ids that other skills cite. A removed rule leaves a gap.
+diff --git b/agents/openai.yaml b/agents/openai.yaml
+new file mode 100644
+index 0000000..7631fb5
+--- /dev/null
++++ b/agents/openai.yaml
+@@ -0,0 +1,5 @@
++interface:
++  display_name: "Unslop"
++  short_description: "Cut AI tells from writing."
++policy:
++  allow_implicit_invocation: false

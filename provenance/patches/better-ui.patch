@@ -1,0 +1,321 @@
+diff --git a/SKILL.md b/SKILL.md
+index c38a323..2be7135 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,133 +1,33 @@
+ ---
+ name: better-ui
+-description: Polishes the surfaces, icons and motion in your project with exact values for border radius, optical alignment, shadows, icon states and animation.
++description: "Implement or review focused UI polish using the project’s design system. Use for alignment, surfaces, icons, or interaction detail."
+ ---
+ 
+ # UI polish
+ 
+-This skill holds the visual polish for surfaces, icons and motion, with the exact value each detail takes. It applies once the underlying interaction is sound, and a polish finding never outranks a broken interaction.
++Apply the user's requested changes in the project's existing component and styling system. Preserve established tokens, density, icon language, and intentional design choices. Treat the examples in this skill as defaults, not mandatory exact values.
+ 
+-## Exact values, optional polish
++## Focused principles
+ 
+-The values below are exact, not ranges to approximate. `cubic-bezier(0.2, 0, 0, 1)` is not `cubic-bezier(0.4, 0, 0.2, 1)`, and `0.96` is not `0.95`. The optical nudges and the concentric padding cutoff are the exceptions. They are starting points, judged by eye.
++- Use optical alignment where geometric centering visibly fails. Coordinate nested radii with padding and the existing shape system.
++- Use borders for structure or state and shadows for elevation when that matches the project. Image outlines are optional, theme-aware treatments rather than a universal requirement.
++- Match icon weight and state treatment to the existing set. Reuse assets and `currentColor` where appropriate; distinct icons can express genuinely different states.
++- Give actions clear, timely feedback without adding distracting motion. Preserve state cues when animation is disabled.
+ 
+-Keep the project's component library, tokens and density, and match its motion language wherever no rule here gives a value. A deliberate and consistent project convention, such as a style with no shadows, is a preference and not a finding. The same detail done two ways within the project is a finding.
++For motion, use [motion.md](motion.md) as the shared source for authoring and review. Read a recipe only for the interaction being changed; it does not override project conventions.
+ 
+-Text wrapping, font rendering, tabular numbers and text spacing belong to `better-typography`. Hit areas, keyboard support, ARIA and the reduced-motion requirement belong to `better-accessibility`. Grouping, section spacing, breakpoints and spatial RTL belong to `better-layout`, except directional icon mirroring. Color tokens and contrast measurement belong to `better-colors`.
++## Domain ownership
+ 
+-## Outer radius equals inner radius plus padding
++Consult only the owners relevant to the task:
+ 
+-Where nested surfaces share a visible, even inset, the outer radius is the inner radius plus the padding plus any border width. Past `24px` of padding, or where the padding is deliberately asymmetric, treat the layers as separate surfaces and keep each one's radius token. Recipes are in [surfaces.md](surfaces.md).
++- [Typography](../better-typography/SKILL.md): wrapping, type scale, font rendering, numeric alignment.
++- [Accessibility](../better-accessibility/SKILL.md): names, keyboard/focus, hit areas, semantic behavior.
++- [Layout](../better-layout/SKILL.md): grouping, spatial relationships, responsive layout.
++- [Colors](../better-colors/SKILL.md): tokens and contrast.
++- [Writing](../better-writing/SKILL.md): product copy.
+ 
+-## Align optically where geometry looks off
++Do not load every owner for a focused polish change.
+ 
+-Where geometric centering looks off, nudge by eye. Give a button `2px` less padding on its icon side, shift a play triangle toward its point and fix asymmetric glyphs in the SVG itself. Recipes are in [surfaces.md](surfaces.md#optical-alignment).
++## Complete the requested work
+ 
+-## Shadows for elevation, borders for structure
+-
+-Where a border exists only to create depth, replace it with layered transparent `box-shadow` values. Keep borders on dividers, separators, table cells and selected states. Keep them on form inputs too, whose boundary needs 3:1 non-text contrast under `better-accessibility`. Focus rings belong to `better-accessibility` as well.
+-
+-Forced-colors mode removes every `box-shadow`. Keep `border: 1px solid transparent` under a shadow ring so that mode still draws an edge. Recipes are in [surfaces.md](surfaces.md#shadow-recipes).
+-
+-## Outline images in pure black or white
+-
+-Give content images a `1px` outline inset by `1px`. Use `oklch(0 0 0 / 0.1)` in light mode and `oklch(1 0 0 / 0.1)` in dark. Never use a palette near-black, a tinted neutral or the accent color, because the tint shows as a colored fringe on the image edge. Skip transparent artwork such as logos and illustrations. The recipe is in [surfaces.md](surfaces.md#image-outlines).
+-
+-## Transitions, not keyframes, for interactive state
+-
+-Drive interactive state changes with CSS transitions or a motion library's springs, which retarget when the user reverses mid-flight. Keyframes run a fixed timeline and cannot reverse, so reserve them for sequences that run once. See [animations.md](animations.md).
+-
+-## Press scales to 0.96
+-
+-A pressed button scales to `0.96` over `150ms` with `ease-out`, and a disabled one never scales. Give the button an opt-out where the motion would distract, through the component's existing variant API or a `static` prop. See [recipes for CSS, Tailwind and Motion](animations.md#scale-on-press).
+-
+-## High-frequency interactions get no animation
+-
+-Keystrokes, row hovers and tab switches get instant feedback, or a transition of `150ms` or less on `opacity` or `background-color`. Reserve expressive motion for infrequent moments such as a view's first load, a success state or an empty state.
+-
+-Every animated state change also leaves a static cue in the form of a color, icon or label. Motion is never the only feedback channel.
+-
+-## Gate motion behind the reduced-motion preference
+-
+-`better-accessibility` owns the requirement, and no recipe here ships without it. Run movement, scale and blur only under `prefers-reduced-motion: no-preference`. Under reduced motion, replace them with an opacity cross-fade rather than removing the element instantly. Recipes for CSS, Tailwind and Motion are in [animations.md](animations.md#reduced-motion-fallback).
+-
+-## Stagger infrequent entrances by 100ms
+-
+-Where sequence communicates hierarchy in a staged entrance, split the content into semantic chunks such as title, description and actions. Stagger them `100ms` apart, each entering with opacity, `4px` of blur and `12px` of `translateY` over `300ms` with `ease-out`. Never stagger routine interactions. See [enter-exit.md](enter-exit.md).
+-
+-## Exits are shorter and smaller than enters
+-
+-Exit with opacity, `4px` of blur and a fixed `-12px` `translateY` over `150ms` with `ease-out`, never the full container height. Slide fully out only where the destination carries meaning, such as a drawer closing. Remove the element instantly where motion adds no information. See [enter-exit.md](enter-exit.md#exit-animations).
+-
+-## Skip state animations on first render
+-
+-Set `initial={false}` on an `AnimatePresence` that wraps a state swap, so the default state does not animate in on mount. Never set it around an intentional entrance such as a staggered hero. See [animations.md](animations.md#skip-animation-on-page-load).
+-
+-## Cross-fade contextual icons with exact values
+-
+-Where an icon swaps on an infrequent state change, such as play to pause or copy to copied, cross-fade it. Scale runs `0.25` to `1`, opacity `0` to `1` and blur `4px` to `0px`. With a motion library, use `{ type: "spring", duration: 0.3, bounce: 0 }`, and bounce is always `0`. Without one, keep both icons in the DOM and cross-fade over `300ms` with `cubic-bezier(0.2, 0, 0, 1)`.
+-
+-A tab's icon swap and the actions a row reveals on hover fall under **High-frequency interactions get no animation**. Both recipes are in [icon-transitions.md](icon-transitions.md).
+-
+-## Suppress transitions on theme switch
+-
+-Disable every transition for the theme swap, force a style flush and restore transitions after the next frame. Otherwise every color transition fires at once and the switch smears. See the [recipe](animations.md#suppress-transitions-on-theme-switch).
+-
+-## Transition only what changes
+-
+-Name the exact properties, as in `transition-property: scale, opacity`, and never `all`. See [performance.md](performance.md).
+-
+-## Name the animated property in will-change
+-
+-Add `will-change` only after you see first-frame stutter, and name the property you animate: `scale` for `scale`, `transform` for `transform`. Limit it to transform properties, `opacity` and `filter`, and never use `all`. See [performance.md](performance.md#use-will-change-sparingly).
+-
+-## Hover effects only on hover-capable pointers
+-
+-Put hover-only styling behind `@media (hover: hover)`. On touch, `:hover` latches after a tap and reads as a stuck selected state. Tailwind 4's `hover:` variant already compiles under that query, and Tailwind 3's does not. Where a control draws its own pressed state, set `-webkit-tap-highlight-color: transparent` so the default gray flash does not double it.
+-
+-## Contain scroll inside overlays
+-
+-Give scrollable dialogs, drawers, menus and side panels `overscroll-behavior: contain`, so scrolling past their end never scrolls the page behind.
+-
+-## Match icon stroke to text weight
+-
+-An icon's rendered stroke tracks the weight of the text beside it, from `1.5px` at 400 to `2.5px` at 700. Use one icon library per surface. The table, sizing and grid rules are in [icons.md](icons.md).
+-
+-## One SVG, recolored per state
+-
+-Icons use `currentColor` and take hover, selected and disabled states from CSS color and opacity, never from separate assets. Outline is the default variant, and fill marks the active state. Under `dir="rtl"`, mirror only icons whose meaning follows reading direction. See [icons.md](icons.md#icons-in-rtl).
+-
+-## Before you finish
+-
+-| Detection | Fix |
+-| --- | --- |
+-| Padded parent and child with the same `rounded-*` or `border-radius` | Add the padding to the outer radius |
+-| `box-shadow: 0 0 0 1px` ring with no `border` beside it | `border: 1px solid transparent` |
+-| `outline-slate-*`, `outline-zinc-*` or a hex outline color on `img` | `outline-black/10` and `dark:outline-white/10` |
+-| `transition-all` or `transition: all` | Name the changing properties |
+-| `animation:` set on `:hover`, `.open` or another toggled class | A transition on the same properties |
+-| `active:scale-95`, `scale-90` or `whileTap` below `0.96` | `0.96` |
+-| `:active` scale with no `:disabled` exclusion | `enabled:active:` or `:not(:disabled):active` |
+-| `bounce:` set to anything but `0` | `bounce: 0` |
+-| `opacity: 0` in a base rule that only an `animation` reveals | Hidden state in the `from` keyframe, `animation-fill-mode: both` |
+-| `translate`, `scale`, `filter` or `motion.*` animation with no `prefers-reduced-motion`, `motion-safe:` or `MotionConfig` guard | Gate it and cross-fade opacity under reduced motion |
+-| Color transitions plus a theme toggle with no `disableTransitionOnChange` or override | The theme-switch suppression recipe |
+-| `will-change: all`, or `will-change` on an element that never animates | Name the animated property or delete it |
+-| `fill="#..."` or `stroke="#..."` inside an icon SVG | `currentColor` |
+-| Plain-CSS `:hover` or Tailwind 3 `hover:` outside `@media (hover: hover)` | Wrap it in the query |
+-| `overflow: auto` or `overflow-y-auto` on a dialog, drawer or menu with no `overscroll-behavior` | `overscroll-behavior: contain` |
+-
+-## Reporting
+-
+-**Severity.** `HIGH` breaks an interaction, as a keyframe toggle that cannot reverse or a hover state stuck on touch does. Two of `better-interface`'s escalation triggers land here and are `HIGH` on sight. One is motion that ignores `prefers-reduced-motion`, and the other is a state change carried by motion alone. `MEDIUM` is a visible inconsistency in surfaces, icons or motion. `LOW` is isolated polish.
+-
+-**Verification.** Without a browser, read every state the component defines from the code, such as hover, pressed, selected, loading and empty, with its durations and easings. With one, walk each state and replay motion at 10% speed in the browser's Animations panel. Report every check you could not run as `Not verified`.
+-
+-**Format.** Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:
+-
+-| Severity | Location | Before | After | Why |
+-| --- | --- | --- | --- | --- |
+-
+-`Location` is `path/to/file:line`. `Why` names the principle and the user impact.
+-
+-End with `Block` when any `HIGH` remains, `Approve` otherwise, leaving the rest in the table as work to do. Never `Approve` coverage you did not inspect. With nothing to report, state "No actionable UI-polish findings" and report verification.
++For implementation, edit the relevant surface, inspect affected states when available, run appropriate checks, and fix failures caused by the change. For review, remain read-only and report supported problems by impact with source evidence and the smallest correction. Optional style preferences are suggestions, not blockers. State actual coverage and unverified checks; no findings is a valid result.
+diff --git a/animations.md b/animations.md
+index e24309a..e07cf64 100644
+--- a/animations.md
++++ b/animations.md
+@@ -7,7 +7,7 @@ Recipes for interruptible transitions, press feedback, first-render behavior, th
+ | | CSS transitions | CSS keyframe animations |
+ | --- | --- | --- |
+ | **Behavior** | Interpolate toward the latest state | Run on a fixed timeline |
+-| **Interrupted** | Retarget mid-flight and reverse | Snap or restart from the beginning |
++| **Interrupted** | Retarget mid-flight and reverse | Depends on timeline/cancellation handling |
+ | **Use for** | Hover, toggle, open and close | Sequences that run once, such as enters and loading |
+ 
+ ```css
+@@ -28,6 +28,8 @@ Recipes for interruptible transitions, press feedback, first-render behavior, th
+ 
+ ## Scale on press
+ 
++A scale around `0.96` is a starting point when the project has no press treatment. Preserve existing motion tokens and omit scale when it distracts. Reuse existing component motion controls; add a prop only when consumers need that distinction.
++
+ ```css
+ .button {
+   transition-property: scale;
+diff --git a/icon-transitions.md b/icon-transitions.md
+index a8ae54e..e6944de 100644
+--- a/icon-transitions.md
++++ b/icon-transitions.md
+@@ -8,6 +8,8 @@ Check the project's `package.json`. Import from `"motion/react"` when `motion` i
+ 
+ ## Motion
+ 
++The values below illustrate one treatment. Reuse the project’s spring or easing and adjust or omit scale and blur for the actual interaction.
++
+ ```tsx
+ import { AnimatePresence, motion } from "motion/react";
+ 
+diff --git b/motion.md b/motion.md
+new file mode 100644
+index 0000000..19a422c
+--- /dev/null
++++ b/motion.md
+@@ -0,0 +1,31 @@
++# Shared motion guidance
++
++Use this reference for motion authoring, review, and planning. User requirements and the established project design system take precedence over the illustrative defaults here. Accessibility, observable correctness, and measured performance remain evidence requirements; a different aesthetic value is not automatically a defect.
++
++## Purpose and frequency
++
++Motion should clarify feedback, state, continuity, or an intentional expressive moment. Frequent actions deserve immediate usable feedback; a subtle transition can still be appropriate if it does not delay input or comprehension. Keyboard initiation alone does not make motion wrong. Static feedback is a valid choice.
++
++## Timing and continuity
++
++Reuse existing easing and duration tokens. When none exist, start with brief responsive transitions and tune them against the actual interaction. Ease-out often suits entrances, ease-in-out suits movement between positions, and linear suits constant progress. These are defaults, not a ban on other curves.
++
++An opacity-only transition can be sufficient. Add scale or translation when it conveys useful continuity; preserve a logical origin for trigger-attached surfaces. Stagger only when sequence helps comprehension and never delay interaction for decoration.
++
++Rapid or reversible actions should retarget smoothly from their current state. Choose transitions, springs, or cancellable timelines according to the actual interruption behavior. Test rapid toggles, reversals, and gesture release; do not infer behavior from the animation mechanism alone.
++
++## Accessibility
++
++Honor reduced-motion preferences with gentler motion or no animation as appropriate. Preserve state and feedback through static text, icons, color with another cue, or focus. Essential information must remain available without movement. Gate hover-only effects to suitable pointer devices; keep touch and keyboard feedback usable.
++
++## Performance
++
++Prefer transform and opacity for visual motion when they preserve geometry, hit testing, and neighboring layout. Layout transitions can be appropriate when layout change is the behavior; measure their cost. Specify intended transition properties. Investigate unintended transitions, layout thrashing, persistent offscreen loops, and measured frame drops rather than treating every syntax pattern as proof of jank.
++
++Use the installed library's current API and version. A Motion shorthand, CSS keyframe, blur, or particular curve is not independently proof of a performance defect. Add compositing hints only to address observed need and avoid unnecessary persistent layers.
++
++## Verification and reporting
++
++Inspect the changed interaction at normal speed and, when helpful, slowed playback. Check interruption, relevant input methods, and reduced motion. For a review, report the source location, evidence, consequence, and smallest correction; separate defects from optional taste changes and state verification limits.
++
++Read [animations.md](animations.md) for press/theme recipes, [enter-exit.md](enter-exit.md) for staged transitions, [icon-transitions.md](icon-transitions.md) for icon examples, and [performance.md](performance.md) for implementation checks only when needed. Recipe values are starting points and yield to the project's system.
+diff --git a/performance.md b/performance.md
+index 0a4a1e1..fedcd9a 100644
+--- a/performance.md
++++ b/performance.md
+@@ -1,63 +1,9 @@
+-# Performance
++# Motion performance checks
+ 
+-Recipes for transition specificity and compositing hints.
++Use [shared motion guidance](motion.md) for the decision rules. Prefer explicit transition properties so unrelated style changes do not animate unexpectedly. Reuse the project's Tailwind/CSS conventions.
+ 
+-## Transition only what changes
++Prefer transform and opacity for visual movement when they preserve layout and hit testing. If size or layout change is part of the requested behavior, keep the intended behavior and measure the cost rather than replacing it blindly.
+ 
+-`transition: all` animates properties nobody meant to animate, such as colors on a theme flip. On layout properties such as `width` and `padding` it re-runs layout on every frame. Tailwind's bare `transition` is a curated list rather than `all`, and still covers more than most elements change.
++Investigate repeated layout reads/writes, expensive effects, unnecessary continuous work, and unintended transitions with runtime evidence. Compositing depends on the browser, property, content, and implementation; syntax alone does not establish smoothness or jank.
+ 
+-```css
+-/* Good: only what changes */
+-.button {
+-  transition-property: scale, background-color;
+-  transition-duration: 150ms;
+-  transition-timing-function: ease-out;
+-}
+-
+-/* Bad: everything */
+-.button {
+-  transition: all 150ms ease-out;
+-}
+-```
+-
+-```tsx
+-// Good: explicit properties
+-<button className="transition-[scale,background-color] duration-150 ease-out">
+-
+-// Bad: transition all
+-<button className="transition-all duration-150 ease-out">
+-```
+-
+-In Tailwind 4, `transition-transform` covers `transform, translate, scale, rotate`, and in Tailwind 3 only `transform`. Use it when animating transforms alone. Mixing transform and other properties takes the bracket syntax, as in `transition-[scale,opacity,filter]`.
+-
+-## Use will-change sparingly
+-
+-`will-change` promotes an element to its own compositing layer ahead of time. Without it the browser promotes when the animation starts, and that one-time promotion can stutter on the first frame. Each extra layer costs memory, so never add it preemptively.
+-
+-```css
+-/* Good: names the property that animates */
+-.animated-card {
+-  will-change: scale, opacity;
+-}
+-
+-/* Bad: never all */
+-.animated-card {
+-  will-change: all;
+-}
+-
+-/* Bad: these never composite */
+-.animated-card {
+-  will-change: background-color, padding;
+-}
+-```
+-
+-| Property | Worth `will-change` |
+-| --- | --- |
+-| `transform`, `translate`, `scale`, `rotate` | Yes |
+-| `opacity` | Yes |
+-| `filter` | Yes |
+-| `clip-path` | Rarely, since compositing it is not reliable across browsers |
+-| `top`, `left`, `width`, `height` | No |
+-| `background`, `border`, `color` | No |
+-
+-`will-change` on a transform property or `filter` makes the element the containing block for its `position: fixed` descendants, so a fixed modal or tooltip inside it stops tracking the viewport. Any of these values also creates a stacking context, which can reorder `z-index` against siblings.
++Add a specific `will-change` hint only when it improves an observed problem. Avoid broad or persistent hints across many elements and release temporary ones when the interaction is over. Verify the changed interaction on the relevant browser/device and report measurement limits.
+diff --git a/surfaces.md b/surfaces.md
+index 8dcd37a..6557cc4 100644
+--- a/surfaces.md
++++ b/surfaces.md
+@@ -140,6 +140,8 @@ The transparent border keeps the box the same size as the border it replaces.
+ 
+ ## Image outlines
+ 
++Use an outline when it usefully separates the image from its background. Reuse a suitable project border token; neutral black or white at low opacity are fallbacks. Preserve intentional themed outlines and omit outlines that add no useful separation.
++
+ ```css
+ :root {
+   --image-outline: oklch(0 0 0 / 0.1);
+@@ -161,6 +163,4 @@ The transparent border keeps the box the same size as the border it replaces.
+ />
+ ```
+ 
+-Never `outline-slate-*`, `outline-zinc-*`, `outline-neutral-*` or a palette near-black such as `#111827`.
+-
+ Use `outline` rather than `border` because it never changes the image's size. At `outline-offset: -1px` it sits just inside the edge and follows the corner radius.

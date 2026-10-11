@@ -1,0 +1,21 @@
+diff --git a/SKILL.md b/SKILL.md
+index f0ccd04..b9ebd46 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,7 +1,6 @@
+ ---
+ name: show-me
+-description: Help the user understand the current topic visually with concise diagrams, code-shape sketches, and focused HTML artifacts.
+-disable-model-invocation: true
++description: "Explain a topic visually with a concise diagram or focused HTML artifact. Use when a visual materially improves understanding."
+ ---
+ 
+ Help the user understand the current topic of conversation visually. Skip the preamble and keep prose brief. Pick the smallest view that makes the key point clear.
+diff --git a/agents/openai.yaml b/agents/openai.yaml
+index 5b1f887..fcf9655 100644
+--- a/agents/openai.yaml
++++ b/agents/openai.yaml
+@@ -1,2 +1,2 @@
+ policy:
+-  allow_implicit_invocation: false
++  allow_implicit_invocation: true

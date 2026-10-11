@@ -1,0 +1,16 @@
+diff --git a/SKILL.md b/SKILL.md
+index fecee97..099202b 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,9 +1,9 @@
+ ---
+ name: research
+-description: Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.
++description: "Investigate a question using primary sources and save cited findings. Use for research or documentation-gathering requests."
+ ---
+ 
+-Spin up a **background agent** to do the research, so you keep working while it reads.
++Delegate research when it can run independently alongside useful work and the host supports it. Otherwise perform it directly; a simple lookup does not require a subagent.
+ 
+ Its job:
+ 

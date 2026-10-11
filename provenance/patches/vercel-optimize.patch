@@ -1,0 +1,12 @@
+diff --git a/SKILL.md b/SKILL.md
+index c8a6d6d..9c03194 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: vercel-optimize
+-description: "Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in verified files and version-aware Vercel/framework docs. Trigger for Vercel bill reduction, slow or expensive routes, caching opportunities, Function Invocations, Build Minutes, Fast Data Transfer, Core Web Vitals, Bot Management, Fluid compute, or cost breakdown requests."
++description: "Audit deployed Vercel cost and performance using project metrics. Use for expensive or slow routes, usage analysis, and caching opportunities."
+ metadata:
+   version: "1.2.0"
+ ---

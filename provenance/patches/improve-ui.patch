@@ -1,0 +1,133 @@
+diff --git a/SKILL.md b/SKILL.md
+index c3ed42a..4099c35 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,116 +1,26 @@
+ ---
+ name: improve-ui
+-description: Audit an existing product surface against its own design evidence, identify verified UI problems, and write self-contained implementation plans for another agent. Strictly read-only on product source. Use when asked to review, refine, improve, or clean up an interface without replacing its identity; investigate design-system drift; or prepare a design handoff.
++description: "Audit an interface for design inconsistencies and prepare implementation plans. Use for explicit UI audits, design-system drift reviews, or planning requests."
+ ---
+ 
+-# Improve UI
++# UI design audit
+ 
+-Audit one coherent product surface against the system that actually governs it. Preserve the product's identity, reuse existing owners, and prefer no finding to an unsupported one. Write plans only for changes the user selects; another agent executes them.
++Use this workflow for an explicit design audit or implementation-plan request. A direct request to fix, refine, or improve an interface authorizes implementation; perform that work using the relevant design references instead of stopping at a plan. When an audit is followed by a request to apply findings, continue with the authorized scope.
+ 
+-## Boundaries
++## Audit
+ 
+-- Never modify product source. Create or edit files only under `design-plans/`.
+-- Do not install dependencies, run formatters, commit, push, or otherwise mutate the working tree.
+-- Do not update design documentation. Record accepted documentation changes in the plan for its executor.
+-- Use rendered evidence only when the user provides it or explicitly requests visual inspection.
+-- Make every plan self-contained; its executor has no context from the audit or conversation.
++Select the surface named by the user, or one coherent primary flow when the request is broad. Trace its routes, components, variants, tokens, and styles. Consult current design documentation governing that surface; drafts and unrelated applications do not establish a contract.
+ 
+-## 1. Select the surface
++Inspect the rendered interface when visual or interaction evidence is needed and local inspection is available. Source can establish a token or copy inconsistency; it cannot by itself establish perceived hierarchy, clipping, or animation feel. Mark unavailable checks as unverified.
+ 
+-Honor the user's scope. If the request is broad, select one deployable application and one coherent surface family representing a primary product task. State the selection; do not synthesize the whole repository into one product.
++Report problems supported by a binding project decision, an internal contradiction, or observed harm to the requested user flow. Preserve deliberate design choices. Cite the responsible source and explain the consequence and smallest supported correction. Consolidate findings with the same cause, rank by user impact, and separate defects from optional design suggestions. A review with no supported findings is valid.
+ 
+-Start from the surface's routes and layouts. Trace the rendered path through compositions, shared components, variants, resolved tokens, and styles. Do not begin with a repository-wide search for inconsistencies.
++Keep an audit read-only unless implementation was requested. Run only relevant, safe checks. Broaden into accessibility, performance, or functional diagnosis when the request calls for it; disclose significant adjacent blockers without claiming a comprehensive audit of those domains.
+ 
+-A connection exists only when it is proven through rendering, imports, props, resolved configuration, CSS inheritance, or a generated artifact loaded by the surface. Shared names, similar tokens, repository proximity, and conceptual relationships do not establish a connection. Exclude other applications, previews, configurators, generated registries, legacy systems, and enterprise variants unless they participate in the traced path.
++## Plans and implementation
+ 
+-## 2. Reconstruct the local system
++If plans were requested, produce them for the requested scope without an extra selection gate. Use [the plan template](references/plan-template.md), reusing existing tokens and component owners. Ask only when unresolved product intent changes the correction or the user explicitly wants to choose among alternatives.
+ 
+-Check for `DESIGN.md`, repository guidance, and surface-local design documentation. Use a source only after proving it is current and governs the selected surface; drafts, proposals, migrations, and task lists describe future intent unless explicitly accepted and current. Absence of design documentation is not a finding.
++If implementation was requested, apply the supported changes and verify the affected surface. Do not turn an approved fix into another planning round.
+ 
+-Inspect only the tokens, variables, themes, primitives, variants, and compositions relevant to the traced path. Resolve aliases and variants to their definitions. Classify an implementation as local or legacy only when the repository says so.
+-
+-Record:
+-
+-```markdown
+-## Design language
+-- Audited surface:
+-- Design sources:
+-- Documented decisions:
+-- Governing owners and consumers:
+-- Explicit exceptions:
+-```
+-
+-Write `None documented` under `Explicit exceptions` unless a cited source explicitly identifies the exception.
+-
+-## 3. Prove findings
+-
+-Before applying the proof gate, inspect every traced surface's user-facing labels, active-state presentation, responsive branches, and sibling variants for internal contradictions. Treat the results only as candidates.
+-
+-A finding is in scope only when its correction primarily changes visual presentation, interface copy, layout, component styling, or conformance to a documented design rule. If the correction primarily changes whether product behavior works, reject it.
+-
+-Search results, repetition, and implementation differences produce candidates, not findings. Keep a candidate only when all three proofs exist:
+-
+-1. **Contract** — Cite a binding design decision for this property and scope, or a direct contradiction in user-facing presentation or content within the same task. “Prefer,” “generally,” names, omissions, repetition, and absence of an exception do not establish a contract.
+-2. **Runtime** — Prove that the cited owner, value, or behavior reaches the affected surface through the traced runtime path. Do not compare separate ownership layers or lifecycle states.
+-3. **Correction** — State one change required by the evidence. If it depends on an existing token, variant, primitive, or exemplar, name it exactly. If the evidence cannot determine the correct choice, the intended condition is ambiguous, the proposal contains alternatives, or the correction requires inventing product intent, reject the candidate.
+-
+-Source can prove token, typography, color, spacing, layout, copy, component-variant, responsive-presentation, and explicit design-contract violations. It cannot turn functional behavior, state management, or interaction correctness into design findings. Hierarchy, prominence, density, clarity, discoverability, usability, and perceived coherence require rendered or user evidence.
+-
+-Discard accessibility and HTML/ARIA semantic findings unless the user explicitly requests them. Discard broken routes, redirects, data wiring, action failures, metadata, package API, performance, architecture, and code-quality findings unless the user requested them or a product-specific design contract governs them.
+-
+-Assign confidence only after all proofs pass. Reuse an existing owner when the evidence supports it; do not create a shared primitive from repetition alone.
+-
+-## 4. Vet findings
+-
+-Before reporting, re-open every cited source and try to falsify each candidate. Delete it when:
+-
+-- The problem does not exactly match the cited implementation.
+-- The rule does not govern that property and surface.
+-- Counterevidence shows the difference is valid or deliberate.
+-- The evidence supports multiple corrections.
+-- The correction invents product intent.
+-- Another finding describes the same root problem.
+-
+-Only findings that survive this pass may enter the table.
+-
+-## 5. Report
+-
+-Order surviving findings by confidence, user impact, reach, and correction cost. Stop at three.
+-
+-Use this structure:
+-
+-```markdown
+-## Design language
+-- Audited surface:
+-- Design sources:
+-- Documented decisions:
+-- Governing owners and consumers:
+-- Explicit exceptions:
+-
+-## Findings
+-| # | Problem | Evidence | Proposed change | Scope | Confidence |
+-| --- | --- | --- | --- | --- | --- |
+-
+-## Improve first
+-<Highest-leverage finding and why, or no supported recommendation.>
+-```
+-
+-Evidence must establish the contract, runtime relationship, and deterministic interface consequence. Proposed change must contain one correction. Delete unsupported or overlapping rows before returning.
+-
+-Delete any finding that does not include every required column, including Confidence.
+-
+-Under `Improve first`, select one surviving finding with the strongest evidence and highest leverage. Never combine findings.
+-
+-If no candidate survives, write `No supported findings were found.` under `## Findings` and `No supported recommendation.` under `## Improve first`.
+-
+-If findings survive, stop and ask which to turn into plans. If the user already selected a finding or explicitly requested a plan for a described improvement, continue with that scope. If asked to fix or improve directly, offer a plan; never implement it.
+-
+-## 6. Specify selected changes
+-
+-Read [references/plan-template.md](references/plan-template.md). Write one plan per selected change, never one per symptom.
+-
+-Before writing, re-open every cited source, record the current commit when available, identify exact reusable primitives and exemplars, and trace affected surfaces. Reconcile an existing plan instead of duplicating it.
+-
+-Do not invent values when the repository provides a token or component contract. Introduce a primitive only after proving why the existing system cannot express the decision and which consumers should share it.
+-
+-If asked to reconcile, recheck existing plans against current source and documented decisions; update stale evidence, affected surfaces, and status.
++Complete the requested audit, plans, or implementation and report the scope, evidence, verification, and any concrete remaining blocker. Future optional work is not a reason to stop the authorized task early.

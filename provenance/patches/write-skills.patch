@@ -1,0 +1,65 @@
+diff --git b/LICENSE b/LICENSE
+new file mode 100644
+index 0000000..c92e086
+--- /dev/null
++++ b/LICENSE
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 David Zhang
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+diff --git a/SKILL.md b/SKILL.md
+index b9d4999..4bece64 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -78,13 +78,17 @@ Choose how the skill is reached; each choice spends a different cost.
+ - **Model-invoked** (default): keep a `description` so the agent can fire it
+   on its own and other skills can reach it. Costs **context load** — the
+   description sits in the window every turn. Write rich trigger phrasing.
+-- **User-invoked**: set `disable-model-invocation: true`. Only the user
+-  typing its name can invoke it; zero context load, but the user must
+-  remember it exists. The `description` becomes a human-facing one-liner.
++- **User-invoked**: when explicitly requested, set
++  `policy.allow_implicit_invocation: false` in `agents/openai.yaml` for Codex.
++  Preserve unrelated existing metadata. Other clients may also need
++  `disable-model-invocation: true` in frontmatter; that field alone does not
++  configure Codex. The user can still invoke the skill by name. Verify the
++  actual host behavior rather than assuming zero context cost.
+ 
+-Pick model-invocation only when the agent or another skill must reach it
+-unprompted. When user-invoked skills pile up past memory, add a **router
+-skill** that names the others and when to reach for each.
++Preserve the current invocation policy. New skills remain model-invoked unless
++the user requests explicit-only invocation. When user-invoked skills pile up
++past memory, add a **router skill** that names the others and when to reach
++for each.
+ 
+ ## Description
+ 
+@@ -206,7 +210,8 @@ When creating or revising a skill:
+   this is the default for new names, not a mandate to rename existing skills.
+ - Make the description specific enough to trigger without the body.
+ - Remove any "when to use" section from the body.
+-- Remove stale history, attribution, placeholders, and setup notes.
++- Remove stale history, placeholders, and setup notes. Preserve attribution,
++  provenance records, and required license notices.
+ - Remove file paths, line numbers, current constants, and implementation knobs
+   unless the skill is explicitly a code-navigation runbook. Prefer durable
+   principles plus a directive to inspect the current code.

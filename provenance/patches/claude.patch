@@ -1,0 +1,86 @@
+diff --git b/LICENSE b/LICENSE
+new file mode 100644
+index 0000000..c92e086
+--- /dev/null
++++ b/LICENSE
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 David Zhang
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+diff --git a/SKILL.md b/SKILL.md
+index d89941c..a9af1d3 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -35,9 +35,9 @@ the artifact you need. A sharper contract beats higher effort.
+ 
+ - **One task per run.** Split review, implementation, and docs into separate
+   prompts.
+-- **Name repo skills when relevant.** Claude can read repo files; say "follow
+-  write-docs for the doc" or "obey refactor-clean: no compatibility wrappers"
+-  instead of pasting those skills into the prompt.
++- **Name installed repo skills when relevant.** Claude can read repo files;
++  say "follow codebase-design for module boundaries" or "follow write-skills
++  for the skill" instead of pasting those skills into the prompt.
+ - **Blocks, added only where useful:**
+   - `<task>` — the concrete job, context, and expected end state.
+   - `<output_contract>` — exact response shape, highest-value first.
+@@ -56,21 +56,21 @@ the artifact you need. A sharper contract beats higher effort.
+ ## Consultation
+ 
+ Use Claude for consultation when the user asks for Claude's view or when a
+-second-agent read would materially reduce risk. Keep it read-oriented unless
++second-agent read from Claude is already authorized. Keep it read-oriented unless
+ the user explicitly asks it to edit.
+ 
+ 1. Ask for evidence, not vibes: require file paths, observed behavior, command
+    output, or labelled inferences.
+ 2. Prefer a read-only tool surface for reviews:
+-   `--tools "Read,Grep,Glob,Bash" --permission-mode dontAsk`.
++   `--tools "Read,Grep,Glob" --permission-mode dontAsk`.
+ 3. Triage every finding against the code before acting. Report what Claude
+    flagged, what you accepted, and what you dismissed.
+ 
+ ## Implementation — explicit ask only
+ 
+ Delegate implementation to Claude only when the user names Claude for the task.
+-Never hand it work on your own initiative, and never re-delegate follow-up work
+-without a fresh ask.
++Keep delegation within the authorized task. In-scope follow-ups retain that
++authorization; ask again only when the proposed delegation expands its scope.
+ 
+ 1. Slice the task sharply: goal, constraints, allowed scope, and verification.
+    An underspecified task stays with you until a fresh agent could not misread
+@@ -79,11 +79,11 @@ without a fresh ask.
+    separable from yours. Tell Claude to keep scratch files (probes, dumps,
+    notes) out of the tree — its diff must contain only the deliverable.
+ 3. Choose permissions by what the task must do:
+-   - Read/review: `--tools "Read,Grep,Glob,Bash" --permission-mode dontAsk`.
++   - Read/review: `--tools "Read,Grep,Glob" --permission-mode dontAsk`.
+    - Narrow edits: add edit tools and keep the prompt's allowed paths explicit.
+-   - Broad autonomous work: use `--dangerously-skip-permissions` only in a
+-     dedicated worktree, with a self-authored prompt and a mandatory diff
+-     review after.
++   - Broader work: use a dedicated worktree and the host’s normal approval
++     controls. If a required action is blocked, request the scoped permission
++     through the host; do not bypass permission checks to complete the task.
+ 4. Capture the response with `--output-format text` by default. Use
+    `--output-format json` only when the caller needs structured metadata.
+ 5. You own the result: inspect the diff, run the relevant tests, and only then

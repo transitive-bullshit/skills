@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-11",
+  "skill": "testing-strategy",
+  "recipeVersion": 2,
+  "skillSha256": "c5d4ae280b9b8ffbd34c9283827d0ba7196b0e8a08fdd88dae278e07d01ff3c2",
+  "auditSha256": "0d0a0ea4e3c8e28786d2212af8226cc1eac35a830312bf341adc7ff2501e7a7c",
+  "model": "gpt-6-luna",
+  "method": "Fresh-context skill-use audit of a real six-test Python fixture",
+  "request": "Read-only test audit; provider sandbox unavailable; unrelated dirty notes present.",
+  "observed": [
+    "Read conditional audit reference and examined all six tests and production contracts.",
+    "Ran existing unittest suite successfully.",
+    "Recommended removing the exact duplicate while retaining public unit, persistence, and runtime-configuration contracts.",
+    "Suggested optional consolidation carrying all unique cases, with separate tests retained as a valid diagnostic choice.",
+    "Distinguished SDK mocks from provider integration and reported the sandbox limitation.",
+    "Produced contract map and dispositions without modifying any existing fixture files; root verified their hashes."
+  ],
+  "editorialReview": "No material findings. Focused-audit wording tightened to avoid implying a minimum number of candidates.",
+  "limits": "One small fixture; this does not establish general audit reliability or actual host invocation rates."
+}

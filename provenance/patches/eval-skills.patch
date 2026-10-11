@@ -1,0 +1,70 @@
+diff --git b/LICENSE b/LICENSE
+new file mode 100644
+index 0000000..c92e086
+--- /dev/null
++++ b/LICENSE
+@@ -0,0 +1,21 @@
++MIT License
++
++Copyright (c) 2026 David Zhang
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in all
++copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
++SOFTWARE.
+diff --git a/SKILL.md b/SKILL.md
+index 505e36e..ed2927f 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -56,15 +56,18 @@ fuzzy wish.
+    skill can't touch the live checkout and each case starts clean. Prefer
+    capturing the artifact from the runner's final message — if the skill's
+    output is a plan or text, ask for it inline and nothing hits disk to leak.
+-   When the skill must write files, give the runner a throwaway sandbox dir as
+-   its only writable root, not a worktree of the live repo (worktree isolation
+-   guards git state, not absolute-path or escaped writes). After every run,
+-   sweep the live checkout (`git status`) and clean anything the run leaked —
+-   isolation is best-effort, the sweep is the guarantee. Give the runner
++   When the skill must write files, use an enforced sandbox with a throwaway
++   directory as its only writable root. A worktree or a prompt naming a
++   directory does not enforce that boundary. If the host cannot provide it,
++   use text-only output or report the limitation before running writes.
++   Record the live checkout status first; after every run, compare it and
++   remove only artifacts proven to belong to that run, preserving unrelated
++   work. Start a fresh agent without inherited conversation history using the
++   current host API (Codex collaboration: `fork_turns: "none"`). Give the runner
+    **only** the input and the instruction to use the target skill — never the
+    bar, the smells, the other cases, or why you're asking. Done when you hold
+-   one artifact per case, each from a context-free run, and the checkout is
+-   clean.
++   one artifact per case, each from a context-free run, and unrelated checkout
++   state is unchanged.
+ 
+ 3. **Grade with a separate judge that applies judgment.** Hand a fresh judge
+    the artifact, the bar, and the skill's **first principles** — so it grades
+@@ -117,9 +120,9 @@ movement legible — this is the evidence the skill actually improved.
+ - **Test judgment, not conformance.** The bar is a standard the work must
+   clear, never a checklist of the answer. If you find yourself listing the
+   exact pieces you expect, you've stopped evaluating the skill.
+-- **Isolation is best-effort; the sweep is the guarantee.** Always check the
+-  live checkout after a run and clean leaks, no matter how the run was
+-  sandboxed.
++- **Verify isolation.** Compare the checkout with its starting state after a
++  run. Remove only that run’s known artifacts; preserve unrelated changes.
++  A status check detects changes but does not replace an enforced sandbox.
+ - One fresh agent per case per run — no shared context, so no cross-case
+   learning inflates a later case.
+ - Grade against the bar, not against the other artifacts, and not on a

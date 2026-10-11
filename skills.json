@@ -7,20 +7,34 @@
         "kind": "adopted",
         "repository": "emilkowalski/skills",
         "path": "skills/animation-vocabulary/SKILL.md",
-        "tree": "e6dc24ca1ff1e70c9677df9a1d2d1c80415cbb3c",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
-          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
           "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/animation-vocabulary",
+        "patch": "provenance/patches/animation-vocabulary.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Keep direct answers; omit the upstream greeting-only first response."
+        ],
+        "sourceSkillSha256": "40d2b27adfdfeb0570a9f20e7d0255109d9233c50603878bcd0dcd04c923fd94",
+        "effectiveSkillSha256": "d2fd68ac70e80e86907a21b18c173ab4e06498179c861c847afee73ecad7b762",
+        "snapshotSha256": "023759946ed97bc2d6a5ecf606538393dbb471e0a2827f76b25c00985a5d4e5c",
+        "patchSha256": "21ce37c2507db748cf63acfbd30ce75a4b3badc8dd2f21451d83bcc13012dfb9",
+        "effectiveSha256": "0f6efff5a22c41e569df76706d2a845ba981814d1b239677dd6d26026c684cdf"
+      }
     },
     "auto-research": {
       "path": "skills/auto-research",
@@ -28,20 +42,31 @@
         "kind": "adopted",
         "repository": "dzhng/skills",
         "path": "skills/engineering/auto-research/SKILL.md",
-        "tree": "488a73ff2dfd6f272ff9ab493a078bd2d11c436d",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/dzhng--skills.txt",
-          "url": "https://github.com/dzhng/skills/blob/main/LICENSE",
-          "blob": "c92e086f821a15b25a063f684faf3e75b3f67f56",
+          "file": "provenance/upstream/auto-research/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
           "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "License retrieved at recorded upstream commit"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/auto-research/skill",
+        "patch": "provenance/patches/auto-research.patch",
+        "checkedAt": "2026-10-11",
+        "status": "unchanged-upstream",
+        "localChanges": [
+          "Preserve current automatic invocation; content is unchanged against live upstream.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "0ac6e89d4915377243b776fa46357ed1751b3fa38e7aa193154672c1e1827ab8",
+        "patchSha256": "e21fe60815decfd3ce69d3f7b938c2faec391145ca407e100dcd726f0187977f",
+        "effectiveSha256": "51b12d05dbff5e441a212675ebc870d8f05480e135b21688c910168365704d1f"
+      }
     },
     "better-accessibility": {
       "path": "skills/better-accessibility",
@@ -49,20 +74,35 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/better-accessibility/SKILL.md",
-        "tree": "ebf9388ad7f6acc424584674ac97406e2118616f",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/better-accessibility",
+        "patch": "provenance/patches/better-accessibility.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Make the existing criteria self-contained instead of referring to the uninstalled better-interface router."
+        ],
+        "sourceSkillSha256": "df0cafe0e75a08548cf46a2a430f46c198e7e0ee9d46bdf7884c2afefb44b70e",
+        "effectiveSkillSha256": "ffaffe8fdae6a4c6462da58cbf27efa8bd7bd87f2ad32242cc39d587dac6e752",
+        "snapshotSha256": "59c14c31b68d30865c45a998258323a651c18eb26e679b540117b991edb4ae97",
+        "patchSha256": "837221894ebd3e136a3b82f85b0ce63ed269e8396f0f5534dea225264495fb0d",
+        "effectiveSha256": "3147406dd06108eaba70e5d2426e19970e52377e6b812403749e55ef26ac20a2"
+      }
     },
     "better-colors": {
       "path": "skills/better-colors",
@@ -70,20 +110,35 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/better-colors/SKILL.md",
-        "tree": "2bf09c8493b760bc4449fed26079244368eaaa16",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/better-colors",
+        "patch": "provenance/patches/better-colors.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Make the existing criteria self-contained instead of referring to the uninstalled better-interface router."
+        ],
+        "sourceSkillSha256": "e74f1c413a4094dc2a73fb0baa0da2241465e01d593b0257ba995500df9b0068",
+        "effectiveSkillSha256": "42a8b5fca30fbf98ea1040dfddaea5cf8395e47aae59e1d6839261cca7216bc1",
+        "snapshotSha256": "79c20c19961447ee3326a5933b1c82070cf9b210664e557220c5e56db73c2bf3",
+        "patchSha256": "25745f27a92bb2b0707d7a1f934fc88d2cdde0d5bf9e8171f4f42fa8773abcb8",
+        "effectiveSha256": "3f1ef17ab43f2eb82039b42f53297e5f09d1dcfd922fbc1ecaf8b204fddfcdd1"
+      }
     },
     "better-layout": {
       "path": "skills/better-layout",
@@ -91,20 +146,34 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/better-layout/SKILL.md",
-        "tree": "8f1f1b163848cec18aea8143b9fe10cfb3226874",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/better-layout",
+        "patch": "provenance/patches/better-layout.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata."
+        ],
+        "sourceSkillSha256": "8c5883ccb23c27c39b7c58d101154ff35e032410e0dc4794be9ab7fe070c2297",
+        "effectiveSkillSha256": "74a55ee5c3ee0a99ed6e9b5ca8c2a0191c2acc37879f7f1d1376104c783e2d10",
+        "snapshotSha256": "c0d9e30a556379c0abbc8a324b53690889c0f05d1c81c665c8f76bbc44121652",
+        "patchSha256": "149e93ef8970193e62987b598b30fef1e218e77411c22e1f382ec1361ad10431",
+        "effectiveSha256": "92a6e1f37dfd563d4f241d21f09d55f979b879785137a658e4fdbc90896dc6ae"
+      }
     },
     "better-typography": {
       "path": "skills/better-typography",
@@ -112,20 +181,36 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/better-typography/SKILL.md",
-        "tree": "b0c51ed316e9cca63f5182bc569066985b25b9c0",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/better-typography",
+        "patch": "provenance/patches/better-typography.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Preserve established type tokens and the existing ask-only-if-material input-sizing guidance in the updated upstream workflow.",
+          "Make the existing criteria self-contained instead of referring to the uninstalled better-interface router."
+        ],
+        "sourceSkillSha256": "e60ca6467ba60e68f95ed2d2cfa35f2a850d96ef2a0c0d3fcfcfd9510e51f184",
+        "effectiveSkillSha256": "cde4f6c56c3ef489c151638383a0d7ab40ee3d3bf6349f8413ad541aea3e5cbf",
+        "snapshotSha256": "3560949a26d159c43cfb606e3002fc62f596d80d575d7adc9061ad1b41628037",
+        "patchSha256": "4d636f58a4a694514fc8b80bc14cdfafa3b212acec6446c8a49d1475fe26ec27",
+        "effectiveSha256": "f243c3310b50bd20248ababb9aea1ab1d1b1360c4acd5dfa3ed412cde2e85942"
+      }
     },
     "better-ui": {
       "path": "skills/better-ui",
@@ -133,20 +218,36 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/better-ui/SKILL.md",
-        "tree": "710b8e9a1b4086594d24050bbb6768dbc421e9dc",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/better-ui",
+        "patch": "provenance/patches/better-ui.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Retain project-token-first polish, shared motion guidance, and measured performance findings instead of fixed-style blockers.",
+          "Reapply existing recipe corrections to current resources: interruptibility is implementation-dependent; press/icon motion and image outlines follow established project treatments."
+        ],
+        "sourceSkillSha256": "fb9807bb5c59a3ca9d4a27b25f56b36e5596251d280fb30c4b7f2ff8b6f4fe2d",
+        "effectiveSkillSha256": "6ba60d3e836be712cf7c5a6381f7b7bef7a60a5a068c0a2ee00973ba7dc0f0ef",
+        "snapshotSha256": "351b66b215133c1432bfa8c369f6d9fca365ede83cec33c9b9a34a25599205f3",
+        "patchSha256": "46bbd478ef4cf78ccd79c1c160c396c0de38eeb6daa0cc951898cb461283233d",
+        "effectiveSha256": "e3ba0170cdf16f96cfbccb8bd6c8a7c3f7f8e0165467897b163553132b68ea1e"
+      }
     },
     "better-writing": {
       "path": "skills/better-writing",
@@ -154,20 +255,34 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/better-writing/SKILL.md",
-        "tree": "f0637167d46253f6f5d2d09776552df4979ea562",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/better-writing",
+        "patch": "provenance/patches/better-writing.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata."
+        ],
+        "sourceSkillSha256": "ef6843cbfcbafa62614b1a6e012c0b1ab6fd33eee0bdd84123cf49fe275c3a31",
+        "effectiveSkillSha256": "afc7594b707e2a1e1844decec445f0876dc4ddf6ef36bc50a08703dafae8f1ff",
+        "snapshotSha256": "a3d656121657326377f911aeea4aea5a7a86bc3dc286066dd924b7f781588ecc",
+        "patchSha256": "3a008efd74257a1fbc68c3c26aaf6f7bd3ee9474e3411fa7e8aa57dd361f723e",
+        "effectiveSha256": "6635fcceab660976ae5aaaf78ba8c01ac5b19869092de226a3230a066dcc7c34"
+      }
     },
     "birdclaw": {
       "path": "skills/birdclaw",
@@ -184,26 +299,39 @@
       },
       "requires": []
     },
-    "break": {
-      "path": "skills/break",
+    "claude": {
+      "path": "skills/claude",
+      "requires": ["claude"],
       "origin": {
         "kind": "adopted",
-        "repository": "jakubkrehel/skills",
-        "path": "skills/break/SKILL.md",
-        "tree": "7a748aa03499cc6974278099154358596c3635c9",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "repository": "dzhng/skills",
+        "path": "skills/engineering/claude/SKILL.md",
+        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
-          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "file": "provenance/upstream/claude/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "License retrieved at recorded upstream commit"
         }
       },
-      "requires": []
+      "upstream": {
+        "snapshot": "provenance/upstream/claude/skill",
+        "patch": "provenance/patches/claude.patch",
+        "checkedAt": "2026-10-11",
+        "status": "added",
+        "localChanges": [
+          "Keep upstream model/effort defaults and explicit delegation scope.",
+          "Preserve authorization across in-scope follow-ups; use read-only consultation tools and normal approval controls.",
+          "Reference installed skill names instead of uninstalled companion skills.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "96ecbe2b573d6136709f11f4c5a7a52a58afcc13dfefea4db28ce0ea44a4f784",
+        "patchSha256": "dd22f75a39946c1c085bb60353d5a3a50552d55e0fd44f75f1bc251c3b7d95a5",
+        "effectiveSha256": "71c9f16a1c63787a4bbb7fea1d8c0688bb2d0799b4996a3c3bf62edcb65eadd4"
+      }
     },
     "codebase-design": {
       "path": "skills/codebase-design",
@@ -211,20 +339,104 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/codebase-design/SKILL.md",
-        "tree": "20b7cd1dd1fe5b0bd37ba72649f3a29375574b5b",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/codebase-design/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/codebase-design/skill",
+        "patch": "provenance/patches/codebase-design.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Preserved concise architecture/testability trigger and existing Codex metadata.",
+          "Preserved project terminology rather than mandating upstream vocabulary.",
+          "Retained upstream design alternatives/dependency references; adapted mandatory subagent count to host/task capacity.",
+          "Require equivalent behavior coverage before deleting replaced tests."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "60ad64ae6375f45061c6354ef53233cdc9a3246da11d272498a4fd357aba0c54",
+        "patchSha256": "52c3ab58bd536efcf202ea0f6f07600ad0525184988e34da2c01e413f1167572",
+        "effectiveSha256": "5a8fe554c6ea9c458584ae24bdcbf178a8e24d1f08021b50014e710fb81af2f8"
+      }
+    },
+    "codex": {
+      "path": "skills/codex",
+      "requires": ["codex"],
+      "origin": {
+        "kind": "adopted",
+        "repository": "dzhng/skills",
+        "path": "skills/engineering/codex/SKILL.md",
+        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/upstream/codex/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
+          "spdx": "MIT",
+          "note": "License retrieved at recorded upstream commit"
+        }
+      },
+      "upstream": {
+        "snapshot": "provenance/upstream/codex/skill",
+        "patch": "provenance/patches/codex.patch",
+        "checkedAt": "2026-10-11",
+        "status": "added",
+        "localChanges": [
+          "Keep upstream review/implementation workflow and current CLI support.",
+          "Preserve authorization across in-scope follow-ups; retain sandbox/approval controls and trust settings.",
+          "Keep diagnostic stderr, scope liveness actions to the launched process, and remove uninstalled companion dependencies.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "3f1a2863b1c005ec3ccafe4c94aa84ddfc8edbe82d3f078e872e4b7684158132",
+        "patchSha256": "ff1f4f2429696cc5b55ccc237d21136942877325225dfbb8fc5e48c84f9cf319",
+        "effectiveSha256": "fbe8217259281f9e2717fd13f01822556b5f70d40253e4ee8d355f4540761f38"
+      }
+    },
+    "compare-screenshots": {
+      "path": "skills/compare-screenshots",
+      "requires": ["node"],
+      "origin": {
+        "kind": "adopted",
+        "repository": "dzhng/skills",
+        "path": "skills/visual/compare-screenshots/SKILL.md",
+        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/upstream/compare-screenshots/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
+          "spdx": "MIT",
+          "note": "License retrieved at recorded upstream commit"
+        }
+      },
+      "upstream": {
+        "snapshot": "provenance/upstream/compare-screenshots/skill",
+        "patch": "provenance/patches/compare-screenshots.patch",
+        "checkedAt": "2026-10-11",
+        "status": "added",
+        "localChanges": [
+          "Keep all upstream comparison scripts and references unchanged except current host subagent guidance.",
+          "Make uninstalled design-with-images an optional pinned upstream reference.",
+          "Document dependency resolution through a temporary runtime without changing product dependencies.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "ae1b192641604d57c464b798469a88a80e1ce4ec4c961a7036214349ddbc5e39",
+        "patchSha256": "de77b1b18640ededb4e7db7360aff0568d0c536f1aa7224f8cf93974f1650763",
+        "effectiveSha256": "6822ee818fcb4925db7b07251bf2f3aa0cb469ef1c32db3917c86cffc35fc5df"
+      }
     },
     "diagnosing-bugs": {
       "path": "skills/diagnosing-bugs",
@@ -232,20 +444,36 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/diagnosing-bugs/SKILL.md",
-        "tree": "99bd56983e42bc752c52da67f1112e4121781cd1",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/diagnosing-bugs/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/diagnosing-bugs/skill",
+        "patch": "provenance/patches/diagnosing-bugs.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Preserved narrow difficult-bug trigger, direct-fix path, bounded investigation, independent expectations and no forced pause for unavailable reproduction or unrelated failures.",
+          "Reconciled current upstream reproduction techniques, controlled nondeterminism, tagged instrumentation, mutation-diff check and original-scenario rerun.",
+          "Retained exact current upstream human-in-the-loop template and existing invocation metadata.",
+          "Did not reintroduce mandatory phase gates, fixed hypothesis counts or reproduction thresholds."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "ca87cbc281263e364e37a7365c4e26255976743fa800d223e7a154e23e05a7d1",
+        "patchSha256": "7428d8805910cfe0b78f0b4d3008e5d0695711c1be41964d7d4ff0eb078955e0",
+        "effectiveSha256": "d2a44707d6e0c58064e4b95dc90187f528f950f497cb542e7cc4b138ab603786"
+      }
     },
     "domain-modeling": {
       "path": "skills/domain-modeling",
@@ -253,20 +481,35 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/domain-modeling/SKILL.md",
-        "tree": "05c3244ec75b7548bbc2b635b0624bb9f70369c3",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/domain-modeling/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/domain-modeling/skill",
+        "patch": "provenance/patches/domain-modeling.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Accepted upstream GLOSSARY-FORMAT resource rename and current glossary naming for new projects.",
+          "Preserved established CONTEXT.md and other project glossary conventions without renaming or deleting unrelated context sections.",
+          "Preserved existing Codex invocation metadata."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "770a68ed2f49bb8237bf92e79b524ce669cdeff84400dbb7d4a5298bde1b951d",
+        "patchSha256": "95496c045d49e45baaf5fb1db43e7ede02bc8d970d012fb11aa7e4518db49c7c",
+        "effectiveSha256": "7912d809945d9c62a3d92c7e8283b767b9b810787f0b93776f7db749299af432"
+      }
     },
     "eli5": {
       "path": "skills/eli5",
@@ -276,47 +519,38 @@
       },
       "requires": []
     },
-    "explain-interface": {
-      "path": "skills/explain-interface",
+    "eval-skills": {
+      "path": "skills/eval-skills",
+      "requires": [],
       "origin": {
         "kind": "adopted",
-        "repository": "jakubkrehel/skills",
-        "path": "skills/explain-interface/SKILL.md",
-        "tree": "1d56e70e250e711690fdf95baa04546d9ad36020",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "repository": "dzhng/skills",
+        "path": "skills/authoring/eval-skills/SKILL.md",
+        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
-          "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
+          "file": "provenance/upstream/eval-skills/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "License retrieved at recorded upstream commit"
         }
       },
-      "requires": []
-    },
-    "find-animation-opportunities": {
-      "path": "skills/find-animation-opportunities",
-      "origin": {
-        "kind": "adopted",
-        "repository": "emilkowalski/skills",
-        "path": "skills/find-animation-opportunities/SKILL.md",
-        "tree": "502f891c05c9cade7e7bd815e3f228fdd20b61b6",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
-          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
-          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
+      "upstream": {
+        "snapshot": "provenance/upstream/eval-skills/skill",
+        "patch": "provenance/patches/eval-skills.patch",
+        "checkedAt": "2026-10-11",
+        "status": "added",
+        "localChanges": [
+          "Retain automatic invocation and upstream evaluation workflow.",
+          "Use a real isolation boundary and preserve unrelated local edits when cleaning evaluation artifacts.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "35131b6cfce66ffbe4804c93f7dc00aea2f80e26b0484f80cde3504948481612",
+        "patchSha256": "7d90388635bf641695dce79f30044a285d24390f1b1bd7055b771312561e88b8",
+        "effectiveSha256": "61b667598c8895d722e23fd6dc694824c4a7fa453195fb2a48e74954490bcf42"
+      }
     },
     "find-skills": {
       "path": "skills/find-skills",
@@ -324,19 +558,68 @@
         "kind": "adopted",
         "repository": "vercel-labs/skills",
         "path": "skills/find-skills/SKILL.md",
-        "tree": "76a98a285cb0434f3d39e1a873823556330e398b",
-        "commit": "18f96ea131dab3b0fcc9b27cf7c6f6cbb6174680",
-        "baseline": "Existing installed snapshot verified byte-for-byte against the recorded upstream commit",
+        "commit": "13e4063a1cf913f5606d57d42ab83a86f5001e04",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/vercel-labs--skills.txt",
-          "url": "https://github.com/vercel-labs/skills/blob/main/LICENSE",
-          "blob": "eabe3008f6c0275929faa8b07d406e82717648cc",
+          "file": "provenance/upstream/find-skills/LICENSE",
+          "url": "https://github.com/vercel-labs/skills/blob/13e4063a1cf913f5606d57d42ab83a86f5001e04/LICENSE",
           "sha256": "661142e53c313d2bb5e1b055f5c0a39001450ff1b5e27b89dc4bc7de9a6352ca",
-          "spdx": "MIT"
+          "spdx": "MIT",
+          "note": "License retrieved at recorded upstream commit"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/find-skills/skill",
+        "patch": "provenance/patches/find-skills.patch",
+        "checkedAt": "2026-10-11",
+        "status": "updated-with-local-policy",
+        "localChanges": [
+          "Restrict selection to explicit user intent to discover, install or update agent skills.",
+          "Prefer trusted authors and inspected relevance over popularity thresholds.",
+          "Route additions and updates through environment.json canonical checkouts, provenance/manifest and the shared installer.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "886032ce6fe4814793e6fcba86bf946f6397c3f09b82caee9f35e7fddb348389",
+        "patchSha256": "b940156338c2351b53a1afb54a237b7ef0f0c40d238705260d0dbe454e8c935f",
+        "effectiveSha256": "05889c621b5bee8dd3c4d21d45ba810be3af59d8ca671e32c4816bd6ad5ff824"
+      }
+    },
+    "good-css": {
+      "path": "skills/good-css",
+      "requires": [],
+      "origin": {
+        "kind": "adopted",
+        "repository": "vojtaholik/good-css",
+        "path": "skills/good-css/SKILL.md",
+        "commit": "92d436ba1937d1b1407c47e35abb3e199eaace2e",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/upstream/good-css/LICENSE",
+          "url": "https://github.com/vojtaholik/good-css/blob/92d436ba1937d1b1407c47e35abb3e199eaace2e/LICENSE",
+          "sha256": "dcdeb88707627233bbc76f69febd77ef78a665424a0e0194b3416a473d33cede",
+          "spdx": "MIT",
+          "note": "License retrieved at recorded upstream commit"
+        }
+      },
+      "upstream": {
+        "snapshot": "provenance/upstream/good-css/skill",
+        "patch": "provenance/patches/good-css.patch",
+        "checkedAt": "2026-10-11",
+        "status": "adopted-and-updated",
+        "localChanges": [
+          "Imported the unmanaged installation after verifying it exactly matched upstream commit 0790858e7ea466c49996ba01960565f7c89b6d82; no local edits needed preservation.",
+          "Updated to live upstream, including Tailwind 4.2 guidance, layout clarification and RTL carousel correction.",
+          "Require explicit invocation in Codex metadata and cross-client frontmatter.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "previousInstalledCommit": "0790858e7ea466c49996ba01960565f7c89b6d82",
+        "snapshotSha256": "2da551836624d028ced37036a914310cc2e6994536c6713cbc3574c8b5224842",
+        "patchSha256": "6efccbf4bcee4653f3e22f31c4bb1e7edd0f4fa23b6ee8a2cad891cd8db4e2df",
+        "effectiveSha256": "73fc3e0eb57fea83f5b280e444cd2c7fa56ab15a10f230029b21d562b60c700e"
+      }
     },
     "grill-me": {
       "path": "skills/grill-me",
@@ -344,20 +627,34 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/productivity/grill-me/SKILL.md",
-        "tree": "3df14e2d3a89459bf300614be9247e3ce74798f8",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/grill-me/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/grill-me/skill",
+        "patch": "provenance/patches/grill-me.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Retained alias behavior and existing explicit-only Codex policy.",
+          "Replaced unavailable host-specific Skill tool call with direct local references."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "fa4409dfb258763d812f902f13987f1889b7a6bde8b5c72deb17160f947303bd",
+        "patchSha256": "03d9e0c4a7af961722bd1de41982e9b30e88bbb5f9409a117c06074fa864806e",
+        "effectiveSha256": "e0717889f43844f3b24f90e570f1b28d07b90e000210d368a7cec4790aebf525"
+      }
     },
     "grill-with-docs": {
       "path": "skills/grill-with-docs",
@@ -365,20 +662,34 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/grill-with-docs/SKILL.md",
-        "tree": "eedaf2562c83155115e9c649fa3ecaac2e10e81d",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/grill-with-docs/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/grill-with-docs/skill",
+        "patch": "provenance/patches/grill-with-docs.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Retained alias behavior and existing explicit-only Codex policy.",
+          "Replaced unavailable host-specific Skill tool call with direct local references."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "3212a59fb733b5b3700d28eb3b3268450d4142eb9a2c3d10ec1ab36489b6dc30",
+        "patchSha256": "f0725afbd8ce36ab4de440170c3354fc36499eaece5b3fc1df066009e7710c11",
+        "effectiveSha256": "ce164c41d4dfb1a12903fa6eff663eb49032cb4b12d4b850cff9fa0954a30f81"
+      }
     },
     "grilling": {
       "path": "skills/grilling",
@@ -386,41 +697,35 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/productivity/grilling/SKILL.md",
-        "tree": "f0732035b8b1b60ae39454e4191caef32fa91903",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/grilling/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
-    },
-    "handoff": {
-      "path": "skills/handoff",
-      "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/productivity/handoff/SKILL.md",
-        "tree": "2242e8f05424b8c2ae94194a90d97b88d16108ec",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/grilling/skill",
+        "patch": "provenance/patches/grilling.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Accepted upstream instruction to word yes/no questions so yes accepts the recommended answer.",
+          "Preserved optional, useful parallel research instead of mandatory delegation for every fact.",
+          "Preserved existing invocation metadata and opt-in interviewing behavior."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "a29c45dce6f674e301e2f90cf874b6d1c97057fd20c0ab3624908a0714077914",
+        "patchSha256": "1e757e66adc0df0de9cb93f2ee1c72af911cf69b47859f631c57d3aa3a39717a",
+        "effectiveSha256": "1a0e62221d6a50df9c6f804f5eb01a9643eca4da17a02feadff408b8468ce2cf"
+      }
     },
     "impeccable": {
       "path": "skills/impeccable",
@@ -428,20 +733,34 @@
         "kind": "adopted",
         "repository": "pbakaus/impeccable",
         "path": ".agents/skills/impeccable/SKILL.md",
-        "tree": "762636d00c5499118088a07237c842e07192046b",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/pbakaus--impeccable.txt",
-          "url": "https://github.com/pbakaus/impeccable/blob/main/LICENSE",
-          "blob": "bb3f6d23b1f8025514a62a12b51b47d73e3c9aa9",
+          "url": "https://github.com/pbakaus/impeccable/blob/d631a8827f99414d2b6daba4ef08b7f8701751d7/LICENSE",
           "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812",
           "spdx": "Apache-2.0",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/impeccable",
+        "patch": "provenance/patches/impeccable.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata."
+        ],
+        "sourceSkillSha256": "58c0252bca04521de87007aeb495f7ec99dc4c7341bc890fe82b6d577573af91",
+        "effectiveSkillSha256": "c1927051559cc161b864a1bec4e4d976feb0d4a222726f45fc51cd9c03848d5b",
+        "snapshotSha256": "87be8cf96df90404f5826e4ed141d7294894397bcad0232b15e5c5e0cdc28c85",
+        "patchSha256": "73c510385a85824e3aa6749dfc60819e4063816b7b619483ae4a389ac856131a",
+        "effectiveSha256": "03cb0f2ff2b2e1cf3f5ed1b8d347a01453295808f649fdc413bfc637c79eda59"
+      }
     },
     "implement": {
       "path": "skills/implement",
@@ -449,20 +768,36 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/implement/SKILL.md",
-        "tree": "f07d230f645fc9ac390cf13a450bbff12ad791a3",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/implement/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/implement/skill",
+        "patch": "provenance/patches/implement.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Accepted upstream ticket lookup/title step.",
+          "Preserved local proportional verification, established interfaces, requested Git workflow and explicit-only policy.",
+          "Removed dependency on deleted tdd; kept test-first as a conditional inline mode.",
+          "Kept self-review without importing upstream\u2019s separate code-review skill or unconditional commit."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "c6948a658e04d944aec42dcb135dd4fcabe894f48cbf527fa6f1f662b67b31e9",
+        "patchSha256": "44f8672f64003439818f45e418d36d81d509701940c34f43c690651c1ec536e6",
+        "effectiveSha256": "c94b93d56e284c70e20783ee54e9a9784e2e2383b7fe650c060a13c561b24431"
+      }
     },
     "improve-animations": {
       "path": "skills/improve-animations",
@@ -470,20 +805,34 @@
         "kind": "adopted",
         "repository": "emilkowalski/skills",
         "path": "skills/improve-animations/SKILL.md",
-        "tree": "2ff93ddb9833df45f5e83080de838bb668530820",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
-          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
           "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/improve-animations",
+        "patch": "provenance/patches/improve-animations.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Retain evidence-based audit/plan/execute modes, project conventions, and completion of already-authorized fixes."
+        ],
+        "sourceSkillSha256": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6",
+        "effectiveSkillSha256": "748cf7af8883267b997f6d350740ca11993a2e79892759d2d040bcd0ee8dcc90",
+        "snapshotSha256": "e329e8e058e0bafedb5357dfdb0dae8cdc0802248ebfa6bc2409a0c92da0975a",
+        "patchSha256": "31a11095ece8757d3723849b434a5983e9b3fc3ac8b2b0383feb5da63eac7753",
+        "effectiveSha256": "0263fcbfd096b49700f96b2fbc4c6921b66e437f002d699aaa1dfb48b079f3a1"
+      }
     },
     "improve-codebase-architecture": {
       "path": "skills/improve-codebase-architecture",
@@ -491,20 +840,37 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/improve-codebase-architecture/SKILL.md",
-        "tree": "db546af0f3419a8bd261a83708d4cb33d2a915cd",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/improve-codebase-architecture/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/improve-codebase-architecture/skill",
+        "patch": "provenance/patches/improve-codebase-architecture.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Preserved narrow explicit exploration trigger and existing Codex explicit-only metadata.",
+          "Accepted current upstream glossary/report wording while respecting existing project glossary paths and vocabulary.",
+          "Replaced host-specific Skill tool calls with direct installed references, including the real DESIGN-IT-TWICE.md resource.",
+          "Preserved authorized scope/autonomy: selected candidates and implementation requests do not require repeating the selection/interview flow.",
+          "Made delegation conditional on useful independent work and host support."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "c769630e621db0d26e4f1d4e5510c8c90f62b48b7367507959c7af2c6ee51a38",
+        "patchSha256": "4134e295e89cbcb8776d1d9d5be3151f94dea96b952c2b59f397ccce41038920",
+        "effectiveSha256": "b77210ab8c52375591bae07ec58c4bfab649eb051c425864abd833b30bc8d05c"
+      }
     },
     "improve-ui": {
       "path": "skills/improve-ui",
@@ -512,20 +878,35 @@
         "kind": "adopted",
         "repository": "ibelick/ui-skills",
         "path": "skills/improve-ui/SKILL.md",
-        "tree": "dfe1caace864e8a5db1719c4440633cd7f2f7e83",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "71409d571283b6e6a5f59acb65c0957a19c8e7e4",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/ibelick--ui-skills.txt",
-          "url": "https://github.com/ibelick/ui-skills/blob/main/LICENSE",
-          "blob": "cac7c466df604fc44527fd89d9662626bab57354",
+          "url": "https://github.com/ibelick/ui-skills/blob/71409d571283b6e6a5f59acb65c0957a19c8e7e4/LICENSE",
           "sha256": "c615621c4cc1676ccde194e7a01b6469ba477780251bd71e007fc473a49c2c2b",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/improve-ui",
+        "patch": "provenance/patches/improve-ui.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Retain scoped, evidence-based review and direct completion of requested plans or implementation without redundant selection gates."
+        ],
+        "sourceSkillSha256": "fa2ac808f6d9dab7bb3620880b014d2c18e227e5b006102856038096e573e69a",
+        "effectiveSkillSha256": "d8a227a4e54428f41066bdeec3d3b3d2247d5903bac482c127d0e3b8cc2d14b3",
+        "snapshotSha256": "6783555cf8737322ee28c14779e2ce0a11856592fd4c97fbda299eb0e382feb5",
+        "patchSha256": "81f0f6c7c5bee81889aa2eb483cb52d155237536c05fe34516d0d25e719f997a",
+        "effectiveSha256": "71037c4ae85f2ff14dbed04f7fe7f2f00459159a6f2f7f34cd5089c6dbe78acb"
+      }
     },
     "init-git-repo": {
       "path": "skills/init-git-repo",
@@ -554,40 +935,31 @@
         "kind": "adopted",
         "repository": "vercel-labs/phase",
         "path": "skills/phase/SKILL.md",
-        "tree": "8fb657c18970d52ab411a799f50849ad9295e4ae",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c1f4f2a7f880d6f94f29957f0c82a929c59b9f87",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
-          "status": "unresolved",
-          "reason": "GitHub license endpoint returned no usable license"
+          "status": "declared",
+          "spdx": "MIT",
+          "sourcePath": "skills/phase/SKILL.md",
+          "url": "https://github.com/vercel-labs/phase/blob/c1f4f2a7f880d6f94f29957f0c82a929c59b9f87/skills/phase/SKILL.md",
+          "note": "MIT declared in skill frontmatter; no license text was found for the skill subtree or repository root."
         }
       },
-      "requires": []
-    },
-    "postiz": {
-      "path": "skills/postiz",
-      "origin": {
-        "kind": "adopted",
-        "repository": "gitroomhq/postiz-agent",
-        "path": "SKILL.md",
-        "tree": "93a823f6fe6074016207a32c7f192b70b1752044",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "adjustments": [
-          "Renamed the identical nested skills/postiz/SKILL.md to SKILL.upstream.md to prevent duplicate discovery.",
-          "Restored COMMAND_LINE_GUIDE.md at the path referenced by the root SKILL.md."
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/phase",
+        "patch": "provenance/patches/phase.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description."
         ],
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/gitroomhq--postiz-agent.txt",
-          "url": "https://github.com/gitroomhq/postiz-agent/blob/main/LICENSE",
-          "blob": "92bf90614eed21fbaedb13fdb00f195bcc9c5213",
-          "sha256": "ec870bdf185258c0150f238b50567722239a4b2565790a46b239d7d2e60e6510",
-          "spdx": "NOASSERTION",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": ["postiz"]
+        "sourceSkillSha256": "5dde4e63ddda53477394fa522eb7a75908cfb75bc5124c0151cc63faae5b5f76",
+        "effectiveSkillSha256": "ffe397db13934b6e5a67d4baa1d01428533af98d480e4770b699be931e0d6ae1",
+        "snapshotSha256": "56435db3d908655d1cb35437ad28dbbaa4498b7860e9142358567fb668fb8497",
+        "patchSha256": "858a8f491810fa916af69202aa17b7f77263dc7db26985d2ff656e06161da26b",
+        "effectiveSha256": "264e6a0e7ba505fcf0c5f4fc3a24d38ea9d1d33c81d34f289155463e9226dee7"
+      }
     },
     "prototype": {
       "path": "skills/prototype",
@@ -595,20 +967,35 @@
         "kind": "adopted",
         "repository": "emilkowalski/skills",
         "path": "skills/prototype/SKILL.md",
-        "tree": "564cf82ef5b17f5e018b439dc7fd1e392dcf6188",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
-          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
           "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/prototype",
+        "patch": "provenance/patches/prototype.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Keep direct workflow and installed component-system reuse instead of an unavailable pick-ui-library dependency."
+        ],
+        "sourceSkillSha256": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9",
+        "effectiveSkillSha256": "f370101ff12ffabd23262d711ff6137df914442c7241eceea48a8e5cdcd312ce",
+        "snapshotSha256": "95b4cf9da09c389ae769fe8a47b0c400721ec33cfaf398fdbeab88ba692ab80c",
+        "patchSha256": "64d56d3f13dfed8826406085a7c2b502ac98772c44b4c76c16f42fb8f1409223",
+        "effectiveSha256": "0e96d341ee91b1d550731088c374f0aef227580f73a1446c311aa64eb82e021a"
+      }
     },
     "research": {
       "path": "skills/research",
@@ -616,41 +1003,34 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/research/SKILL.md",
-        "tree": "972a34cd8128b7952b7eb279b06715862db906a7",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/research/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
-    },
-    "resolving-merge-conflicts": {
-      "path": "skills/resolving-merge-conflicts",
-      "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/engineering/resolving-merge-conflicts/SKILL.md",
-        "tree": "77f0d7de3143abbf03e55a63522d30bff31ae908",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/research/skill",
+        "patch": "provenance/patches/research.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Preserved concise primary-source trigger and conditional delegation.",
+          "Accepted current upstream source wording; preserved existing Codex metadata."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "589eb909e23e4b09f42a4433a093a524c99e3baf45a631f52b251644c51e2c7f",
+        "patchSha256": "db18bf4fb8d9f3b625dcdb7a629953318b0741fbebb8117aba973a0660d35af1",
+        "effectiveSha256": "2722d907bcfa7f750ef929700215220cb7e582cfaf91a2c9f997e33940bc0880"
+      }
     },
     "retro": {
       "path": "skills/retro",
@@ -658,19 +1038,35 @@
         "kind": "adopted",
         "repository": "mattpocock/skills",
         "path": "skills/engineering/retro/SKILL.md",
-        "tree": "335c1862a43da9d629abafdb79ca0c0de118be08",
-        "commit": "24fe0ef7737efae15c87225755e9f6f5965e4888",
-        "baseline": "Existing installed snapshot verified byte-for-byte against the recorded upstream commit",
+        "commit": "49dd158d1076134a641b33efb035946536778336",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
+          "file": "provenance/upstream/retro/LICENSE",
+          "url": "https://github.com/mattpocock/skills/blob/49dd158d1076134a641b33efb035946536778336/LICENSE",
           "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT"
+          "spdx": "MIT",
+          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/retro/skill",
+        "patch": "provenance/patches/retro.patch",
+        "checkedAt": "2026-10-11",
+        "status": "refreshed-from-current-main",
+        "localChanges": [
+          "Current upstream body otherwise unchanged.",
+          "Repaired references to removed writing-for-agents by linking the user-selected replacement write-skills directly.",
+          "Preserved existing explicit-only Codex invocation policy."
+        ],
+        "reconciliation": "Historical upstream base is unknown; compared current source with exact latest upstream and preserved intentional local behavior. No historical baseline invented.",
+        "upstreamHeadAtRefresh": "49dd158d1076134a641b33efb035946536778336",
+        "preservedInvocationMetadata": true,
+        "snapshotSha256": "883426535d040e7e838a0830f2e7fa86ee28b5b3c6e6396eabe662477a07646d",
+        "patchSha256": "af5134ace49e774b1966c9c761c26dd07f94dedad9e43529d849567776f5f2f3",
+        "effectiveSha256": "8e28108c9a8127c1edf236763bdbf97284390c74748c849a7ad168ab178dabcf"
+      }
     },
     "review-animations": {
       "path": "skills/review-animations",
@@ -678,41 +1074,35 @@
         "kind": "adopted",
         "repository": "emilkowalski/skills",
         "path": "skills/review-animations/SKILL.md",
-        "tree": "82571acae75a97764fa7899f10bd21d93a4f1414",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/main/LICENSE",
-          "blob": "57b46f1fd11dc62351ea548104a88aa3f659c11b",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
           "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
-    },
-    "security-audit": {
-      "path": "skills/security-audit",
-      "origin": {
-        "kind": "adopted",
-        "repository": "cloudflare/security-audit-skill",
-        "path": "skills/security-audit/SKILL.md",
-        "tree": "ccbc33ed119b28c3ef7b44a7e2081ab191ad63af",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/cloudflare--security-audit-skill.txt",
-          "url": "https://github.com/cloudflare/security-audit-skill/blob/main/LICENSE",
-          "blob": "6dbc9ecb3a5b9080e95b962869e8c7ab16cfdc20",
-          "sha256": "e598e694aa506650c7192d5ea3be0e50aca0d356ea00551c53429f0b01eb6391",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/review-animations",
+        "patch": "provenance/patches/review-animations.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Retain supported-defect motion review, project exceptions, shared motion guidance, and authorized fix handling."
+        ],
+        "sourceSkillSha256": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af",
+        "effectiveSkillSha256": "2dcf876fa053de5a1e1283c1284a331d8f3d8798dc56dac2f1b9a8b973d66942",
+        "snapshotSha256": "c73279f04471a7fb01f5dab5c68ef0cf368365ad2b9750d5f75891d8ec793c83",
+        "patchSha256": "ef5b8eeb36a15d675b0c1cea8ff18671dd54f146db4a0e6ccc9a11c2ea1c6d00",
+        "effectiveSha256": "aa1cf1631108801e64de2dee9e5698db143ee3eb4937e724a8f69ef743547c00"
+      }
     },
     "shadcn": {
       "path": "skills/shadcn",
@@ -720,20 +1110,34 @@
         "kind": "adopted",
         "repository": "shadcn/ui",
         "path": "skills/shadcn/SKILL.md",
-        "tree": "b5791523e07794a4deb201e78eab3f3adbd022c0",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c2a67849be260701852b0977ba15eb5f3a0ce2a4",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/shadcn--ui.txt",
-          "url": "https://github.com/shadcn-ui/ui/blob/main/LICENSE.md",
-          "blob": "fad4d887a681dd49233e5ed01ee2c7a1513089a0",
+          "url": "https://github.com/shadcn/ui/blob/c2a67849be260701852b0977ba15eb5f3a0ce2a4/LICENSE.md",
           "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE.md"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/shadcn",
+        "patch": "provenance/patches/shadcn.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Retain targeted docs reads, configured-registry inference, and existing authorization semantics for overwrites."
+        ],
+        "sourceSkillSha256": "0185f715bc985deca4223be426f898aa17f7d1a297a9857dfa79055e473bc34d",
+        "effectiveSkillSha256": "841d25687885274f69a0b32c30fb13100be2a2439c2447e4cf41efe695c732b3",
+        "snapshotSha256": "b4ec62a6cd20cf931fa30d8541a00f947dcf1a127642f3898fb1aa0d6a0b513f",
+        "patchSha256": "72b8f70d25d899bece59cc3fc7c8422b1e26face097bc2f78716901a1aa918be",
+        "effectiveSha256": "a3d879edac426f8f916dbd4831dff8f141e74d5d3d02d91494b5889a0d44e6a2"
+      }
     },
     "show-me": {
       "path": "skills/show-me",
@@ -741,20 +1145,34 @@
         "kind": "adopted",
         "repository": "humanlayer/skills",
         "path": "plugins/show-me/skills/show-me/SKILL.md",
-        "tree": "0bdb821a21e793a4f6f82a7078c052154447e5cc",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "653b6411c1f70c275a18e37673b042ff99f67ceb",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/humanlayer--skills.txt",
-          "url": "https://github.com/humanlayer/skills/blob/main/LICENSE",
-          "blob": "f7ad6f4a1d5ed9bbf0589c172c6360587d1530e3",
+          "url": "https://github.com/humanlayer/skills/blob/653b6411c1f70c275a18e37673b042ff99f67ceb/LICENSE",
           "sha256": "5f13c18ea00ea5c1384f41745feeca774079164f7f59a92e4ac0899ad217b26f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/show-me",
+        "patch": "provenance/patches/show-me.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve the existing automatic visual-explanation invocation mode; upstream now defaults to explicit-only."
+        ],
+        "sourceSkillSha256": "434a2346cc95e313b0d367d477dda2e23ba642dd2181757415a09500664af100",
+        "effectiveSkillSha256": "edb7d7a4c3a0d47382248c0d01eadcbd4e886e5957563b87f0b1c3e6d7a345f9",
+        "snapshotSha256": "6fdaf9ca26e8397eb7e24463d6144ab4f20e8c13497c8d3ab9b1125edc08f7c9",
+        "patchSha256": "2312ef39f63654d2ee91c894c2237ce63496fc5169d0b39ce7742937f9351089",
+        "effectiveSha256": "2e460e20d6ade4e844f14db00480dd421120a3e73f1b894e92304a1768b35d10"
+      }
     },
     "social-posting": {
       "path": "skills/social-posting",
@@ -770,108 +1188,14 @@
       },
       "requires": []
     },
-    "tdd": {
-      "path": "skills/tdd",
+    "testing-strategy": {
+      "path": "skills/testing-strategy",
       "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/engineering/tdd/SKILL.md",
-        "tree": "8c098cfbaf956292d413d1140f5ee68f70dcc9ee",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
+        "kind": "personal",
+        "baseline": "Reviewed synthesis of personal testing guidance and three pinned upstream skills"
       },
-      "requires": []
-    },
-    "teach": {
-      "path": "skills/teach",
-      "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/productivity/teach/SKILL.md",
-        "tree": "15f8c86d39ef834e643d092733ca899b59049067",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
-    },
-    "to-tickets": {
-      "path": "skills/to-tickets",
-      "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/engineering/to-tickets/SKILL.md",
-        "tree": "3d8bb99bb91b9203c90bac852302facb58ac63a0",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
-    },
-    "triage": {
-      "path": "skills/triage",
-      "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/engineering/triage/SKILL.md",
-        "tree": "6e908c1423a1b409e85066a6efbbbbc63b063e2b",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
-    },
-    "typesafe-ai": {
-      "path": "skills/typesafe-ai",
-      "origin": {
-        "kind": "adopted",
-        "repository": "typesafe-ai/skills",
-        "path": "skills/typesafe-ai/SKILL.md",
-        "tree": "678c375b883794bf4292715a43acbba5c84681aa",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/typesafe-ai--skills.txt",
-          "url": "https://github.com/typesafe-ai/skills/blob/main/LICENSE",
-          "blob": "8c73b41b89d9a76ddf0fdb0edfaafdda800d36e8",
-          "sha256": "835f233f1d6ed84a9b9a351aba0689b47644a4137d6316911fc7957bde523b02",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
+      "derivation": {
+        "lock": "sources.lock.json"
       },
       "requires": []
     },
@@ -881,15 +1205,35 @@
         "kind": "adopted",
         "repository": "cursor/plugins",
         "path": "pstack/skills/unslop/SKILL.md",
-        "tree": "6161508c5c7959b156ff0e4e10b510863b51f9cc",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "9d76bcab133aefcccb16121d7be874e6aa823729",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
-          "status": "unresolved",
-          "reason": "GitHub license endpoint returned no usable license"
+          "spdx": "MIT",
+          "file": "provenance/licenses/cursor--plugins--pstack.txt",
+          "status": "retrieved",
+          "sourcePath": "pstack/LICENSE",
+          "sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+          "url": "https://github.com/cursor/plugins/blob/9d76bcab133aefcccb16121d7be874e6aa823729/pstack/LICENSE",
+          "note": "Verified against the pinned current upstream snapshot."
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/unslop",
+        "patch": "provenance/patches/unslop.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Retain the existing user-facing-output scope and explicit-only policy while accepting the current upstream writing rules."
+        ],
+        "sourceSkillSha256": "3126b9e2cf46022f5e0c332e84be5e17a9730669cb3d6ac0a7e5e7e94b1e24fa",
+        "effectiveSkillSha256": "aea1a299ab2daf5decf620201e445e0bcf94e7811cebaf0544db08a5b0b218ff",
+        "snapshotSha256": "29a8006ac7dccfac3a405c0ed2c19463d432a856278d1fbcc19e4329aa0ee49b",
+        "patchSha256": "b9131b67d4eb30b538f5c0136fa85e3b8296e60f1e6b62c2ab782fc61bd6985f",
+        "effectiveSha256": "1f64da1116d8f0e6b2413745b71d8ca77fc9963c96b30f2dd40a56801a4f0da6"
+      }
     },
     "variant": {
       "path": "skills/variant",
@@ -897,36 +1241,35 @@
         "kind": "adopted",
         "repository": "jakubkrehel/skills",
         "path": "skills/variant/SKILL.md",
-        "tree": "10e4d83f2f34cf226cf9819ab6b4dd6f8d7a0e6a",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c0588bb6d654eb725046f0bf9deec338c34891ab",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/jakubkrehel--skills.txt",
-          "url": "https://github.com/jakubkrehel/skills/blob/main/LICENSE",
-          "blob": "6a067e906e1346e640a0cda6ed37c5fb793104e4",
+          "url": "https://github.com/jakubkrehel/skills/blob/c0588bb6d654eb725046f0bf9deec338c34891ab/LICENSE",
           "sha256": "ed1dfe988fc40511b4845ccd9050a143a2002fee3bedc8064c47fa342b5d8d4f",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
-    },
-    "vercel-composition-patterns": {
-      "path": "skills/vercel-composition-patterns",
-      "origin": {
-        "kind": "adopted",
-        "repository": "vercel-labs/agent-skills",
-        "path": "skills/composition-patterns/SKILL.md",
-        "tree": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "unresolved",
-          "reason": "GitHub license endpoint returned no usable license"
-        }
-      },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/variant",
+        "patch": "provenance/patches/variant.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Keep review routing within installed better-* guides and inline the candidate floor; remove dependencies on uninstalled or removed routers and break."
+        ],
+        "sourceSkillSha256": "2d8eef43768e01d7fcec5ec2fd56dcfc453904b31a23fe8ea53170eb828d24ea",
+        "effectiveSkillSha256": "a1e992bf8cf4a770e726fdf8d5c98f942bd7b9facd4ef8d78f2a12daabf06fb5",
+        "snapshotSha256": "bd6d8dfd056b6760cddd7a1465ca8b313c59a3497d415ccde7f2d01416b2eb01",
+        "patchSha256": "a9ed184c3a9d71481f09524384b442bce9c2ab34d19a9d77ea566721e116c04f",
+        "effectiveSha256": "cfafcbb7ef80efc646f13a6c36bbb57e4bebe0c7a0380035656b2d27b96a7df5"
+      }
     },
     "vercel-optimize": {
       "path": "skills/vercel-optimize",
@@ -934,18 +1277,31 @@
         "kind": "adopted",
         "repository": "vercel-labs/agent-skills",
         "path": "skills/vercel-optimize/SKILL.md",
-        "tree": "0901aa3667db7a6e5cc40b213327290bf6556373",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "unresolved",
-          "reason": "GitHub license endpoint returned no usable license"
+          "reason": "No license declaration or license text found for the skill subtree or repository root at the pinned commit."
         }
       },
       "requires": [],
       "capabilities": [
         "Authenticated Vercel CLI v53+ in the target project; may be run through its package manager"
-      ]
+      ],
+      "upstream": {
+        "snapshot": "provenance/upstream/vercel-optimize",
+        "patch": "provenance/patches/vercel-optimize.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description."
+        ],
+        "sourceSkillSha256": "95ae2683b30d892d165af92a350c5628b68106f395a59b448857b654e306ed91",
+        "effectiveSkillSha256": "cce72e9c8808ee778208ca94e259bb00926af328e136443a4133d23d017e9dc0",
+        "snapshotSha256": "3a6d45f2f96bc3cb653d9d655d115558b67722d4760185214cac513c4f2eaf32",
+        "patchSha256": "fef8e8e7d5a7e31f34094e1c2cca7ac8b4c6ec54cc1a225e6871923dfe6a051a",
+        "effectiveSha256": "961b83382c4fe0ff143c54ef2eeb17222a092c8d55c210942daebb4b2836cb8b"
+      }
     },
     "vercel-react-best-practices": {
       "path": "skills/vercel-react-best-practices",
@@ -953,31 +1309,32 @@
         "kind": "adopted",
         "repository": "vercel-labs/agent-skills",
         "path": "skills/react-best-practices/SKILL.md",
-        "tree": "343db72180d05814949fef7d46be96b5c6ee86b3",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
-          "status": "unresolved",
-          "reason": "GitHub license endpoint returned no usable license"
+          "status": "declared",
+          "spdx": "MIT",
+          "sourcePath": "skills/react-best-practices/SKILL.md",
+          "url": "https://github.com/vercel-labs/agent-skills/blob/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices/SKILL.md",
+          "note": "MIT declared in skill frontmatter; no license text was found for the skill subtree or repository root."
         }
       },
-      "requires": []
-    },
-    "web-design-guidelines": {
-      "path": "skills/web-design-guidelines",
-      "origin": {
-        "kind": "adopted",
-        "repository": "vercel-labs/agent-skills",
-        "path": "skills/web-design-guidelines/SKILL.md",
-        "tree": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "unresolved",
-          "reason": "GitHub license endpoint returned no usable license"
-        }
-      },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/vercel-react-best-practices",
+        "patch": "provenance/patches/vercel-react-best-practices.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Fix three upstream cross-reference paths in the compiled guide to point into rules/."
+        ],
+        "sourceSkillSha256": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355",
+        "effectiveSkillSha256": "6599705ca58ea91e108d61f9357e8b8d1984a469b9d0f90c87c34f0b24632412",
+        "snapshotSha256": "266961186a263d7a64eb0b6b0495d5f6bb4f01b8c528904e0610719ef790a3d6",
+        "patchSha256": "8d08c5d826dad12e045beba34ffd75c4e5a17b906a6b1e20b6630d50523cb029",
+        "effectiveSha256": "08f868e125869427441175d51e15ffd1a6b5c001b055b9f9d03055f73c38476c"
+      }
     },
     "web-perf": {
       "path": "skills/web-perf",
@@ -985,62 +1342,64 @@
         "kind": "adopted",
         "repository": "cloudflare/skills",
         "path": "skills/web-perf/SKILL.md",
-        "tree": "c4c15a909ae86c00d4fbf841238bbf56eb505ac8",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "c430dd965cea3a8faf0ef035e3b3d73b38518081",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/cloudflare--skills.txt",
-          "url": "https://github.com/cloudflare/skills/blob/main/LICENSE",
-          "blob": "7a4a3ea2424c09fbe48d455aed1eaa94d9124835",
+          "url": "https://github.com/cloudflare/skills/blob/c430dd965cea3a8faf0ef035e3b3d73b38518081/LICENSE",
           "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
           "spdx": "Apache-2.0",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": []
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/web-perf",
+        "patch": "provenance/patches/web-perf.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [],
+        "sourceSkillSha256": "79c531e95ca4d96a7de920c28c127c2c09ec55cd452a92222267d2954580be23",
+        "effectiveSkillSha256": "79c531e95ca4d96a7de920c28c127c2c09ec55cd452a92222267d2954580be23",
+        "snapshotSha256": "84222df3a4a3051744dc3efd9e3027bd40d3ef2edfd013db7781f6c3daf00863",
+        "patchSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "effectiveSha256": "84222df3a4a3051744dc3efd9e3027bd40d3ef2edfd013db7781f6c3daf00863"
+      }
     },
-    "wizard": {
-      "path": "skills/wizard",
+    "write-skills": {
+      "path": "skills/write-skills",
+      "requires": [],
       "origin": {
         "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/engineering/wizard/SKILL.md",
-        "tree": "359db2fb13dc168346632556185252cab9dbec77",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "repository": "dzhng/skills",
+        "path": "skills/authoring/write-skills/SKILL.md",
+        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+          "file": "provenance/upstream/write-skills/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "note": "License retrieved at recorded upstream commit"
         }
       },
-      "requires": []
-    },
-    "writing-for-agents": {
-      "path": "skills/writing-for-agents",
-      "origin": {
-        "kind": "adopted",
-        "repository": "mattpocock/skills",
-        "path": "skills/productivity/writing-for-agents/SKILL.md",
-        "tree": "ad2925850efb8973a72d2e666f7a975f9a2d4a9b",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/mattpocock--skills.txt",
-          "url": "https://github.com/mattpocock/skills/blob/main/LICENSE",
-          "blob": "f1dd2c09108dde1a5f56097cee8461b3ea834499",
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "spdx": "MIT",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
-        }
-      },
-      "requires": []
+      "upstream": {
+        "snapshot": "provenance/upstream/write-skills/skill",
+        "patch": "provenance/patches/write-skills.patch",
+        "checkedAt": "2026-10-11",
+        "status": "added",
+        "localChanges": [
+          "Replace writing-for-agents without synthesizing or importing its principles.",
+          "Correct Codex invocation metadata, preserve existing invocation policy, and retain attribution/license notices.",
+          "Package the upstream MIT notice alongside the effective skill."
+        ],
+        "snapshotSha256": "4114dfa9648662391eef81629fd7be62b0140d395632c37a3769b10a6bdef18f",
+        "patchSha256": "80989e1fed4f887af35e5408a694d9f41d0c502ec0f9b70a13c4cc89d7419ea4",
+        "effectiveSha256": "845e77169bd1046a19945139f56e34149612aa2196607cb949974e20ae4d1dbc"
+      }
     },
     "x-data": {
       "path": "skills/x-data",
@@ -1062,20 +1421,34 @@
         "kind": "adopted",
         "repository": "openclaw/openclaw",
         "path": "skills/xurl/SKILL.md",
-        "tree": "098c25020aaf170dd2426281ef4f02c7f83d4bdd",
-        "commit": null,
-        "baseline": "installed snapshot; local modifications may be present",
+        "commit": "35b6b308f6cb8d9e37ce56a707a6eeba062ca731",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/openclaw--openclaw.txt",
-          "url": "https://github.com/openclaw/openclaw/blob/main/LICENSE",
-          "blob": "ebaebf7c416761a32f932ad70ebe5d1d2e214f68",
-          "sha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
-          "spdx": "NOASSERTION",
-          "note": "Retrieved from upstream during migration; installed baseline commit is unknown"
+          "url": "https://github.com/openclaw/openclaw/blob/35b6b308f6cb8d9e37ce56a707a6eeba062ca731/LICENSE",
+          "sha256": "9efd316ecf1c4c60f6fd5d26433142fff2b6794d7d328e9bc6179b29bf9c82a4",
+          "spdx": "MIT",
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
         }
       },
-      "requires": ["xurl"]
+      "requires": ["xurl"],
+      "upstream": {
+        "snapshot": "provenance/upstream/xurl",
+        "patch": "provenance/patches/xurl.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Retain x-data read precedence, paid-fallback conditions, bird-first authorized posts, and existing secret-safety guards."
+        ],
+        "sourceSkillSha256": "0e5e736c382f0943e2c4ab974b593fe5b0b0a6ff7471f56f7ef9db69c19025f6",
+        "effectiveSkillSha256": "15383dce8b0b1827b1f09ee7d740d864885b13ca7476e48922e6dac56b881f8e",
+        "snapshotSha256": "6b7e4aa694a4bc92c91e37ef70e577fcf8aebacbc380090a5586f10a1cad39e4",
+        "patchSha256": "b800dc2daea4a84c7b832ba8d0ec26a8d0bb86b51d0e825e073c1ebdf864e895",
+        "effectiveSha256": "19b96e00e9005aa55a8918bf725d789ee4523ec7dbca4dc03656eda5f8e52a74"
+      }
     }
   },
   "profiles": {
@@ -1090,17 +1463,18 @@
         "better-ui",
         "better-writing",
         "branding-exercise",
-        "break",
+        "claude",
         "codebase-design",
+        "codex",
+        "compare-screenshots",
         "diagnosing-bugs",
         "domain-modeling",
         "eli5",
-        "explain-interface",
-        "find-animation-opportunities",
+        "eval-skills",
+        "good-css",
         "grill-me",
         "grill-with-docs",
         "grilling",
-        "handoff",
         "impeccable",
         "implement",
         "improve-animations",
@@ -1110,25 +1484,16 @@
         "phase",
         "prototype",
         "research",
-        "resolving-merge-conflicts",
         "review-animations",
-        "security-audit",
         "shadcn",
         "show-me",
         "storytelling",
-        "tdd",
-        "teach",
-        "to-tickets",
-        "triage",
-        "typesafe-ai",
+        "testing-strategy",
         "unslop",
         "variant",
-        "vercel-composition-patterns",
         "vercel-react-best-practices",
-        "web-design-guidelines",
         "web-perf",
-        "wizard",
-        "writing-for-agents",
+        "write-skills",
         "x-data"
       ]
     },
@@ -1139,7 +1504,7 @@
       "skills": ["personal-notion-projects", "vercel-optimize"]
     },
     "social": {
-      "skills": ["postiz", "social-posting", "xurl"]
+      "skills": ["social-posting", "xurl"]
     },
     "archive": {
       "skills": ["birdclaw", "x-mirror"]

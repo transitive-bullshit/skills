@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-11",
+  "removed": "resolving-merge-conflicts",
+  "remainingSkills": 49,
+  "automatic": 36,
+  "explicitOnly": 13,
+  "activeUpstreamPins": 39,
+  "retirementRecord": "provenance/history/2026-10-11-retired.json",
+  "effectiveArchive": "provenance/history/2026-10-11-removed/resolving-merge-conflicts",
+  "installationBackup": "20261011T075812Z-30cb56be",
+  "validation": {
+    "pnpm test": "passed",
+    "repositoryTests": 29,
+    "activePatchReplays": 39,
+    "agent-env doctor": "passed"
+  }
+}

@@ -1,0 +1,35 @@
+diff --git a/SKILL.md b/SKILL.md
+index dbcc1a2..46febbe 100644
+--- a/SKILL.md
++++ b/SKILL.md
+@@ -1,20 +1,12 @@
+ ---
+ name: prototype
+-description: Build multiple genuinely different versions of a UI piece you describe, rendered behind a visual picker so you can flip through them live and promote the one that feels right. Only runs when explicitly invoked; it does not trigger on its own.
++description: "Build distinct UI alternatives behind a visual picker. Use only when explicitly invoked; the user selects the direction."
+ disable-model-invocation: true
+ ---
+ 
+ # Prototyping Variants
+ 
+-## Initial Response
+-
+-When this skill is first invoked without a specific question, respond only with:
+-
+-> I'm ready to build several genuinely different versions of a UI piece for you to flip through, my craft bar comes from Emil Kowalski's design engineering philosophy.
+-
+-Do not provide any other information until the user asks a question.
+-
+-A divergence skill. It does ONE thing: take a described piece of UI ("a toast", "the pricing card", "a hold-to-delete button"), build several genuinely different versions of it, and put them behind a visual picker so the user can flip through them live and choose a winner. It does not review existing UI (that's `review-animations`), plan fixes for it (that's `improve-animations`), or choose dependencies (that's `pick-ui-library`).
++A divergence skill. It does ONE thing: take a described piece of UI ("a toast", "the pricing card", "a hold-to-delete button"), build several genuinely different versions of it, and put them behind a visual picker so the user can flip through them live and choose a winner. It does not review existing UI (that's `review-animations`), plan fixes for it (that's `improve-animations`); reuse the project’s installed component system.
+ 
+ ## Operating Posture
+ 
+diff --git b/agents/openai.yaml b/agents/openai.yaml
+new file mode 100644
+index 0000000..5b1f887
+--- /dev/null
++++ b/agents/openai.yaml
+@@ -0,0 +1,2 @@
++policy:
++  allow_implicit_invocation: false
