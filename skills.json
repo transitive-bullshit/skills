@@ -1249,13 +1249,6 @@
         "effectiveSha256": "2e460e20d6ade4e844f14db00480dd421120a3e73f1b894e92304a1768b35d10"
       }
     },
-    "social-posting": {
-      "path": "skills/social-posting",
-      "origin": {
-        "kind": "personal"
-      },
-      "requires": ["postiz"]
-    },
     "storytelling": {
       "path": "skills/storytelling",
       "origin": {
@@ -1483,13 +1476,6 @@
       },
       "requires": []
     },
-    "x-mirror": {
-      "path": "skills/x-mirror",
-      "origin": {
-        "kind": "personal"
-      },
-      "requires": ["python3"]
-    },
     "xurl": {
       "path": "skills/xurl",
       "origin": {
@@ -1581,10 +1567,10 @@
       "skills": ["personal-notion-projects", "vercel-optimize"]
     },
     "social": {
-      "skills": ["social-posting", "xurl"]
+      "skills": ["xurl"]
     },
     "archive": {
-      "skills": ["birdclaw", "x-mirror"]
+      "skills": ["birdclaw"]
     },
     "mac": {
       "extends": ["core", "desktop"]

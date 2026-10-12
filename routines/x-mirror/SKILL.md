@@ -5,20 +5,20 @@ description: "Travis Fischer's personal X mirror: schedules his new top-level X 
 
 # x-mirror
 
-X is Travis's primary channel; Bluesky and Threads follow it with no extra work from him. This skill schedules his recent X posts on both through Postiz, with no confirmation step. Project launches are handled by the [social-posting](../social-posting/SKILL.md) skill instead.
+X is Travis's primary channel; Bluesky and Threads follow it with no extra work from him. This routine schedules his recent X posts on both through Postiz, with no confirmation step. Project launches are handled by the [social-posting](../social-posting/SKILL.md) routine instead.
 
-Run it:
+Run it from the repo root:
 
 ```bash
-python3 ~/.agents/skills/x-mirror/x_mirror.py            # mirror posts from the last 48 h
-python3 ~/.agents/skills/x-mirror/x_mirror.py --dry-run  # show the plan only
-python3 ~/.agents/skills/x-mirror/x_mirror.py --lookback-hours 168   # one-off backfill of a week
+python3 routines/x-mirror/x_mirror.py            # mirror posts from the last 48 h
+python3 routines/x-mirror/x_mirror.py --dry-run  # show the plan only
+python3 routines/x-mirror/x_mirror.py --lookback-hours 168   # one-off backfill of a week
 
 # spaced-out backfill of specific posts, in the order given: a random 8–15 h apart per channel, 8am to midnight ET
-python3 ~/.agents/skills/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 8-15 --window 12-4
+python3 routines/x-mirror/x_mirror.py --only ID1 ID2 ... --include-launches --gap-hours 8-15 --window 12-4
 ```
 
-Posts, threads, media and quoted posts start in the local Birdclaw archive (`~/.birdclaw/birdclaw.sqlite`). A separate birdclaw job syncs it through `bird` every 12 hours; new posts become eligible after that sync. For a missing quoted/linked post or video mp4, the script follows the source precedence in [x-data](../x-data/SKILL.md). Complete local results spend no X API credits; a paid fallback prints a `note` explaining the cheaper-source failures. If all reads fail, the post waits. When birdclaw hasn't synced for over 26 hours, the run prints a `note` line.
+Posts, threads, media and quoted posts start in the local Birdclaw archive (`~/.birdclaw/birdclaw.sqlite`). A separate birdclaw job syncs it through `bird` every 12 hours; new posts become eligible after that sync. For a missing quoted/linked post or video mp4, the script follows the source precedence in [x-data](../../skills/x-data/SKILL.md). Complete local results spend no X API credits; a paid fallback prints a `note` explaining the cheaper-source failures. If all reads fail, the post waits. When birdclaw hasn't synced for over 26 hours, the run prints a `note` line.
 
 `--only` takes posts of any age from the archive. `--include-launches` also mirrors project-launch posts, for a deliberate backfill of posts that did well on X. A post that quotes one of his own posts whose Bluesky or Threads version isn't live yet waits. Every later run retries it, whatever its age, with the options it was queued with.
 
@@ -31,7 +31,7 @@ It prints one line per decision (`posted`, `skip`, `wait`, or `plan` in a dry ru
   - One of Travis's own posts: the link is swapped for the matching post on that platform (its mirror, or a launch post with the same opening line).
   - A match that isn't live yet: the post waits for the next run.
   - Anyone else's post, or an own post with no match: the post is skipped on that platform.
-- **Project launches are left to the [social-posting](../social-posting/SKILL.md) workflow.** A post is skipped when it, or one of his replies under it, links to `transitivebullsh.it/projects/...`, or when a Postiz launch post on that channel already has the same link or opening line.
+- **Project launches are left to the [social-posting](../social-posting/SKILL.md) routine.** A post is skipped when it, or one of his replies under it, links to `transitivebullsh.it/projects/...`, or when a Postiz launch post on that channel already has the same link or opening line.
 - **Nothing posts twice on a platform.** A post is also skipped when its opening line is already in any Postiz post on that channel, or already published on his Bluesky profile (read from the public API, which catches posts made outside Postiz). Threads has no public read API, so posts made there by hand aren't checked.
 - **Text stays as written.** t.co links are expanded and X media links dropped. `@handles` lose the `@` on Threads so they can't tag the wrong person. Text over the limit (Bluesky 300, Threads 500) becomes extra thread posts rather than being cut.
 - **Media is carried over.** Photos (up to 4) or the first video are re-uploaded to Postiz.
@@ -47,5 +47,5 @@ State lives in `~/.local/state/x-mirror/state.json`: each X post is mirrored or 
 `x-mirror failed: ...` on stderr, with exit code 1.
 
 - **Auth errors:** `postiz auth:status` shows whether Postiz lost its session. Tell Travis rather than re-authenticating.
-- **No new posts for a while, or a stale `note`:** inspect the Birdclaw sync task's latest run, saved bird cursor, and `bird --plain whoami`. Report browser-authentication, transport, or scheduler failures separately; keep the cursor and use the incremental sync procedure in the Birdclaw skill.
+- **No new posts for a while, or a stale `note`:** inspect the Birdclaw sync task's latest run, saved bird cursor, and `bird --plain whoami`. Report browser-authentication, transport, or scheduler failures separately; keep the cursor and use the incremental sync procedure in the [Birdclaw skill](../../skills/birdclaw/SKILL.md).
 - **Anything else:** report the message. Don't hand-post the missing mirrors; the next run retries anything not recorded in state.

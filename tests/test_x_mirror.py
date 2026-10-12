@@ -7,7 +7,7 @@ from unittest.mock import Mock, patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location('x_mirror', ROOT / 'skills/x-mirror/x_mirror.py')
+SPEC = importlib.util.spec_from_file_location('x_mirror', ROOT / 'routines/x-mirror/x_mirror.py')
 mirror = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(mirror)
 

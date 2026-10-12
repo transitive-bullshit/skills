@@ -36,7 +36,7 @@ If the same content is already there, skip that channel, or replace the queued p
 
 Read before writing anything. The sources differ in how much of Travis they carry:
 
-- **His X posts come first.** They're where he drafts and refines the framing, and they're his voice. Find the launch post, his self-replies, and recent project posts using the source precedence and freshness rules in [x-data](../x-data/SKILL.md). Compare available engagement and its observation time: the angle that did best on X usually leads everywhere else, even when it isn't the announcement post. Report unavailable metrics rather than spending API credits solely to fill every field.
+- **His X posts come first.** They're where he drafts and refines the framing, and they're his voice. Find the launch post, his self-replies, and recent project posts using the source precedence and freshness rules in [x-data](../../skills/x-data/SKILL.md). Compare available engagement and its observation time: the angle that did best on X usually leads everywhere else, even when it isn't the announcement post. Report unavailable metrics rather than spending API credits solely to fill every field.
 - **The project repo:** README, `AGENTS.md`, docs. Use them for facts: what it is, how it was made, costs, credits, links.
 - **The Notion Projects entry** backs his website ([Projects database](https://app.notion.com/p/3c5edb27f12480a69a16d7c2f8a1f078); the `personal-notion-projects` skill documents it). Sometimes it's his most refined telling of the story. Sometimes it's an AI-assisted derivative of the README. Use it for extra context and facts, not as a voice sample.
 - **The public write-up** at `https://www.transitivebullsh.it/projects/<slug>` and the YouTube video, when they exist. These are what posts link to.
@@ -48,9 +48,9 @@ This step is done when you can state the project's hook, the X angle that perfor
 
 Adapt, don't copy. Every platform gets the same core claim and facts, framed for its audience, and no two posts share the same copy. Read [voice and platforms](references/voice-and-platforms.md) for Travis's voice, the do's and don'ts, and each platform's framing, limits and examples.
 
-For story structure (the hook, the stakes, a payoff that lands), use the [storytelling](../storytelling/SKILL.md) skill, especially for LinkedIn and anything longer than a few lines.
+For story structure (the hook, the stakes, a payoff that lands), use the [storytelling](../../skills/storytelling/SKILL.md) skill, especially for LinkedIn and anything longer than a few lines.
 
-Finish with an **unslop pass**. Apply the rules of the `unslop` skill (it's manual-invoke only, so read its SKILL.md rather than invoking it): cut puffery and AI vocabulary, no em dashes, no chatbot phrasing. Then check the draft still sounds like his X posts.
+Finish with an **unslop pass**. Apply the rules of the [`unslop`](../../skills/unslop/SKILL.md) skill (it's manual-invoke only, so read its SKILL.md rather than invoking it): cut puffery and AI vocabulary, no em dashes, no chatbot phrasing. Then check the draft still sounds like his X posts.
 
 Write each draft to `social/drafts/<platform>.md` in the project repo. It's local working state: make sure `social/drafts/` is in the repo's `.gitignore` and never commit it. Postiz is the record of what went out. Check each draft against its platform's character limit.
 
@@ -80,9 +80,9 @@ Use this for a new project launch, or a backfilled one (see below).
 
 ## Other workflows
 
-- **His non-launch X posts** go to Bluesky and Threads through the [`x-mirror`](../x-mirror/SKILL.md) skill, which runs twice a day. It skips anything linking to a `transitivebullsh.it/projects/...` write-up, because launches belong to this workflow. So always include the write-up link in launch posts.
+- **His non-launch X posts** go to Bluesky and Threads through the [`x-mirror`](../x-mirror/SKILL.md) routine, which runs twice a day. It skips anything linking to a `transitivebullsh.it/projects/...` write-up, because launches belong to this workflow. So always include the write-up link in launch posts.
 - **Backfilling past projects:** run the launch game plan for one past project per platform per week, interleaved with new launches. Frame it as a throwback or "behind the build" post, with fresh copy and a different cut or cover than the original. Spam filters punish bursts, and TikTok caps a creator at about 15 posts a day.
-- **Backfilling Bluesky and Threads from X:** take his top-performing X posts (the 90th percentile and up by likes) since a start date he names, from the local archive (`~/.birdclaw/birdclaw.sqlite`, his top-level posts only). Mirror them strongest-first with `x-mirror --only <ids> --include-launches --gap-hours 8-15 --window 12-4`. That spaces them a random 8–15 hours apart per channel, between 8am and midnight ET, at irregular minutes and clear of launch posts. Launch videos that did well on X belong in this set.
+- **Backfilling Bluesky and Threads from X:** take his top-performing X posts (the 90th percentile and up by likes) since a start date he names, from the local archive (`~/.birdclaw/birdclaw.sqlite`, his top-level posts only). Mirror them strongest-first with `python3 routines/x-mirror/x_mirror.py --only <ids> --include-launches --gap-hours 8-15 --window 12-4`. That spaces them a random 8–15 hours apart per channel, between 8am and midnight ET, at irregular minutes and clear of launch posts. Launch videos that did well on X belong in this set.
 - **A second shot at exposure:**
   - Postiz Plugs already handle Bluesky (repost at 5 likes) and Threads and Bluesky (a reply linking his projects page at 50 likes).
   - On the other platforms, don't repost the same video. Schedule a new post 3–5 days later with a different hook or clip.
