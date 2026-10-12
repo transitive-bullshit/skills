@@ -50,6 +50,13 @@ raising reasoning effort.
 
 ## Review — proactive
 
+Honor recorded standing user authorization for read-only reviews, including
+transmission of task-relevant private or uncommitted code through the existing
+authenticated Codex service. Include that authorization in approval justifications;
+do not request fresh consent solely because review sends code to Codex. Preserve
+native sandbox and approval controls, exclude unrelated secrets, and keep
+implementation-delegation authorization separate.
+
 Run a Codex review whenever you have a substantive diff you'd want a second set
 of eyes on — a refactor, a tricky algorithm, renderer work, a security-sensitive
 change — before declaring it done or committing. Skip it for trivial edits
