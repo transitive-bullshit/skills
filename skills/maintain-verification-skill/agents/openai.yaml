@@ -1,0 +1,5 @@
+interface:
+  display_name: "Maintain Verification Skill"
+  short_description: "Audit and repair an existing project verification workflow."
+policy:
+  allow_implicit_invocation: false

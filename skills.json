@@ -439,6 +439,43 @@
         "effectiveSha256": "6822ee818fcb4925db7b07251bf2f3aa0cb469ef1c32db3917c86cffc35fc5df"
       }
     },
+    "create-verification-skill": {
+      "path": "skills/create-verification-skill",
+      "origin": {
+        "kind": "adopted",
+        "repository": "cursor/plugins",
+        "path": "pstack/skills/create-verification-skill/SKILL.md",
+        "commit": "1b6d44ff26d4e242f4e8f68c391e6d2f7ca16def",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/upstream/create-verification-skill/LICENSE",
+          "url": "https://github.com/cursor/plugins/blob/1b6d44ff26d4e242f4e8f68c391e6d2f7ca16def/pstack/LICENSE",
+          "sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+          "spdx": "MIT",
+          "note": "pstack plugin by Lauren Tan; license verified at the pinned source revision."
+        }
+      },
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/create-verification-skill/skill",
+        "patch": "provenance/patches/create-verification-skill.patch",
+        "checkedAt": "2026-10-12",
+        "status": "added",
+        "upstreamHeadAtRefresh": "1b6d44ff26d4e242f4e8f68c391e6d2f7ca16def",
+        "localChanges": [
+          "Replace Cursor skill paths with project-local .agents paths and use skill names without requiring slash-command support.",
+          "Preserve explicit-only invocation in frontmatter and add Codex agents/openai.yaml policy, as requested.",
+          "Use available host tools and normal permission controls; adapt process and delegation assumptions.",
+          "Package the pstack MIT notice alongside the effective skill.",
+          "Preserve existing verification skills, use ordinary processes for non-interactive CLIs, and bound setup repairs to the task.",
+          "Require evidence outside cleanup targets by default and prove the documented defaults; a fresh-agent smoke test exposed an evidence-path ambiguity."
+        ],
+        "snapshotSha256": "0963fec13985c7483fab0447d2a09e0f4ef7e19d5b473e5b0c0ca3520ef46294",
+        "patchSha256": "73309eb6fc22340026eac298426afcf8e2346af788153b2fc191fe8f7f7071f6",
+        "effectiveSha256": "bfea2557ef460894c089b92d6834a52783836b0cf5fbc0295e23433c4c49fb41"
+      }
+    },
     "diagnosing-bugs": {
       "path": "skills/diagnosing-bugs",
       "origin": {
@@ -915,6 +952,43 @@
         "kind": "personal"
       },
       "requires": []
+    },
+    "maintain-verification-skill": {
+      "path": "skills/maintain-verification-skill",
+      "origin": {
+        "kind": "adopted",
+        "repository": "cursor/plugins",
+        "path": "pstack/skills/maintain-verification-skill/SKILL.md",
+        "commit": "1b6d44ff26d4e242f4e8f68c391e6d2f7ca16def",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/upstream/maintain-verification-skill/LICENSE",
+          "url": "https://github.com/cursor/plugins/blob/1b6d44ff26d4e242f4e8f68c391e6d2f7ca16def/pstack/LICENSE",
+          "sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
+          "spdx": "MIT",
+          "note": "pstack plugin by Lauren Tan; license verified at the pinned source revision."
+        }
+      },
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/maintain-verification-skill/skill",
+        "patch": "provenance/patches/maintain-verification-skill.patch",
+        "checkedAt": "2026-10-12",
+        "status": "added",
+        "upstreamHeadAtRefresh": "1b6d44ff26d4e242f4e8f68c391e6d2f7ca16def",
+        "localChanges": [
+          "Replace Cursor skill paths with project-local .agents paths and use skill names without requiring slash-command support.",
+          "Preserve explicit-only invocation in frontmatter and add Codex agents/openai.yaml policy, as requested.",
+          "Use available host tools and normal permission controls; adapt process and delegation assumptions.",
+          "Package the pstack MIT notice alongside the effective skill.",
+          "Allow bounded or sequential source review when subagents are unavailable.",
+          "Make PR creation conditional on task authorization; do not create recurring maintenance without a request."
+        ],
+        "snapshotSha256": "669cc39021e28b0a903ca2172c10dbec5270cb52c093a442d8280c0ca0972790",
+        "patchSha256": "61153757c6c9026d606ed679f32c6ad6237f55042e908731af0cf472fca40fff",
+        "effectiveSha256": "d1fb8843c515cb092ec8b521a2df93db4d040142dcb125ad78006dd00f82e90c"
+      }
     },
     "midjourney-images": {
       "path": "skills/midjourney-images",
@@ -1468,6 +1542,7 @@
         "codebase-design",
         "codex",
         "compare-screenshots",
+        "create-verification-skill",
         "diagnosing-bugs",
         "domain-modeling",
         "eli5",
@@ -1482,6 +1557,7 @@
         "improve-codebase-architecture",
         "improve-ui",
         "init-git-repo",
+        "maintain-verification-skill",
         "phase",
         "prototype",
         "research",
