@@ -394,15 +394,15 @@
         "checkedAt": "2026-10-11",
         "status": "added",
         "localChanges": [
-          "Keep upstream review/implementation workflow and current CLI support.",
+          "Narrow reviews to one pass immediately before creating a substantive PR or an explicit user review request; preserve upstream implementation workflow and CLI support.",
           "Preserve authorization across in-scope follow-ups; retain sandbox/approval controls and trust settings.",
           "Honor standing review authorization for private or uncommitted task code sent to the existing Codex service; keep native approval controls and implementation authorization separate.",
           "Keep diagnostic stderr, scope liveness actions to the launched process, and remove uninstalled companion dependencies.",
           "Package the upstream MIT notice alongside the effective skill."
         ],
         "snapshotSha256": "3f1a2863b1c005ec3ccafe4c94aa84ddfc8edbe82d3f078e872e4b7684158132",
-        "patchSha256": "b2d9000c2c35d29cb9d45f2b744be0567621f370c0b51a88a92dbe3d91645ac1",
-        "effectiveSha256": "b12d6e91d7c5af57b4381bbe2c10c86cc134a2c59cb234abd3b52f2f3bdbbad7"
+        "patchSha256": "ae50e80f6a82b7d359ca8a3068634ff8abe2511dd0d175ef587ea833f1990b85",
+        "effectiveSha256": "b5c424811ffa158cb79a681f99316a24355392df1cde61d7fcc413793019e687"
       }
     },
     "compare-screenshots": {

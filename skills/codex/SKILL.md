@@ -1,6 +1,6 @@
 ---
 name: codex
-description: Use the local Codex CLI as an independent second agent. Two branches — (1) proactively run `codex review` for a second opinion after completing a substantive change, before presenting it as done or committing; (2) delegate a well-defined implementation task via `codex exec`, ONLY when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
+description: Use the local Codex CLI as an independent second agent. Run `codex review` once immediately before creating a substantive PR, or when the user explicitly asks for a review. Do not automatically review ordinary edits, commits, audits, or exploratory work. Delegate implementation via `codex exec` only when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
 ---
 
 # Codex
@@ -48,7 +48,18 @@ raising reasoning effort.
   back"), "think harder" in place of a contract, mixing jobs in one run, and
   demanding certainty the evidence can't support.
 
-## Review — proactive
+## Review — before a substantive PR or on explicit request
+
+Run one read-only Codex review after implementation and local checks are complete,
+immediately before creating a substantive PR. Also run a review when the user
+explicitly asks for one. An existing completed review covering the proposed PR
+does not need to be repeated automatically.
+
+Do not automatically review ordinary edits, commits, audits, or exploratory work.
+Loading this skill for prompting guidance or implementation delegation does not
+trigger a review. Fix confirmed findings and run affected local checks without
+starting another review pass; fixes, commits, pushes, and PR updates are not
+automatic repeat-review triggers. Run another pass only when explicitly requested.
 
 Honor recorded standing user authorization for read-only reviews, including
 transmission of task-relevant private or uncommitted code through the existing
@@ -56,15 +67,13 @@ authenticated Codex service. Include that authorization in approval justificatio
 do not request fresh consent solely because review sends code to Codex. Preserve
 native sandbox and approval controls, exclude unrelated secrets, and keep
 implementation-delegation authorization separate.
-
-Run a Codex review whenever you have a substantive diff you'd want a second set
-of eyes on — a refactor, a tricky algorithm, renderer work, a security-sensitive
-change — before declaring it done or committing. Skip it for trivial edits
-(typos, comments, doc-only).
+Standing consent permits reviews within the triggers above; it does not require
+a review after every substantive change.
 
 1. Fix the diff scope before launching: `--uncommitted` for working-tree
    changes, `--base <branch>` for a branch diff, `--commit <sha>` for a landed
-   commit. Resolve a landed commit to its full SHA. Use the non-interactive
+   commit. Before PR creation, review the proposed changes against the intended
+   target branch. Resolve a landed commit to its full SHA. Use the non-interactive
    review entry point with an explicit read-only sandbox and separate progress
    and verdict files in a fresh temporary directory:
 
