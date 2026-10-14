@@ -1,6 +1,6 @@
 ---
 name: codex
-description: Use the local Codex CLI as an independent second agent. Run `codex review` once immediately before creating a substantive PR, or when the user explicitly asks for a review. Do not automatically review ordinary edits, commits, audits, or exploratory work. Delegate implementation via `codex exec` only when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
+description: Use the local Codex CLI as an independent second agent. As the integrating agent, run `codex review` once immediately before creating a substantive PR, or when the user explicitly asks for a review. When assigned to review code, inspect the diff yourself without invoking Codex or delegating another review. Do not automatically review ordinary edits, commits, audits, or exploratory work. Delegate implementation via `codex exec` only when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
 ---
 
 # Codex
@@ -48,7 +48,11 @@ raising reasoning effort.
   back"), "think harder" in place of a contract, mixing jobs in one run, and
   demanding certainty the evidence can't support.
 
-## Review — before a substantive PR or on explicit request
+## Review — integrating agent
+
+When assigned to review code, inspect the diff yourself and return findings. Do
+not invoke Codex or delegate another review. The launch procedure below is only
+for the integrating agent.
 
 Run one read-only Codex review after implementation and local checks are complete,
 immediately before creating a substantive PR. Also run a review when the user
@@ -79,17 +83,25 @@ a review after every substantive change.
 
    ```sh
    review_dir=$(mktemp -d "${TMPDIR:-/tmp}/codex-review.XXXXXX")
-   codex exec --sandbox read-only -C "$(git rev-parse --show-toplevel)" review \
+   if codex exec --sandbox read-only -C "$(git rev-parse --show-toplevel)" review \
      --commit "$(git rev-parse HEAD)" --json -o "$review_dir/verdict.md" \
-     < /dev/null > "$review_dir/events.jsonl" 2> "$review_dir/stderr.log"
+     < /dev/null > "$review_dir/events.jsonl" 2> "$review_dir/stderr.log"; then
+     printf '0\n' > "$review_dir/exit-code"
+   else
+     printf '%s\n' "$?" > "$review_dir/exit-code"
+   fi
    ```
 
-   Background long runs and retain their process/session handle. Scope flags
+   Background the whole block for long runs and retain its process/session handle. Scope flags
    and custom instructions are mutually exclusive: a scope flag takes no
    prompt. For custom framing, specify the exact diff to inspect in the prompt;
    don't rely on default scope or traverse all refs/checkpoint history. Never
    state the answer you expect; give the reviewer evidence and a neutral task.
-2. Monitor progress in `events.jsonl` and failures in `stderr.log`. An active
+2. Monitor with [scripts/review-status.py](scripts/review-status.py): run
+   `python3 "$HOME/.agents/skills/codex/scripts/review-status.py" "$review_dir"`.
+   It reports bounded progress, errors and completion receipts; read the full
+   verdict separately. Inspect retained logs only when diagnosing a specific
+   failure, rather than tailing raw JSONL with embedded command output. An active
    reviewer reading relevant code is not hung merely because five minutes
    elapsed. If it stalls or drifts outside the diff and its dependencies,
    inspect the last command/error before interrupting; correct the cause or

@@ -401,8 +401,8 @@
           "Package the upstream MIT notice alongside the effective skill."
         ],
         "snapshotSha256": "3f1a2863b1c005ec3ccafe4c94aa84ddfc8edbe82d3f078e872e4b7684158132",
-        "patchSha256": "ae50e80f6a82b7d359ca8a3068634ff8abe2511dd0d175ef587ea833f1990b85",
-        "effectiveSha256": "b5c424811ffa158cb79a681f99316a24355392df1cde61d7fcc413793019e687"
+        "patchSha256": "22fe4dffbba17cd652f81354e53dc14cdaef4ca37f0467db52316cd22829887f",
+        "effectiveSha256": "8ad866a0d441b1e659da12e02de89e7475569c12cede037e1af0e7a5125e2619"
       }
     },
     "compare-screenshots": {

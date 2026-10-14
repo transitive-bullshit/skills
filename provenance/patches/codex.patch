@@ -26,14 +26,14 @@ index 0000000..c92e086
 +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 +SOFTWARE.
 diff --git a/SKILL.md b/SKILL.md
-index 3d530f3..7a4b2da 100644
+index 3d530f3..5a5298b 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -1,6 +1,6 @@
  ---
  name: codex
 -description: Use the local Codex CLI as an independent second agent. Two branches — (1) proactively run `codex review` for a second opinion after completing a substantive change, before presenting it as done or committing; (2) delegate a well-defined implementation task via `codex exec`, ONLY when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
-+description: Use the local Codex CLI as an independent second agent. Run `codex review` once immediately before creating a substantive PR, or when the user explicitly asks for a review. Do not automatically review ordinary edits, commits, audits, or exploratory work. Delegate implementation via `codex exec` only when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
++description: Use the local Codex CLI as an independent second agent. As the integrating agent, run `codex review` once immediately before creating a substantive PR, or when the user explicitly asks for a review. When assigned to review code, inspect the diff yourself without invoking Codex or delegating another review. Do not automatically review ordinary edits, commits, audits, or exploratory work. Delegate implementation via `codex exec` only when the user explicitly asks for Codex to do it. Also covers how to prompt Codex.
  ---
  
  # Codex
@@ -56,17 +56,21 @@ index 3d530f3..7a4b2da 100644
  - **Blocks, added only where the task needs them:**
    - `<task>` — the concrete job, the repo/failure context, the expected end
      state. Nearly always present.
-@@ -47,16 +48,32 @@ raising `--effort`.
+@@ -47,33 +48,60 @@ raising `--effort`.
    back"), "think harder" in place of a contract, mixing jobs in one run, and
    demanding certainty the evidence can't support.
  
 -## Review — proactive
-+## Review — before a substantive PR or on explicit request
++## Review — integrating agent
  
 -Run a Codex review whenever you have a substantive diff you'd want a second set
 -of eyes on — a refactor, a tricky algorithm, renderer work, a security-sensitive
 -change — before declaring it done or committing. Skip it for trivial edits
 -(typos, comments, doc-only).
++When assigned to review code, inspect the diff yourself and return findings. Do
++not invoke Codex or delegate another review. The launch procedure below is only
++for the integrating agent.
++
 +Run one read-only Codex review after implementation and local checks are complete,
 +immediately before creating a substantive PR. Also run a review when the user
 +explicitly asks for one. An existing completed review covering the proposed PR
@@ -95,17 +99,37 @@ index 3d530f3..7a4b2da 100644
     review entry point with an explicit read-only sandbox and separate progress
     and verdict files in a fresh temporary directory:
  
-@@ -71,8 +88,7 @@ change — before declaring it done or committing. Skip it for trivial edits
+    ```sh
+    review_dir=$(mktemp -d "${TMPDIR:-/tmp}/codex-review.XXXXXX")
+-   codex exec --sandbox read-only -C "$(git rev-parse --show-toplevel)" review \
++   if codex exec --sandbox read-only -C "$(git rev-parse --show-toplevel)" review \
+      --commit "$(git rev-parse HEAD)" --json -o "$review_dir/verdict.md" \
+-     < /dev/null > "$review_dir/events.jsonl" 2> "$review_dir/stderr.log"
++     < /dev/null > "$review_dir/events.jsonl" 2> "$review_dir/stderr.log"; then
++     printf '0\n' > "$review_dir/exit-code"
++   else
++     printf '%s\n' "$?" > "$review_dir/exit-code"
++   fi
+    ```
+ 
+-   Background long runs and retain their process/session handle. Scope flags
++   Background the whole block for long runs and retain its process/session handle. Scope flags
     and custom instructions are mutually exclusive: a scope flag takes no
     prompt. For custom framing, specify the exact diff to inspect in the prompt;
     don't rely on default scope or traverse all refs/checkpoint history. Never
 -   state the answer you expect (unprimed, same discipline as
 -   [screenshot-critique](../../visual/screenshot-critique/SKILL.md)).
+-2. Monitor progress in `events.jsonl` and failures in `stderr.log`. An active
 +   state the answer you expect; give the reviewer evidence and a neutral task.
- 2. Monitor progress in `events.jsonl` and failures in `stderr.log`. An active
++2. Monitor with [scripts/review-status.py](scripts/review-status.py): run
++   `python3 "$HOME/.agents/skills/codex/scripts/review-status.py" "$review_dir"`.
++   It reports bounded progress, errors and completion receipts; read the full
++   verdict separately. Inspect retained logs only when diagnosing a specific
++   failure, rather than tailing raw JSONL with embedded command output. An active
     reviewer reading relevant code is not hung merely because five minutes
     elapsed. If it stalls or drifts outside the diff and its dependencies,
-@@ -91,8 +107,8 @@ change — before declaring it done or committing. Skip it for trivial edits
+    inspect the last command/error before interrupting; correct the cause or
+@@ -91,8 +119,8 @@ change — before declaring it done or committing. Skip it for trivial edits
  ## Implementation — explicit ask only
  
  Delegate implementation to Codex only when the user names Codex for the task.
@@ -116,7 +140,7 @@ index 3d530f3..7a4b2da 100644
  
  1. Slice the task sharp before delegating — goal, constraints, and how to
     verify — using the prompt discipline above. An underspecified task stays
-@@ -103,18 +119,14 @@ work without a fresh ask.
+@@ -103,18 +131,14 @@ work without a fresh ask.
     - Pure code + typecheck/unit: `codex exec --sandbox workspace-write "<task>"`.
       Network is off; add `-c sandbox_workspace_write.network_access=true` only
       when the task must fetch (e.g. new deps).
@@ -142,7 +166,7 @@ index 3d530f3..7a4b2da 100644
  4. Follow up with `codex exec resume <session-id> "<follow-up>"`, taking the
     id from the run header. `resume --last` means the most recent session
     globally — a review or any other codex run in between will hijack it. If
-@@ -137,15 +149,12 @@ changes. "Process running" is NOT "working."
+@@ -137,15 +161,12 @@ changes. "Process running" is NOT "working."
    read the task from stdin, and a missing file fails the redirect loudly —
    unlike `"$(cat prompt.txt)"`, which silently sends the fallback string as
    the task). Add `nohup`/`&` as needed.
@@ -164,7 +188,7 @@ index 3d530f3..7a4b2da 100644
  - **Don't launch two execs in the same instant,** and kill stale hung execs
    before starting a new one.
  - **Launch from the repo/worktree ROOT.** The writable sandbox root is the
-@@ -159,10 +168,9 @@ changes. "Process running" is NOT "working."
+@@ -159,10 +180,9 @@ changes. "Process running" is NOT "working."
  - Don't touch the working tree while a Codex exec is running on it.
  - Explicit `--sandbox read-only` for reviews, consultation and questions;
    `workspace-write` only for delegated implementation.
@@ -178,3 +202,140 @@ index 3d530f3..7a4b2da 100644
  - Reasoning effort and model are config/flag overrides — `-c
    model_reasoning_effort=high`, `-m <model>` (the old `--effort` flag is gone
    in current Codex). Leave both at their defaults unless the user asks —
+diff --git b/scripts/review-status.py b/scripts/review-status.py
+new file mode 100644
+index 0000000..c520590
+--- /dev/null
++++ b/scripts/review-status.py
+@@ -0,0 +1,131 @@
++#!/usr/bin/env python3
++"""Print compact review progress; the verdict and command output stay in their files."""
++import argparse
++import json
++from pathlib import Path
++
++
++MAX_OUTPUT_BYTES = 2048
++
++
++def short(value, limit=160):
++    if not isinstance(value, str):
++        return None
++    return value if len(value) <= limit else value[:limit] + '…'
++
++
++def status(directory):
++    paths = {name: directory / filename for name, filename in {
++        'events': 'events.jsonl', 'stderr': 'stderr.log',
++        'verdict': 'verdict.md', 'exit_code': 'exit-code',
++    }.items()}
++    result = {
++        'state': 'active', 'exit_code': None, 'last_event': None,
++        'turn_completed': False, 'turn_failed': False, 'verdict_present': False,
++        'last_command': None, 'error': None, 'stderr_tail': None, 'parse_errors': 0,
++        'pending_record': False, 'issues': [],
++        'artifacts': {name: str(path) for name, path in paths.items()},
++    }
++
++    def issue(message):
++        if len(result['issues']) < 4:
++            result['issues'].append(short(message))
++
++    if paths['exit_code'].exists():
++        try:
++            value = paths['exit_code'].read_text().strip()
++            if not (value.isascii() and value.isdigit() and len(value) <= 3 and int(value) <= 255):
++                raise ValueError('Expected shell exit status 0..255')
++            result['exit_code'] = int(value)
++        except (OSError, ValueError) as error:
++            issue('Invalid exit-code record: ' + str(error))
++    try:
++        with paths['events'].open('rb') as events:
++            for number, line in enumerate(events, 1):
++                if not line.endswith(b'\n') and result['exit_code'] is None:
++                    result['pending_record'] = True
++                    break
++                try:
++                    event = json.loads(line)
++                    if not isinstance(event, dict) or not isinstance(event.get('type'), str):
++                        raise ValueError('Expected an event object with a type')
++                except (UnicodeDecodeError, ValueError) as error:
++                    result['parse_errors'] += 1
++                    issue(f'Invalid event at line {number}: {error}')
++                    continue
++                kind = event['type']
++                result['last_event'] = short(kind, 64)
++                if kind == 'turn.started':
++                    result['turn_completed'] = False
++                elif kind == 'turn.completed':
++                    result['turn_completed'] = True
++                elif kind == 'turn.failed':
++                    result['turn_failed'] = True
++                    error = event.get('error')
++                    result['error'] = short(error.get('message') if isinstance(error, dict) else error)
++                elif kind == 'error':
++                    result['error'] = short(event.get('message'))
++                item = event.get('item')
++                if not isinstance(item, dict):
++                    continue
++                if item.get('type') == 'command_execution':
++                    exit_code = item.get('exit_code')
++                    if exit_code is not None and (type(exit_code) is not int or not 0 <= exit_code <= 255):
++                        issue('Invalid command exit status at line ' + str(number))
++                        exit_code = None
++                    result['last_command'] = {
++                        'command': short(item.get('command')),
++                        'status': short(item.get('status'), 32),
++                        'exit_code': exit_code,
++                    }
++                elif item.get('type') == 'error':
++                    result['error'] = short(item.get('message'))
++    except OSError as error:
++        issue('Cannot read events: ' + str(error))
++    try:
++        with paths['verdict'].open('rb') as verdict:
++            result['verdict_present'] = any(chunk.strip() for chunk in iter(lambda: verdict.read(4096), b''))
++    except FileNotFoundError:
++        pass
++    except OSError as error:
++        issue('Cannot read verdict: ' + str(error))
++    try:
++        with paths['stderr'].open('rb') as stderr:
++            stderr.seek(0, 2)
++            stderr.seek(max(0, stderr.tell() - 4096))
++            lines = stderr.read().decode('utf-8', errors='replace').splitlines()
++            result['stderr_tail'] = short(next((line for line in reversed(lines) if line.strip()), None))
++    except FileNotFoundError:
++        pass
++    except OSError as error:
++        issue('Cannot read stderr: ' + str(error))
++    if result['turn_failed'] or result['exit_code'] not in (None, 0):
++        result['state'] = 'failed'
++    elif (result['exit_code'] == 0 and result['turn_completed']
++          and result['verdict_present'] and not result['pending_record']
++          and not result['parse_errors'] and not result['issues']):
++        result['state'] = 'complete'
++    elif result['exit_code'] is not None or result['turn_completed'] or result['issues']:
++        result['state'] = 'incomplete'
++    return result
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('directory', type=Path, help='Review artifact directory')
++    args = parser.parse_args()
++    result = status(args.directory.resolve())
++    output = json.dumps(result)
++    if len(output.encode('utf-8')) + 1 > MAX_OUTPUT_BYTES:
++        # Unusual path lengths or escaped text must not turn monitoring into a log dump.
++        output = json.dumps({
++            'state': 'failed' if result['state'] == 'failed' else 'incomplete',
++            'exit_code': result['exit_code'], 'turn_completed': result['turn_completed'],
++            'turn_failed': result['turn_failed'], 'verdict_present': result['verdict_present'],
++            'issues': ['Status exceeds 2048 bytes; inspect files in the supplied review directory.'],
++        })
++    print(output)
++
++
++if __name__ == '__main__':
++    main()
