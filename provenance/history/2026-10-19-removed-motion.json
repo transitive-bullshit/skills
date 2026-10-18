@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-19",
+  "reason": "Removed by user request",
+  "source_revision": "af9deace7c2a5b4a8b0c357b4ffc6ed7e5114ab0",
+  "archive": "provenance/history/2026-10-19-removed-motion.tar.gz",
+  "sha256": "907be2071942784011f19738707498528a8636b9686dee68f9148471429ca9f8",
+  "skills": {
+    "review-animations": {
+      "path": "skills/review-animations",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/review-animations/SKILL.md",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
+        }
+      },
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/review-animations",
+        "patch": "provenance/patches/review-animations.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Retain supported-defect motion review, project exceptions, shared motion guidance, and authorized fix handling."
+        ],
+        "sourceSkillSha256": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af",
+        "effectiveSkillSha256": "2dcf876fa053de5a1e1283c1284a331d8f3d8798dc56dac2f1b9a8b973d66942",
+        "snapshotSha256": "c73279f04471a7fb01f5dab5c68ef0cf368365ad2b9750d5f75891d8ec793c83",
+        "patchSha256": "ef5b8eeb36a15d675b0c1cea8ff18671dd54f146db4a0e6ccc9a11c2ea1c6d00",
+        "effectiveSha256": "aa1cf1631108801e64de2dee9e5698db143ee3eb4937e724a8f69ef743547c00"
+      }
+    },
+    "animation-vocabulary": {
+      "path": "skills/animation-vocabulary",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/animation-vocabulary/SKILL.md",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
+        }
+      },
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/animation-vocabulary",
+        "patch": "provenance/patches/animation-vocabulary.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Keep direct answers; omit the upstream greeting-only first response."
+        ],
+        "sourceSkillSha256": "40d2b27adfdfeb0570a9f20e7d0255109d9233c50603878bcd0dcd04c923fd94",
+        "effectiveSkillSha256": "d2fd68ac70e80e86907a21b18c173ab4e06498179c861c847afee73ecad7b762",
+        "snapshotSha256": "023759946ed97bc2d6a5ecf606538393dbb471e0a2827f76b25c00985a5d4e5c",
+        "patchSha256": "21ce37c2507db748cf63acfbd30ce75a4b3badc8dd2f21451d83bcc13012dfb9",
+        "effectiveSha256": "0f6efff5a22c41e569df76706d2a845ba981814d1b239677dd6d26026c684cdf"
+      }
+    },
+    "improve-animations": {
+      "path": "skills/improve-animations",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/improve-animations/SKILL.md",
+        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Verified against the pinned current upstream snapshot.",
+          "sourcePath": "LICENSE"
+        }
+      },
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/improve-animations",
+        "patch": "provenance/patches/improve-animations.patch",
+        "checkedAt": "2026-10-11",
+        "status": "latest",
+        "localChanges": [
+          "Preserve the existing concise, scoped discovery description.",
+          "Retain evidence-based audit/plan/execute modes, project conventions, and completion of already-authorized fixes."
+        ],
+        "sourceSkillSha256": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6",
+        "effectiveSkillSha256": "748cf7af8883267b997f6d350740ca11993a2e79892759d2d040bcd0ee8dcc90",
+        "snapshotSha256": "e329e8e058e0bafedb5357dfdb0dae8cdc0802248ebfa6bc2409a0c92da0975a",
+        "patchSha256": "31a11095ece8757d3723849b434a5983e9b3fc3ac8b2b0383feb5da63eac7753",
+        "effectiveSha256": "0263fcbfd096b49700f96b2fbc4c6921b66e437f002d699aaa1dfb48b079f3a1"
+      }
+    }
+  },
+  "profiles": {
+    "review-animations": [
+      "core"
+    ],
+    "animation-vocabulary": [
+      "core"
+    ],
+    "improve-animations": [
+      "core"
+    ]
+  }
+}

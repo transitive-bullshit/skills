@@ -26,7 +26,7 @@ index 0000000..66a325d
 +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 +SOFTWARE.
 diff --git a/SKILL.md b/SKILL.md
-index a888665..f5582f8 100644
+index a888665..b65f2df 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -1,6 +1,7 @@
@@ -38,6 +38,12 @@ index a888665..f5582f8 100644
  ---
  
  # Good CSS
+@@ -47,4 +48,4 @@ Most entries end with a `Support:` line. This skill sets no browser floor. Weigh
+ 
+ ## Motion
+ 
+-Whether something should animate, the design or review of motion, springs, gestures and drag, and checks on a real phone belong to Emil Kowalski's skills `animate`, `review-animations`, `improve-animations`, `find-animation-opportunities` and `mobile-native`. When they are installed, use them for those jobs, and where one disagrees with a value here, use its value. When they are not, use the entries as written and add no motion beyond what an entry or the task calls for.
++Whether something should animate, the design or review of motion, springs, gestures and drag, and checks on a real phone belong to Emil Kowalski's `emil-design-eng` skill. When it is installed, use it for those jobs, and where it disagrees with a value here, use its value. When it is not, use the entries as written and add no motion beyond what an entry or the task calls for.
 diff --git b/agents/openai.yaml b/agents/openai.yaml
 new file mode 100644
 index 0000000..5b1f887
@@ -46,3 +52,16 @@ index 0000000..5b1f887
 @@ -0,0 +1,2 @@
 +policy:
 +  allow_implicit_invocation: false
+diff --git a/references/motion.md b/references/motion.md
+index a78f10a..60ea45c 100644
+--- a/references/motion.md
++++ b/references/motion.md
+@@ -41,7 +41,7 @@ Rules:
+ - Keep a UI transition at 300ms or less. Press feedback takes 100 to 160ms, tooltips and small popovers 125 to 200ms, dropdowns 150 to 250ms. The one exception is a modal or drawer, which takes 200 to 500ms.
+ - Name the properties in a transition. Never write `transition: all`.
+ - Other entries write `var(--ease-out, ease-out)`, so their snippets work before these tokens exist.
+-- Whether something should animate at all is not a CSS question. Emil Kowalski's `animate` and `review-animations` skills answer it.
++- Whether something should animate at all is not a CSS question. Emil Kowalski's `emil-design-eng` skill answers it.
+ 
+ Support: every browser.
+ 

@@ -1,5 +1,5 @@
 diff --git a/SKILL.md b/SKILL.md
-index c1e7388..92e6131 100644
+index 54da13f..6365621 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -1,6 +1,6 @@
@@ -10,7 +10,7 @@ index c1e7388..92e6131 100644
  user-invocable: false
  allowed-tools: Bash(npx shadcn@latest *), Bash(pnpm dlx shadcn@latest *), Bash(bunx --bun shadcn@latest *)
  ---
-@@ -172,7 +172,7 @@ Run `npx shadcn@latest docs <component>` to get the URLs for a component's docum
+@@ -173,7 +173,7 @@ Run `npx shadcn@latest docs <component>` to get the URLs for a component's docum
  npx shadcn@latest docs button dialog select
  ```
  
@@ -19,7 +19,7 @@ index c1e7388..92e6131 100644
  
  ## Workflow
  
-@@ -183,7 +183,7 @@ npx shadcn@latest docs button dialog select
+@@ -184,7 +184,7 @@ npx shadcn@latest docs button dialog select
  5. **Install or update** — `npx shadcn@latest add`. When updating existing components, use `--dry-run` and `--diff` to preview changes first (see [Updating Components](#updating-components) below).
  6. **Fix imports in third-party components** — After adding components from community registries (e.g. `@bundui`, `@magicui`), check the added non-UI files for hardcoded import paths like `@/components/ui/...`. These won't match the project's actual aliases. Use `npx shadcn@latest info` to get the correct `ui` alias (e.g. `@workspace/ui/components`) and rewrite the imports accordingly. The CLI rewrites imports for its own UI files, but third-party registry components may use default paths that don't match the project.
  7. **Review added components** — After adding a component or block from any registry, **always read the added files and verify they are correct**. Check for missing sub-components (e.g. `SelectItem` without `SelectGroup`), missing imports, incorrect composition, or violations of the [Critical Rules](#critical-rules). Also replace any icon imports with the project's `iconLibrary` from the project context (e.g. if the registry item uses `lucide-react` but the project uses `hugeicons`, swap the imports and icon names accordingly). Fix all issues before moving on.
@@ -28,7 +28,7 @@ index c1e7388..92e6131 100644
  9. **Switching presets** — Ask the user first: **overwrite**, **partial**, **merge**, or **skip**?
     - **Inspect current preset**: `npx shadcn@latest preset resolve`. Use `--json` when you need structured values.
     - **Inspect incoming preset**: `npx shadcn@latest preset decode <code>`. Use `preset url <code>` or `preset open <code>` to share or open the preset builder.
-@@ -213,7 +213,7 @@ When the user asks to update a component from upstream while keeping their local
+@@ -214,7 +214,7 @@ When the user asks to update a component from upstream while keeping their local
  3. Decide per file based on the diff:
     - No local changes → safe to overwrite.
     - Has local changes → read the local file, analyze the diff, and apply upstream updates while preserving local modifications.

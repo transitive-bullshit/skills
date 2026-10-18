@@ -26,10 +26,10 @@ index 0000000..c92e086
 +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 +SOFTWARE.
 diff --git a/SKILL.md b/SKILL.md
-index d89941c..a9af1d3 100644
+index b8522dc..11771c2 100644
 --- a/SKILL.md
 +++ b/SKILL.md
-@@ -35,9 +35,9 @@ the artifact you need. A sharper contract beats higher effort.
+@@ -38,9 +38,9 @@ the artifact you need. A sharper contract beats higher effort.
  
  - **One task per run.** Split review, implementation, and docs into separate
    prompts.
@@ -42,7 +42,7 @@ index d89941c..a9af1d3 100644
  - **Blocks, added only where useful:**
    - `<task>` — the concrete job, context, and expected end state.
    - `<output_contract>` — exact response shape, highest-value first.
-@@ -56,21 +56,21 @@ the artifact you need. A sharper contract beats higher effort.
+@@ -59,20 +59,21 @@ the artifact you need. A sharper contract beats higher effort.
  ## Consultation
  
  Use Claude for consultation when the user asks for Claude's view or when a
@@ -55,9 +55,19 @@ index d89941c..a9af1d3 100644
  2. Prefer a read-only tool surface for reviews:
 -   `--tools "Read,Grep,Glob,Bash" --permission-mode dontAsk`.
 +   `--tools "Read,Grep,Glob" --permission-mode dontAsk`.
- 3. Triage every finding against the code before acting. Report what Claude
-    flagged, what you accepted, and what you dismissed.
- 
+ 3. **Never grant fewer tools than your output contract requires.** Read your
+    own prompt and ask which tool produces each claim you demanded. A judge that
+    cannot run a command will still answer a question posed in numbers — with
+    numbers, self-consistent and measured from nothing, and with the artifacts
+    it says it wrote. Trimming the tool surface does not make the answer
+    cautious; it makes the fabrication harder to spot. Either grant the tool or
+-   stop asking for the claim.
++   stop asking for the claim. Add command execution only within the authorized
++   scope and the host’s normal approval controls; otherwise narrow the contract.
+ 4. Require the receipt with the number: any quantity in the response must
+    arrive with the command that produced it and that command's output. Findings
+    that fail this are struck, not discounted.
+@@ -82,8 +83,8 @@ the user explicitly asks it to edit.
  ## Implementation — explicit ask only
  
  Delegate implementation to Claude only when the user names Claude for the task.
@@ -68,7 +78,7 @@ index d89941c..a9af1d3 100644
  
  1. Slice the task sharply: goal, constraints, allowed scope, and verification.
     An underspecified task stays with you until a fresh agent could not misread
-@@ -79,11 +79,11 @@ without a fresh ask.
+@@ -92,11 +93,11 @@ without a fresh ask.
     separable from yours. Tell Claude to keep scratch files (probes, dumps,
     notes) out of the tree — its diff must contain only the deliverable.
  3. Choose permissions by what the task must do:

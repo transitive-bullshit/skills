@@ -6,8 +6,8 @@ Read this when maintaining `testing-strategy` or refreshing its inputs. The main
 
 1. [Travis Fischer's supplied guidance](../sources/personal-guidance.md) governs proportionality, verification scope, retained coverage, and stopping conditions. [His TDD decision](../sources/personal-decisions.json) keeps TDD optional unless requested.
 2. [Matt Pocock's `tdd`](../sources/mattpocock-tdd/49dd158d1076134a641b33efb035946536778336/SKILL.upstream.md), including its `tests.md` and `mocking.md` resources, contributes focused red → green cycles and tests through stable contracts.
-3. [David Zhang's `write-tests`](../sources/dzhng-write-tests/d51322866ffa298838346960414d18a221b52588/SKILL.upstream.md) contributes production-faithful fixtures, falsification, controlled comparisons, canonical-value assertions, and isolated test state.
-4. [David Zhang's `audit-tests`](../sources/dzhng-audit-tests/d51322866ffa298838346960414d18a221b52588/SKILL.upstream.md) contributes a bounded audit workflow, evidence-backed dispositions, coverage ownership, and preservation checks. [The user's audit extension request](../sources/personal-audit-guidance-2026-10-11.md) keeps this an additional option within the existing testing policy.
+3. [David Zhang's `write-tests`](../sources/dzhng-write-tests/f6819cab7e0b43e59ed64551d136d65f65640e56/SKILL.upstream.md) contributes production-faithful fixtures, falsification, controlled comparisons, canonical-value assertions, and isolated test state.
+4. [David Zhang's `audit-tests`](../sources/dzhng-audit-tests/f6819cab7e0b43e59ed64551d136d65f65640e56/SKILL.upstream.md) contributes a bounded audit workflow, evidence-backed dispositions, coverage ownership, and preservation checks. [The user's audit extension request](../sources/personal-audit-guidance-2026-10-11.md) keeps this an additional option within the existing testing policy.
 
 The three upstream skill subtrees are versioned source snapshots at the full commits named in their directories. They retain exact bytes, file modes, and MIT notices. Their `SKILL.md` files are named `SKILL.upstream.md` locally so the installer discovers only `testing-strategy`. Original paths, Git blob IDs, and SHA-256 hashes are recorded in [sources.lock.json](../sources.lock.json).
 
@@ -21,6 +21,7 @@ The three upstream skill subtrees are versioned source snapshots at the full com
 | Matt excludes refactoring from TDD and requires a separate review skill. | Permit in-scope refactoring while green. No mandatory companion skill or separate approval phase. |
 | Both prohibit mocking internal collaborators. | Prefer real collaborators; a substitute is justified only when the relevant failure path remains real and its limits are clear. |
 | David says to mock configuration and delete checks of compiler guarantees. | Preserve runtime, configuration, protocol, and schema checks when they enforce actual contracts beyond static guarantees. |
+| David requires tests to define their own bounds and avoid tuning data. | Control bounds for boundary tests and avoid incidental thresholds elsewhere; retain checks of configured values when the values themselves are contractual. |
 | Matt treats database inspection as an implementation detail. | Assert through the interface that owns the contract; persistence itself can be an observable contract. Do not freeze incidental schema. |
 | David prioritizes obsolete tests and loose margins before production defects. | Diagnose from evidence. Never weaken an assertion or performance budget merely to pass. |
 | David prescribes a full-suite final gate and links to `audit-tests` for retention. | Run affected and required project checks; broaden for concrete risk. The user's lifetime-cost policy governs retention without another skill dependency. |
@@ -30,6 +31,8 @@ The three upstream skill subtrees are versioned source snapshots at the full com
 | `audit-tests` requires the separate `write-tests` and `review` workflows. | Use this skill's integrated writing and verification rules. Get an independent coverage comparison for broad removals without requiring an additional installed skill. |
 
 Repeated guidance on behavioral assertions, independent expectations, regression falsification, real collaborators, and cleanup appears once in the combined skill. Generic architecture prescriptions and unconditional deletion of production code used only by tests were not adopted.
+
+The 19 October 2026 refresh advances both David Zhang inputs to `f6819cab7e0b43e59ed64551d136d65f65640e56`. Only `write-tests` changed: its new fixture-bound guidance is reconciled above. `audit-tests` is byte-identical, so the audit branch is unchanged. Matt Pocock's pinned input also remains unchanged. Earlier source directories are retained.
 
 ## Refresh procedure
 

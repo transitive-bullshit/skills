@@ -41,7 +41,7 @@ Rules:
 - Keep a UI transition at 300ms or less. Press feedback takes 100 to 160ms, tooltips and small popovers 125 to 200ms, dropdowns 150 to 250ms. The one exception is a modal or drawer, which takes 200 to 500ms.
 - Name the properties in a transition. Never write `transition: all`.
 - Other entries write `var(--ease-out, ease-out)`, so their snippets work before these tokens exist.
-- Whether something should animate at all is not a CSS question. Emil Kowalski's `animate` and `review-animations` skills answer it.
+- Whether something should animate at all is not a CSS question. Emil Kowalski's `emil-design-eng` skill answers it.
 
 Support: every browser.
 

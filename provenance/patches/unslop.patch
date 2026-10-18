@@ -1,11 +1,11 @@
 diff --git a/SKILL.md b/SKILL.md
-index c37b036..9df1683 100644
+index 97f5b64..9df1683 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -1,6 +1,6 @@
  ---
  name: unslop
--description: Cut AI tells from any writing. Must always apply.
+-description: Cut AI tells from any writing.
 +description: "Edit writing to remove formulaic language and filler while preserving meaning. Use when explicitly invoked."
  disable-model-invocation: true
  ---

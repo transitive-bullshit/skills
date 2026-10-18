@@ -26,7 +26,7 @@ index 0000000..c92e086
 +OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 +SOFTWARE.
 diff --git a/SKILL.md b/SKILL.md
-index 4019709..9405672 100644
+index 5880731..6b99d8f 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -7,8 +7,10 @@ description: Compare screenshots against the intended design, distinguishing app
@@ -42,20 +42,8 @@ index 4019709..9405672 100644
  
  ## Workflow
  
-@@ -154,6 +156,11 @@ Keep comparison scripts inside the skill or a temporary workspace, not in
- product code, unless the product genuinely needs screenshot comparison at
- runtime.
- 
-+The helpers require Node.js plus `pngjs` and `pixelmatch`. Set `REPO_ROOT` to
-+a directory where those packages resolve (the helper checks `web/` and parent
-+`node_modules`). Use an existing runtime or a temporary dependency workspace;
-+do not add comparison-only dependencies to the product.
-+
- - `scripts/visual-parity-diff.mjs` is a reusable local helper. Run it with
-   `REFERENCE_DIR=<png-folder>`, `CANDIDATE_DIR=<png-folder>`, and optional
-   `OUT_DIR=<artifact-folder>`. `REPORT_ORDER=a,b,c` pins ordering;
 diff --git a/references/subagent-visual-review.md b/references/subagent-visual-review.md
-index 8053ce6..9634476 100644
+index c4cd6b0..21d9708 100644
 --- a/references/subagent-visual-review.md
 +++ b/references/subagent-visual-review.md
 @@ -5,9 +5,10 @@ judgment.
@@ -72,3 +60,18 @@ index 8053ce6..9634476 100644
  - For an approved-design comparison, identify `Reference` and `Candidate` and
    supply the intended design requirements. For an open preference comparison,
    use `Image A` and `Image B` without declaring a target.
+@@ -59,10 +60,10 @@ fabrication.
+ - Treat the subagent result as independent evidence about which image is less
+   wrong, not a replacement for metrics or your own inspection — and not a vote
+   for whichever image is the baseline.
+-- Run the returned review through the receipts checker that ships with
+-  `screenshot-critique` before you read it, and strike whatever it flags. An
+-  unsupported number reads as the strongest evidence in the review precisely
+-  because it is numeric, so it has to be removed before it can persuade you.
++- Check each numerical claim against its quoted command and output before
++  accepting the review. Strike unsupported numbers; rerun the measurement with
++  the available tools when needed. Do not require an uninstalled companion
++  skill to validate the evidence.
+ - If the subagent flags wrong camera, mismatched state, missing content, or
+   visible artifacts, fix capture/rendering quality before judging the rest.
+ - Preserve the findings, not just the headline verdict. A “pass” accompanied

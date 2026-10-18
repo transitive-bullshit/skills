@@ -48,4 +48,4 @@ Most entries end with a `Support:` line. This skill sets no browser floor. Weigh
 
 ## Motion
 
-Whether something should animate, the design or review of motion, springs, gestures and drag, and checks on a real phone belong to Emil Kowalski's skills `animate`, `review-animations`, `improve-animations`, `find-animation-opportunities` and `mobile-native`. When they are installed, use them for those jobs, and where one disagrees with a value here, use its value. When they are not, use the entries as written and add no motion beyond what an entry or the task calls for.
+Whether something should animate, the design or review of motion, springs, gestures and drag, and checks on a real phone belong to Emil Kowalski's `emil-design-eng` skill. When it is installed, use it for those jobs, and where it disagrees with a value here, use its value. When it is not, use the entries as written and add no motion beyond what an entry or the task calls for.

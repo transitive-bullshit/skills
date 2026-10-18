@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-19",
+  "source_revision": "af9deace7c2a5b4a8b0c357b4ffc6ed7e5114ab0",
+  "archive": "provenance/history/2026-10-19-selected-before.tar.gz",
+  "sha256": "3a58ac8e51604a1ddf9a1e0f1d95bb9873857eb280ff374083889c0609f74efb",
+  "skills": [
+    "claude",
+    "codex",
+    "compare-screenshots",
+    "impeccable",
+    "shadcn",
+    "unslop"
+  ],
+  "note": "Exact pre-refresh effective skills, pinned upstream snapshots, local patches, licenses and full manifest."
+}

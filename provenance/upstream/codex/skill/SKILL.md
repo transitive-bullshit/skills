@@ -9,6 +9,11 @@ Codex is an independent agent on PATH (`codex` — invoke as `command codex` if
 a shell alias shadows it), sharing this working tree and already authenticated. It is a second opinion, not ground truth: verify what it
 reports, own what it changes. It reads the same skills your repo carries.
 
+Leave Codex's model at its CLI default unless the user asks for a specific
+one. The default follows the current Codex release; do not pin a dated model
+ID in this skill. If an explicit override is needed, verify it is current and
+pass the requested model with `-m <model>`.
+
 ## If `codex` is not installed
 
 When `codex` is missing from PATH, offer to install it — **ask the user for
@@ -165,5 +170,6 @@ changes. "Process running" is NOT "working."
   aliased workspace-write) — don't reach for it.
 - Reasoning effort and model are config/flag overrides — `-c
   model_reasoning_effort=high`, `-m <model>` (the old `--effort` flag is gone
-  in current Codex). Leave both at their defaults unless the user asks —
-  tighten the prompt first.
+  in current Codex). Leave both at their defaults unless the user asks;
+  tighten the prompt first and keep model IDs unversioned. If a version is
+  required, verify that it is current before using it.

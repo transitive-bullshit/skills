@@ -1,41 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "animation-vocabulary": {
-      "path": "skills/animation-vocabulary",
-      "origin": {
-        "kind": "adopted",
-        "repository": "emilkowalski/skills",
-        "path": "skills/animation-vocabulary/SKILL.md",
-        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
-        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
-          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
-          "spdx": "MIT",
-          "note": "Verified against the pinned current upstream snapshot.",
-          "sourcePath": "LICENSE"
-        }
-      },
-      "requires": [],
-      "upstream": {
-        "snapshot": "provenance/upstream/animation-vocabulary",
-        "patch": "provenance/patches/animation-vocabulary.patch",
-        "checkedAt": "2026-10-11",
-        "status": "latest",
-        "localChanges": [
-          "Preserve the existing concise, scoped discovery description.",
-          "Keep direct answers; omit the upstream greeting-only first response."
-        ],
-        "sourceSkillSha256": "40d2b27adfdfeb0570a9f20e7d0255109d9233c50603878bcd0dcd04c923fd94",
-        "effectiveSkillSha256": "d2fd68ac70e80e86907a21b18c173ab4e06498179c861c847afee73ecad7b762",
-        "snapshotSha256": "023759946ed97bc2d6a5ecf606538393dbb471e0a2827f76b25c00985a5d4e5c",
-        "patchSha256": "21ce37c2507db748cf63acfbd30ce75a4b3badc8dd2f21451d83bcc13012dfb9",
-        "effectiveSha256": "0f6efff5a22c41e569df76706d2a845ba981814d1b239677dd6d26026c684cdf"
-      }
-    },
     "auto-research": {
       "path": "skills/auto-research",
       "origin": {
@@ -306,12 +271,12 @@
         "kind": "adopted",
         "repository": "dzhng/skills",
         "path": "skills/engineering/claude/SKILL.md",
-        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "commit": "f6819cab7e0b43e59ed64551d136d65f65640e56",
         "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/upstream/claude/LICENSE",
-          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/f6819cab7e0b43e59ed64551d136d65f65640e56/LICENSE",
           "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
           "note": "License retrieved at recorded upstream commit"
@@ -320,17 +285,17 @@
       "upstream": {
         "snapshot": "provenance/upstream/claude/skill",
         "patch": "provenance/patches/claude.patch",
-        "checkedAt": "2026-10-11",
-        "status": "added",
+        "checkedAt": "2026-10-19",
+        "status": "latest",
         "localChanges": [
           "Keep upstream model/effort defaults and explicit delegation scope.",
           "Preserve authorization across in-scope follow-ups; use read-only consultation tools and normal approval controls.",
           "Reference installed skill names instead of uninstalled companion skills.",
           "Package the upstream MIT notice alongside the effective skill."
         ],
-        "snapshotSha256": "96ecbe2b573d6136709f11f4c5a7a52a58afcc13dfefea4db28ce0ea44a4f784",
-        "patchSha256": "dd22f75a39946c1c085bb60353d5a3a50552d55e0fd44f75f1bc251c3b7d95a5",
-        "effectiveSha256": "71c9f16a1c63787a4bbb7fea1d8c0688bb2d0799b4996a3c3bf62edcb65eadd4"
+        "snapshotSha256": "693c7e26a88d7605529ffce31b145969023ea58651789ca9e9b8dc5f6ff6a048",
+        "patchSha256": "69651095cdd0e5b1fd00338f886cfde7e24c9b08ceac270851bde1c84c0f35a2",
+        "effectiveSha256": "863b75b42ec5b7d3e0fa6c446519647af8a17a67c274c6a522a01ddda97d38ec"
       }
     },
     "codebase-design": {
@@ -377,12 +342,12 @@
         "kind": "adopted",
         "repository": "dzhng/skills",
         "path": "skills/engineering/codex/SKILL.md",
-        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "commit": "f6819cab7e0b43e59ed64551d136d65f65640e56",
         "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/upstream/codex/LICENSE",
-          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/f6819cab7e0b43e59ed64551d136d65f65640e56/LICENSE",
           "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
           "note": "License retrieved at recorded upstream commit"
@@ -391,8 +356,8 @@
       "upstream": {
         "snapshot": "provenance/upstream/codex/skill",
         "patch": "provenance/patches/codex.patch",
-        "checkedAt": "2026-10-11",
-        "status": "added",
+        "checkedAt": "2026-10-19",
+        "status": "latest",
         "localChanges": [
           "Narrow reviews to one pass immediately before creating a substantive PR or an explicit user review request; preserve upstream implementation workflow and CLI support.",
           "Preserve authorization across in-scope follow-ups; retain sandbox/approval controls and trust settings.",
@@ -400,9 +365,9 @@
           "Keep diagnostic stderr, scope liveness actions to the launched process, and remove uninstalled companion dependencies.",
           "Package the upstream MIT notice alongside the effective skill."
         ],
-        "snapshotSha256": "3f1a2863b1c005ec3ccafe4c94aa84ddfc8edbe82d3f078e872e4b7684158132",
-        "patchSha256": "22fe4dffbba17cd652f81354e53dc14cdaef4ca37f0467db52316cd22829887f",
-        "effectiveSha256": "8ad866a0d441b1e659da12e02de89e7475569c12cede037e1af0e7a5125e2619"
+        "snapshotSha256": "1a9b1f44bbf680bc698d7a9711475bf15b04eaf90f5432029e376f3538045dd4",
+        "patchSha256": "b15d03adcd8c8bfb46c34d01dded3ed04913f862ca841df0d10d29a7a0496f70",
+        "effectiveSha256": "db356c200c523fbed0fb17e89017f61908160c1f0a1250503f7df33b7162735e"
       }
     },
     "compare-screenshots": {
@@ -412,12 +377,12 @@
         "kind": "adopted",
         "repository": "dzhng/skills",
         "path": "skills/visual/compare-screenshots/SKILL.md",
-        "commit": "d51322866ffa298838346960414d18a221b52588",
+        "commit": "f6819cab7e0b43e59ed64551d136d65f65640e56",
         "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/upstream/compare-screenshots/LICENSE",
-          "url": "https://github.com/dzhng/skills/blob/d51322866ffa298838346960414d18a221b52588/LICENSE",
+          "url": "https://github.com/dzhng/skills/blob/f6819cab7e0b43e59ed64551d136d65f65640e56/LICENSE",
           "sha256": "653bb41fb060605c0e01fd72e6e6be72bffef192e0ab6ae8b0cd4abf9ba8d040",
           "spdx": "MIT",
           "note": "License retrieved at recorded upstream commit"
@@ -426,17 +391,16 @@
       "upstream": {
         "snapshot": "provenance/upstream/compare-screenshots/skill",
         "patch": "provenance/patches/compare-screenshots.patch",
-        "checkedAt": "2026-10-11",
-        "status": "added",
+        "checkedAt": "2026-10-19",
+        "status": "latest",
         "localChanges": [
-          "Keep all upstream comparison scripts and references unchanged except current host subagent guidance.",
+          "Use the current host subagent API and verify numerical receipts with available tools rather than requiring an uninstalled screenshot-critique skill.",
           "Make uninstalled design-with-images an optional pinned upstream reference.",
-          "Document dependency resolution through a temporary runtime without changing product dependencies.",
           "Package the upstream MIT notice alongside the effective skill."
         ],
-        "snapshotSha256": "ae1b192641604d57c464b798469a88a80e1ce4ec4c961a7036214349ddbc5e39",
-        "patchSha256": "de77b1b18640ededb4e7db7360aff0568d0c536f1aa7224f8cf93974f1650763",
-        "effectiveSha256": "6822ee818fcb4925db7b07251bf2f3aa0cb469ef1c32db3917c86cffc35fc5df"
+        "snapshotSha256": "61d67a5c7e7239a6ccceeba75e48c7562c6c57dee557e70781da04e738fa1f2c",
+        "patchSha256": "e5eb6d000b9c9fdc7a976dcbb356bf6d5fd049f4fa872c6c6cb62b7829164242",
+        "effectiveSha256": "2591560036dd9e9cb560697ae314f33dd8bb0d1e8c5977215927ee41145b24e2"
       }
     },
     "create-verification-skill": {
@@ -557,6 +521,38 @@
       },
       "requires": []
     },
+    "emil-design-eng": {
+      "path": "skills/emil-design-eng",
+      "origin": {
+        "kind": "adopted",
+        "repository": "emilkowalski/skills",
+        "path": "skills/emil-design-eng/SKILL.md",
+        "commit": "2d228630ba1446365f614a108cb8252f1feda202",
+        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
+        "license": {
+          "status": "retrieved",
+          "file": "provenance/licenses/emilkowalski--skills.txt",
+          "url": "https://github.com/emilkowalski/skills/blob/2d228630ba1446365f614a108cb8252f1feda202/LICENSE",
+          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
+          "spdx": "MIT",
+          "note": "Verified against the pinned upstream commit.",
+          "sourcePath": "LICENSE"
+        }
+      },
+      "requires": [],
+      "upstream": {
+        "snapshot": "provenance/upstream/emil-design-eng",
+        "patch": "provenance/patches/emil-design-eng.patch",
+        "checkedAt": "2026-10-19",
+        "status": "added",
+        "localChanges": [
+          "Package the upstream MIT notice alongside the effective skill; upstream skill content and invocation policy are unchanged."
+        ],
+        "snapshotSha256": "69595c23b97afd8d02203301a255174216a4dc821e1316edade9b50a2085049d",
+        "patchSha256": "cbd6bee13fbe0b573d6e7916dacb32c40f473e14183f8f75c2152224e5d90800",
+        "effectiveSha256": "e5198bdf835948008dca36f1cbd8e202a0c56a559c2670d82c3f547aff41a521"
+      }
+    },
     "eval-skills": {
       "path": "skills/eval-skills",
       "requires": [],
@@ -651,12 +647,13 @@
           "Imported the unmanaged installation after verifying it exactly matched upstream commit 0790858e7ea466c49996ba01960565f7c89b6d82; no local edits needed preservation.",
           "Updated to live upstream, including Tailwind 4.2 guidance, layout clarification and RTL carousel correction.",
           "Require explicit invocation in Codex metadata and cross-client frontmatter.",
-          "Package the upstream MIT notice alongside the effective skill."
+          "Package the upstream MIT notice alongside the effective skill.",
+          "Remove retired motion-skill references; keep remaining workflow and invocation policy."
         ],
         "previousInstalledCommit": "0790858e7ea466c49996ba01960565f7c89b6d82",
         "snapshotSha256": "2da551836624d028ced37036a914310cc2e6994536c6713cbc3574c8b5224842",
-        "patchSha256": "6efccbf4bcee4653f3e22f31c4bb1e7edd0f4fa23b6ee8a2cad891cd8db4e2df",
-        "effectiveSha256": "73fc3e0eb57fea83f5b280e444cd2c7fa56ab15a10f230029b21d562b60c700e"
+        "patchSha256": "ea10a3b449d122da0b49d274d1ba218791de75ac49baa9f0b7a6295568aa6aad",
+        "effectiveSha256": "1f1e0de012b41e28925606bab55078c48b3ef2dbce3519a55c23b6ca2af45c44"
       }
     },
     "grill-me": {
@@ -771,12 +768,12 @@
         "kind": "adopted",
         "repository": "pbakaus/impeccable",
         "path": ".agents/skills/impeccable/SKILL.md",
-        "commit": "d631a8827f99414d2b6daba4ef08b7f8701751d7",
+        "commit": "2f46b7a8b059af00d20dd13b64dbe165e7c6a742",
         "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/pbakaus--impeccable.txt",
-          "url": "https://github.com/pbakaus/impeccable/blob/d631a8827f99414d2b6daba4ef08b7f8701751d7/LICENSE",
+          "url": "https://github.com/pbakaus/impeccable/blob/2f46b7a8b059af00d20dd13b64dbe165e7c6a742/LICENSE",
           "sha256": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812",
           "spdx": "Apache-2.0",
           "note": "Verified against the pinned current upstream snapshot.",
@@ -787,17 +784,17 @@
       "upstream": {
         "snapshot": "provenance/upstream/impeccable",
         "patch": "provenance/patches/impeccable.patch",
-        "checkedAt": "2026-10-11",
+        "checkedAt": "2026-10-19",
         "status": "latest",
         "localChanges": [
           "Preserve the existing concise, scoped discovery description.",
           "Preserve existing Codex invocation policy and UI metadata."
         ],
-        "sourceSkillSha256": "58c0252bca04521de87007aeb495f7ec99dc4c7341bc890fe82b6d577573af91",
-        "effectiveSkillSha256": "c1927051559cc161b864a1bec4e4d976feb0d4a222726f45fc51cd9c03848d5b",
-        "snapshotSha256": "87be8cf96df90404f5826e4ed141d7294894397bcad0232b15e5c5e0cdc28c85",
-        "patchSha256": "73c510385a85824e3aa6749dfc60819e4063816b7b619483ae4a389ac856131a",
-        "effectiveSha256": "03cb0f2ff2b2e1cf3f5ed1b8d347a01453295808f649fdc413bfc637c79eda59"
+        "sourceSkillSha256": "5fb0d412928c03e62d2536adfd878ad6aad6f9ce343956aa4f7164da06da3459",
+        "effectiveSkillSha256": "fd39b58cfea8809944f760eb9457ec1b5b48f5f3464258cb09d0d6b9ece218f2",
+        "snapshotSha256": "074405d832b1ff333a7a1f437b8cdfad1274c2cdbbd7c63bc1634f70aa5fa1b2",
+        "patchSha256": "35d9fd6f98c766198dc73160eaa41b361df8bc1f6679157ca72f9dadcf3aee3f",
+        "effectiveSha256": "2d90453874e6c172e972ca33075c750bd76135e4214435265aff50a35eb39dd0"
       }
     },
     "implement": {
@@ -835,41 +832,6 @@
         "snapshotSha256": "c6948a658e04d944aec42dcb135dd4fcabe894f48cbf527fa6f1f662b67b31e9",
         "patchSha256": "44f8672f64003439818f45e418d36d81d509701940c34f43c690651c1ec536e6",
         "effectiveSha256": "c94b93d56e284c70e20783ee54e9a9784e2e2383b7fe650c060a13c561b24431"
-      }
-    },
-    "improve-animations": {
-      "path": "skills/improve-animations",
-      "origin": {
-        "kind": "adopted",
-        "repository": "emilkowalski/skills",
-        "path": "skills/improve-animations/SKILL.md",
-        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
-        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
-          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
-          "spdx": "MIT",
-          "note": "Verified against the pinned current upstream snapshot.",
-          "sourcePath": "LICENSE"
-        }
-      },
-      "requires": [],
-      "upstream": {
-        "snapshot": "provenance/upstream/improve-animations",
-        "patch": "provenance/patches/improve-animations.patch",
-        "checkedAt": "2026-10-11",
-        "status": "latest",
-        "localChanges": [
-          "Preserve the existing concise, scoped discovery description.",
-          "Retain evidence-based audit/plan/execute modes, project conventions, and completion of already-authorized fixes."
-        ],
-        "sourceSkillSha256": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6",
-        "effectiveSkillSha256": "748cf7af8883267b997f6d350740ca11993a2e79892759d2d040bcd0ee8dcc90",
-        "snapshotSha256": "e329e8e058e0bafedb5357dfdb0dae8cdc0802248ebfa6bc2409a0c92da0975a",
-        "patchSha256": "31a11095ece8757d3723849b434a5983e9b3fc3ac8b2b0383feb5da63eac7753",
-        "effectiveSha256": "0263fcbfd096b49700f96b2fbc4c6921b66e437f002d699aaa1dfb48b079f3a1"
       }
     },
     "improve-codebase-architecture": {
@@ -1063,13 +1025,14 @@
         "localChanges": [
           "Preserve the existing concise, scoped discovery description.",
           "Preserve existing Codex invocation policy and UI metadata.",
-          "Keep direct workflow and installed component-system reuse instead of an unavailable pick-ui-library dependency."
+          "Keep direct workflow and installed component-system reuse instead of an unavailable pick-ui-library dependency.",
+          "Remove retired motion-skill references; keep remaining workflow and invocation policy."
         ],
         "sourceSkillSha256": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9",
-        "effectiveSkillSha256": "f370101ff12ffabd23262d711ff6137df914442c7241eceea48a8e5cdcd312ce",
+        "effectiveSkillSha256": "1273bee89cd693be82501efc7516f8e5d608f89706678b368c5d31ff8594453d",
         "snapshotSha256": "95b4cf9da09c389ae769fe8a47b0c400721ec33cfaf398fdbeab88ba692ab80c",
-        "patchSha256": "64d56d3f13dfed8826406085a7c2b502ac98772c44b4c76c16f42fb8f1409223",
-        "effectiveSha256": "0e96d341ee91b1d550731088c374f0aef227580f73a1446c311aa64eb82e021a"
+        "patchSha256": "63e944ed61761058a2b51548bad0fbc920b32cce850d776243dfe7f5c3786811",
+        "effectiveSha256": "11c098c315fd3d45b7e3233fd19aa50177bc52e9e430b8f1162e67616c2bb357"
       }
     },
     "research": {
@@ -1143,54 +1106,18 @@
         "effectiveSha256": "8e28108c9a8127c1edf236763bdbf97284390c74748c849a7ad168ab178dabcf"
       }
     },
-    "review-animations": {
-      "path": "skills/review-animations",
-      "origin": {
-        "kind": "adopted",
-        "repository": "emilkowalski/skills",
-        "path": "skills/review-animations/SKILL.md",
-        "commit": "e8a175de22ae1e49370fc144c1f3bb9aeedf988d",
-        "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
-        "license": {
-          "status": "retrieved",
-          "file": "provenance/licenses/emilkowalski--skills.txt",
-          "url": "https://github.com/emilkowalski/skills/blob/e8a175de22ae1e49370fc144c1f3bb9aeedf988d/LICENSE",
-          "sha256": "4ff5bdb7887ec1435c9cab0e8d1a7caee704d894d65c2a008ccc68b1cc2f260b",
-          "spdx": "MIT",
-          "note": "Verified against the pinned current upstream snapshot.",
-          "sourcePath": "LICENSE"
-        }
-      },
-      "requires": [],
-      "upstream": {
-        "snapshot": "provenance/upstream/review-animations",
-        "patch": "provenance/patches/review-animations.patch",
-        "checkedAt": "2026-10-11",
-        "status": "latest",
-        "localChanges": [
-          "Preserve the existing concise, scoped discovery description.",
-          "Preserve existing Codex invocation policy and UI metadata.",
-          "Retain supported-defect motion review, project exceptions, shared motion guidance, and authorized fix handling."
-        ],
-        "sourceSkillSha256": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af",
-        "effectiveSkillSha256": "2dcf876fa053de5a1e1283c1284a331d8f3d8798dc56dac2f1b9a8b973d66942",
-        "snapshotSha256": "c73279f04471a7fb01f5dab5c68ef0cf368365ad2b9750d5f75891d8ec793c83",
-        "patchSha256": "ef5b8eeb36a15d675b0c1cea8ff18671dd54f146db4a0e6ccc9a11c2ea1c6d00",
-        "effectiveSha256": "aa1cf1631108801e64de2dee9e5698db143ee3eb4937e724a8f69ef743547c00"
-      }
-    },
     "shadcn": {
       "path": "skills/shadcn",
       "origin": {
         "kind": "adopted",
         "repository": "shadcn/ui",
         "path": "skills/shadcn/SKILL.md",
-        "commit": "c2a67849be260701852b0977ba15eb5f3a0ce2a4",
+        "commit": "daaf156ee00ed91cc7e6bdd937c1b4973152d141",
         "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "status": "retrieved",
           "file": "provenance/licenses/shadcn--ui.txt",
-          "url": "https://github.com/shadcn/ui/blob/c2a67849be260701852b0977ba15eb5f3a0ce2a4/LICENSE.md",
+          "url": "https://github.com/shadcn/ui/blob/daaf156ee00ed91cc7e6bdd937c1b4973152d141/LICENSE.md",
           "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
           "spdx": "MIT",
           "note": "Verified against the pinned current upstream snapshot.",
@@ -1201,17 +1128,17 @@
       "upstream": {
         "snapshot": "provenance/upstream/shadcn",
         "patch": "provenance/patches/shadcn.patch",
-        "checkedAt": "2026-10-11",
+        "checkedAt": "2026-10-19",
         "status": "latest",
         "localChanges": [
           "Preserve the existing concise, scoped discovery description.",
           "Retain targeted docs reads, configured-registry inference, and existing authorization semantics for overwrites."
         ],
-        "sourceSkillSha256": "0185f715bc985deca4223be426f898aa17f7d1a297a9857dfa79055e473bc34d",
-        "effectiveSkillSha256": "841d25687885274f69a0b32c30fb13100be2a2439c2447e4cf41efe695c732b3",
-        "snapshotSha256": "b4ec62a6cd20cf931fa30d8541a00f947dcf1a127642f3898fb1aa0d6a0b513f",
-        "patchSha256": "72b8f70d25d899bece59cc3fc7c8422b1e26face097bc2f78716901a1aa918be",
-        "effectiveSha256": "a3d879edac426f8f916dbd4831dff8f141e74d5d3d02d91494b5889a0d44e6a2"
+        "sourceSkillSha256": "93951e5e83f616a3e046491c00d770bd54c0a64164706cd1191822a233d27592",
+        "effectiveSkillSha256": "a769253b44bf20e18fdb9dc079e90abd23c2fc158d15220001583e69b190932b",
+        "snapshotSha256": "a2e6c1f2a1c26a342c9f4dc8167baa09630933383fd4bf64b431e9e48e73a918",
+        "patchSha256": "1e542524deeb9814d809a8f21a4036e5caabbc1e91579e75c81a4807b1ae02ab",
+        "effectiveSha256": "718316fbb88b062417a137a86d357bbae013fcaa42de908e1d596b94197a899e"
       }
     },
     "show-me": {
@@ -1273,7 +1200,7 @@
         "kind": "adopted",
         "repository": "cursor/plugins",
         "path": "pstack/skills/unslop/SKILL.md",
-        "commit": "9d76bcab133aefcccb16121d7be874e6aa823729",
+        "commit": "75fabace38ce507ee044546eaca64167c8c1e21b",
         "baseline": "Pristine pinned upstream snapshot plus recorded local patch",
         "license": {
           "spdx": "MIT",
@@ -1281,7 +1208,7 @@
           "status": "retrieved",
           "sourcePath": "pstack/LICENSE",
           "sha256": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e",
-          "url": "https://github.com/cursor/plugins/blob/9d76bcab133aefcccb16121d7be874e6aa823729/pstack/LICENSE",
+          "url": "https://github.com/cursor/plugins/blob/75fabace38ce507ee044546eaca64167c8c1e21b/pstack/LICENSE",
           "note": "Verified against the pinned current upstream snapshot."
         }
       },
@@ -1289,17 +1216,17 @@
       "upstream": {
         "snapshot": "provenance/upstream/unslop",
         "patch": "provenance/patches/unslop.patch",
-        "checkedAt": "2026-10-11",
+        "checkedAt": "2026-10-19",
         "status": "latest",
         "localChanges": [
           "Preserve the existing concise, scoped discovery description.",
           "Preserve existing Codex invocation policy and UI metadata.",
           "Retain the existing user-facing-output scope and explicit-only policy while accepting the current upstream writing rules."
         ],
-        "sourceSkillSha256": "3126b9e2cf46022f5e0c332e84be5e17a9730669cb3d6ac0a7e5e7e94b1e24fa",
+        "sourceSkillSha256": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
         "effectiveSkillSha256": "aea1a299ab2daf5decf620201e445e0bcf94e7811cebaf0544db08a5b0b218ff",
-        "snapshotSha256": "29a8006ac7dccfac3a405c0ed2c19463d432a856278d1fbcc19e4329aa0ee49b",
-        "patchSha256": "b9131b67d4eb30b538f5c0136fa85e3b8296e60f1e6b62c2ab782fc61bd6985f",
+        "snapshotSha256": "e7d8d0f44c256f6ab532a4fb388dac4e039f00413544b6d0bd49939b5337163d",
+        "patchSha256": "65a22b9b7221e9c8df25e4c4bdc59501f0b39f09479b0f07764987d606c9f6c3",
         "effectiveSha256": "1f64da1116d8f0e6b2413745b71d8ca77fc9963c96b30f2dd40a56801a4f0da6"
       }
     },
@@ -1515,7 +1442,6 @@
   "profiles": {
     "core": {
       "skills": [
-        "animation-vocabulary",
         "auto-research",
         "better-accessibility",
         "better-colors",
@@ -1532,6 +1458,7 @@
         "diagnosing-bugs",
         "domain-modeling",
         "eli5",
+        "emil-design-eng",
         "eval-skills",
         "good-css",
         "grill-me",
@@ -1539,7 +1466,6 @@
         "grilling",
         "impeccable",
         "implement",
-        "improve-animations",
         "improve-codebase-architecture",
         "improve-ui",
         "init-git-repo",
@@ -1547,7 +1473,6 @@
         "phase",
         "prototype",
         "research",
-        "review-animations",
         "shadcn",
         "show-me",
         "storytelling",

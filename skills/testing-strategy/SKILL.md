@@ -28,7 +28,7 @@ When TDD is requested or useful, work in vertical slices: one failing behavior t
 
 Derive expected results from requirements, worked examples, or a known-good reference. For regressions, confirm the check fails for the original bug and passes after the fix, including when the test was written after the fix. Verify that the failing run exercised the faulty path and failed for the expected reason; preserve unrelated work when reproducing it.
 
-Assert observable behavior through stable interfaces. Check exact values when contractual; avoid assertions that copy implementation values, freeze incidental structure, or merely count calls to mocked internals. Use the smallest fixture that exposes the behavior. For normalization or deduplication, check the resulting values, not just collection size.
+Assert observable behavior through stable interfaces. Check exact values when contractual; avoid assertions that copy implementation values, freeze incidental structure, or merely count calls to mocked internals. Use the smallest fixture that exposes the behavior. For a boundary test, control the relevant bounds in the fixture and probe both sides; keep other tests comfortably away from tunable thresholds. Preserve checks of configured values when those values are themselves contractual. For normalization or deduplication, check the resulting values, not just collection size.
 
 Control configuration, time, randomness, and other variables irrelevant to the claim. Compare alternatives under equivalent conditions. For stochastic claims, use representative seeds or repeated runs with justified distribution bounds; one lucky sample cannot establish reliability. Keep invariant assertions exact. Do not widen margins merely to obtain a pass.
 

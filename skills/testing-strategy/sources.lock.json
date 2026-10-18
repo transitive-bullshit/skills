@@ -2,7 +2,7 @@
   "version": 1,
   "method": "reviewed-synthesis",
   "recipeVersion": 2,
-  "verifiedAt": "2026-10-11T09:54:16.157275+00:00",
+  "verifiedAt": "2026-10-18T20:35:14.478231+00:00",
   "sourceNaming": "Every source basename SKILL.md is stored as SKILL.upstream.md; all file bytes and Git modes are unchanged. Repository LICENSE is included separately from the skill subtree.",
   "sources": [
     {
@@ -55,11 +55,11 @@
     {
       "id": "dzhng-write-tests",
       "repository": "dzhng/skills",
-      "commit": "d51322866ffa298838346960414d18a221b52588",
+      "commit": "f6819cab7e0b43e59ed64551d136d65f65640e56",
       "sourcePath": "skills/engineering/write-tests",
-      "sourceTree": "4eebcaa30206c328ff846dc1dba7a1d004c9fece",
-      "root": "sources/dzhng-write-tests/d51322866ffa298838346960414d18a221b52588",
-      "url": "https://github.com/dzhng/skills/tree/d51322866ffa298838346960414d18a221b52588/skills/engineering/write-tests",
+      "sourceTree": "c14c020edebf68f6ae7100d134cb88cfefd168ef",
+      "root": "sources/dzhng-write-tests/f6819cab7e0b43e59ed64551d136d65f65640e56",
+      "url": "https://github.com/dzhng/skills/tree/f6819cab7e0b43e59ed64551d136d65f65640e56/skills/engineering/write-tests",
       "license": "MIT",
       "files": [
         {
@@ -72,8 +72,8 @@
         {
           "path": "SKILL.upstream.md",
           "upstreamPath": "skills/engineering/write-tests/SKILL.md",
-          "sha256": "40fae6ef816fb8285347f229a6d8d2e23e558f55a91f752bda2e991aebca07fe",
-          "gitBlob": "b295d2abd923bdf966572dfabf8e892373a6f0b6",
+          "sha256": "8b01e20e0f4663a7a2f47275408bf89c08b47f407fd45bfd4cb40330335a1225",
+          "gitBlob": "38ed5c3dbf5ec471e528e0334cc9dfdeed4cba40",
           "gitMode": "100644"
         }
       ]
@@ -81,11 +81,11 @@
     {
       "id": "dzhng-audit-tests",
       "repository": "dzhng/skills",
-      "commit": "d51322866ffa298838346960414d18a221b52588",
+      "commit": "f6819cab7e0b43e59ed64551d136d65f65640e56",
       "sourcePath": "skills/engineering/audit-tests",
       "sourceTree": "9cd604184afd443ceba1e48d8a4e73ed534e3f52",
-      "root": "sources/dzhng-audit-tests/d51322866ffa298838346960414d18a221b52588",
-      "url": "https://github.com/dzhng/skills/tree/d51322866ffa298838346960414d18a221b52588/skills/engineering/audit-tests",
+      "root": "sources/dzhng-audit-tests/f6819cab7e0b43e59ed64551d136d65f65640e56",
+      "url": "https://github.com/dzhng/skills/tree/f6819cab7e0b43e59ed64551d136d65f65640e56/skills/engineering/audit-tests",
       "license": "MIT",
       "files": [
         {
@@ -122,11 +122,11 @@
   "outputs": [
     {
       "path": "SKILL.md",
-      "sha256": "b7fd09b8c5c4b68fbd94c1c471ee7fffc9d4d46bf15de810dd7f45e431c13830"
+      "sha256": "53ec8a3b55fe95fe414bdce7ab04c9f43a2b784df24ac5ea7fe92dda110e7453"
     },
     {
       "path": "references/derivation.md",
-      "sha256": "72e13e8190eeb57a47179e06caecef324c3c592c8692fffe7c679b5b088b38de"
+      "sha256": "5efa158249de0747a1b42cefcc165f122c7a0604e3feb456a0df39d27b7c1ce4"
     },
     {
       "path": "references/audit.md",

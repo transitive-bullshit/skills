@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Prototyping Variants
 
-A divergence skill. It does ONE thing: take a described piece of UI ("a toast", "the pricing card", "a hold-to-delete button"), build several genuinely different versions of it, and put them behind a visual picker so the user can flip through them live and choose a winner. It does not review existing UI (that's `review-animations`), plan fixes for it (that's `improve-animations`); reuse the project’s installed component system.
+A divergence skill. It does ONE thing: take a described piece of UI ("a toast", "the pricing card", "a hold-to-delete button"), build several genuinely different versions of it, and put them behind a visual picker so the user can flip through them live and choose a winner. It does not review existing UI or plan fixes for it; reuse the project’s installed component system.
 
 ## Operating Posture
 
