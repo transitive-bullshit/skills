@@ -143,3 +143,22 @@ class XLookupTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class DuplicateKeyTests(unittest.TestCase):
+    def archive_post(self, text):
+        # Birdclaw rows synced by bird keep the media url in place of the t.co link X appends to the text.
+        return {'id': '101', 'text': text, 'attachments': {'media_keys': ['101_0']},
+                'entities': {'urls': [{'url': 'https://pbs.twimg.com/media/x.jpg', 'media_key': 'bird_media_0'}]}}
+
+    def test_trailing_media_link_is_dropped(self):
+        post = self.archive_post("made it onto fireship's latest video 😂 https://t.co/qjOmxcNyuN")
+        self.assertEqual(mirror.x_text(post)[0], "made it onto fireship's latest video 😂")
+
+    def test_trailing_link_without_media_is_kept(self):
+        post = {'id': '101', 'text': 'read this https://t.co/abc', 'entities': {'urls': []}}
+        self.assertEqual(mirror.x_text(post)[0], 'read this https://t.co/abc')
+
+    def test_opening_ignores_links(self):
+        self.assertEqual(mirror.opening('crabs are nature\'s schelling points https://t.co/m\nmore'),
+                         mirror.norm("crabs are nature's schelling points"))

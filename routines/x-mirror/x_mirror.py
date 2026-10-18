@@ -59,6 +59,7 @@ def cli_json(*cmd, timeout=None):
 def iso(t): return t.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 def parse_time(s): return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
 def norm(s): return re.sub(r"\W+", " ", s.lower()).strip()
+def opening(s): return norm(re.sub(r"https?://\S+", " ", s.split("\n")[0]))  # duplicate key: first line, links dropped
 def refs(post, kind): return [r["id"] for r in post.get("referenced_tweets", []) if r["type"] == kind]
 
 
@@ -84,6 +85,9 @@ def x_text(post):
         elif not re.match(r"https?://(www\.|mobile\.)?(x|twitter)\.com/", url):
             links.append(url)
         text = text.replace(u["url"], url)
+    has_media = post.get("attachments", {}).get("media_keys") or any(u.get("media_key") for u in ents.get("urls", []))
+    if has_media:  # X's trailing media link, when the archive's entities don't carry its t.co url
+        text = re.sub(r"\s*https://t\.co/\w+\s*$", "", text)
     text = html.unescape(text)
     quoted = refs(post, "quoted")
     if quoted and f"/status/{quoted[0]}" not in text:
@@ -558,18 +562,24 @@ def main():
             ref_ids = list(dict.fromkeys(i for t in texts for i in x_refs(t)))
             lookup = lookup_x_posts(archive, ref_ids)
             uploads, done = None, {}
+            key = opening(texts[0])
+            on_profile = lambda c: len(key) >= 20 and any(key in n for n, _ in published.get(c, []))
+            # A copy on his Bluesky profile that Postiz didn't make came from the crossposter outside Postiz, which
+            # posts to Threads too. Threads has no public read API, so its copy is inferred from the Bluesky one.
+            crossposted = on_profile("bluesky") and not any(key in p["_norm"] for p in queue.by_channel.get("bluesky", []))
             for channel in todo:
                 cid = channels[channel]
                 # Same link as a launch post, or the same opening line as any post, means it's already covered.
                 if any(any(l in p.get("content", "") for l in all_links) for p in queue.launches(channel)) or \
-                        (len(norm(first)) >= 20 and any(norm(first) in p["_norm"] for p in queue.by_channel.get(channel, []))):
+                        (len(key) >= 20 and any(key in p["_norm"] for p in queue.by_channel.get(channel, []))):
                     done[channel] = {"skipped": "already in Postiz"}
                     report.append(f"skip   {x_url} on {channel} (already in Postiz)")
                     continue
-                # Posted on the platform outside Postiz (by hand): same opening line already on his profile.
-                if len(norm(first)) >= 20 and any(norm(first) in n for n, _ in published.get(channel, [])):
-                    done[channel] = {"skipped": f"already published on {channel}"}
-                    report.append(f"skip   {x_url} on {channel} (already published on {channel})")
+                # Posted on the platform outside Postiz: same opening line already on his profile.
+                if on_profile(channel) or (channel == "threads" and crossposted):
+                    why = f"already published on {channel}" + ("" if on_profile(channel) else " (crossposted with Bluesky)")
+                    done[channel] = {"skipped": why}
+                    report.append(f"skip   {x_url} on {channel} ({why})")
                     continue
                 urls, problem = resolve_x_refs(ref_ids, channel, lookup, state, queue)
                 if problem:
