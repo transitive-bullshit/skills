@@ -205,13 +205,14 @@
           "Preserve the existing concise, scoped discovery description.",
           "Preserve existing Codex invocation policy and UI metadata.",
           "Retain project-token-first polish, shared motion guidance, and measured performance findings instead of fixed-style blockers.",
-          "Reapply existing recipe corrections to current resources: interruptibility is implementation-dependent; press/icon motion and image outlines follow established project treatments."
+          "Reapply existing recipe corrections to current resources: interruptibility is implementation-dependent; press/icon motion and image outlines follow established project treatments.",
+          "Route marketing and landing-page work to better-writing for the user\u2019s copy and content-restraint preferences."
         ],
         "sourceSkillSha256": "fb9807bb5c59a3ca9d4a27b25f56b36e5596251d280fb30c4b7f2ff8b6f4fe2d",
-        "effectiveSkillSha256": "6ba60d3e836be712cf7c5a6381f7b7bef7a60a5a068c0a2ee00973ba7dc0f0ef",
+        "effectiveSkillSha256": "9f795a5dddefc4a10020b148b0c0bcd367d5c40bff844cd97b1a7b9e545964e1",
         "snapshotSha256": "351b66b215133c1432bfa8c369f6d9fca365ede83cec33c9b9a34a25599205f3",
-        "patchSha256": "46bbd478ef4cf78ccd79c1c160c396c0de38eeb6daa0cc951898cb461283233d",
-        "effectiveSha256": "e3ba0170cdf16f96cfbccb8bd6c8a7c3f7f8e0165467897b163553132b68ea1e"
+        "patchSha256": "e7830af73168d92e87c6cef8199ffbe96249832bf1e889f1125d0d68e16659df",
+        "effectiveSha256": "e63e75131b0fbcdedfa90ed7e5db789bafe5ee7bbd4048a0dde7910c8e1e7871"
       }
     },
     "better-writing": {
@@ -240,13 +241,14 @@
         "status": "latest",
         "localChanges": [
           "Preserve the existing concise, scoped discovery description.",
-          "Preserve existing Codex invocation policy and UI metadata."
+          "Preserve existing Codex invocation policy and UI metadata.",
+          "Trigger for frontend marketing and landing-page work; preserve the user\u2019s natural-prose, no-eyebrow, and purposeful-additions preferences."
         ],
         "sourceSkillSha256": "ef6843cbfcbafa62614b1a6e012c0b1ab6fd33eee0bdd84123cf49fe275c3a31",
-        "effectiveSkillSha256": "afc7594b707e2a1e1844decec445f0876dc4ddf6ef36bc50a08703dafae8f1ff",
+        "effectiveSkillSha256": "db53077abf033a509f2e199d6d9faa030842ca9dbbea86f7586de088bedce78b",
         "snapshotSha256": "a3d656121657326377f911aeea4aea5a7a86bc3dc286066dd924b7f781588ecc",
-        "patchSha256": "3a008efd74257a1fbc68c3c26aaf6f7bd3ee9474e3411fa7e8aa57dd361f723e",
-        "effectiveSha256": "6635fcceab660976ae5aaaf78ba8c01ac5b19869092de226a3230a066dcc7c34"
+        "patchSha256": "2c9c10b026dc5431bfd3c11bbfa6c915ae74a54ce61919387e90abb58956595c",
+        "effectiveSha256": "d96d5cb93403ae135a9769b2b336f09a498134e1f400289a304661770b0e15ac"
       }
     },
     "birdclaw": {

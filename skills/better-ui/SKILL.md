@@ -24,7 +24,7 @@ Consult only the owners relevant to the task:
 - [Accessibility](../better-accessibility/SKILL.md): names, keyboard/focus, hit areas, semantic behavior.
 - [Layout](../better-layout/SKILL.md): grouping, spatial relationships, responsive layout.
 - [Colors](../better-colors/SKILL.md): tokens and contrast.
-- [Writing](../better-writing/SKILL.md): product copy.
+- [Writing](../better-writing/SKILL.md): product copy; consult when building marketing or landing pages.
 
 Do not load every owner for a focused polish change.
 

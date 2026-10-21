@@ -1,12 +1,25 @@
 diff --git a/SKILL.md b/SKILL.md
-index 55ad48e..dc38939 100644
+index 55ad48e..dc9041b 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -1,6 +1,6 @@
  ---
  name: better-writing
 -description: Writes and reviews your interface copy, from labels and errors to empty states and confirmations, so it matches your product's voice and tells people what to do next.
-+description: Focuses on improving product copy in your project.
++description: Write or review product copy, including when building frontend marketing pages and landing pages.
  ---
  
  # Writing
+@@ -11,6 +11,12 @@ A deliberate brand voice is not a defect. Raise a departure from plain language
+ 
+ How copy renders, including `text-transform`, truncation and smart punctuation, belongs to `better-typography`. Error markup, announcements and the attributes that carry accessible names belong to `better-accessibility`. Room for translated strings belongs to `better-layout`.
+ 
++## Marketing and landing pages
++
++Never use staccato prose: avoid strings of clipped sentences or fragments such as “Fast. Simple. Yours.” Write natural, connected sentences.
++
++Do not use eyebrow labels. Add copy, sections, badges, or decorative elements only when they help visitors understand the offer, evaluate it, or take the next step. Remove repetition and filler; empty space does not need filling.
++
+ ## Inventory the existing strings first
+ 
+ Before writing or reviewing, find where the copy lives and read the copy around the change:

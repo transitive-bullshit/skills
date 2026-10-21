@@ -1,6 +1,6 @@
 ---
 name: better-writing
-description: Focuses on improving product copy in your project.
+description: Write or review product copy, including when building frontend marketing pages and landing pages.
 ---
 
 # Writing
@@ -10,6 +10,12 @@ This skill writes and reviews interface copy such as labels, errors, empty state
 A deliberate brand voice is not a defect. Raise a departure from plain language only when it creates inconsistency, ambiguity, translation risk or a tone the stakes don't support. Rewording that merely suits your taste is not a finding.
 
 How copy renders, including `text-transform`, truncation and smart punctuation, belongs to `better-typography`. Error markup, announcements and the attributes that carry accessible names belong to `better-accessibility`. Room for translated strings belongs to `better-layout`.
+
+## Marketing and landing pages
+
+Never use staccato prose: avoid strings of clipped sentences or fragments such as “Fast. Simple. Yours.” Write natural, connected sentences.
+
+Do not use eyebrow labels. Add copy, sections, badges, or decorative elements only when they help visitors understand the offer, evaluate it, or take the next step. Remove repetition and filler; empty space does not need filling.
 
 ## Inventory the existing strings first
 

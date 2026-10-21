@@ -1,5 +1,5 @@
 diff --git a/SKILL.md b/SKILL.md
-index c38a323..2be7135 100644
+index c38a323..6042832 100644
 --- a/SKILL.md
 +++ b/SKILL.md
 @@ -1,133 +1,33 @@
@@ -37,7 +37,7 @@ index c38a323..2be7135 100644
 +- [Accessibility](../better-accessibility/SKILL.md): names, keyboard/focus, hit areas, semantic behavior.
 +- [Layout](../better-layout/SKILL.md): grouping, spatial relationships, responsive layout.
 +- [Colors](../better-colors/SKILL.md): tokens and contrast.
-+- [Writing](../better-writing/SKILL.md): product copy.
++- [Writing](../better-writing/SKILL.md): product copy; consult when building marketing or landing pages.
  
 -## Align optically where geometry looks off
 +Do not load every owner for a focused polish change.
