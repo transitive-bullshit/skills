@@ -57,6 +57,7 @@ These are the ways recent repos extend the baseline files:
 - **`pnpm-workspace.yaml`:** give dependencies whose install scripts must run an `allowBuilds` entry (`'@swc/core': true`), or set `false` for ones that shouldn't run. `patchedDependencies` also goes here.
 - **`tsconfig.json`:** narrow `include` to the real source dirs (for example `["src", "test", "*.config.ts"]`), and exclude local work, cache, or report dirs.
 - **`test.yml`:** add project needs as steps (`sudo apt-get install -y ffmpeg`, `pnpm db:migrate`), plus `services` (Postgres) and test-only `env` with dummy values, never real secrets.
+- **Claude preview pane with Portless:** the pane waits on the `port` in `.claude/launch.json` and moves it if busy, and the Portless proxy port (1355) is always busy, so `port: 1355` opens a dead tab. Pin the app's own port instead: `{"name": "<app>", "runtimeExecutable": "env", "runtimeArgs": ["PORTLESS_APP_PORT=4317", "pnpm", "dev"], "port": 4317, "autoPort": false}`. The pane opens `http://localhost:4317`; the Portless URL keeps working alongside.
 
 ## Code conventions (these go in AGENTS.md)
 

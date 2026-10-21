@@ -440,6 +440,13 @@
         "effectiveSha256": "bfea2557ef460894c089b92d6834a52783836b0cf5fbc0295e23433c4c49fb41"
       }
     },
+    "deploy-vercel-projects": {
+      "path": "skills/deploy-vercel-projects",
+      "origin": {
+        "kind": "personal"
+      },
+      "requires": []
+    },
     "diagnosing-bugs": {
       "path": "skills/diagnosing-bugs",
       "origin": {
@@ -1455,6 +1462,7 @@
         "codex",
         "compare-screenshots",
         "create-verification-skill",
+        "deploy-vercel-projects",
         "diagnosing-bugs",
         "domain-modeling",
         "eli5",

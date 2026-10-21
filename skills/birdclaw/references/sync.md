@@ -4,7 +4,7 @@ Use this procedure for the existing 12-hour `sync-birdclaw-x-archive` task or a 
 
 ## Preflight
 
-- Record the UTC start time, run `birdclaw --json db stats`, and run a read-only SQLite `pragma quick_check` against `~/.birdclaw/birdclaw.sqlite`.
+- Record the UTC start time, run `birdclaw --json db stats`, and run `pragma quick_check` through the [read-only SQLite open](../SKILL.md#data).
 - Verify `bird --plain whoami` identifies `@transitive_bs` (user ID `327034465`) through the existing browser session. Use the normal approved command path for Keychain/network restrictions; never inline or display cookies/tokens.
 - Inspect the account's bird cursor:
 

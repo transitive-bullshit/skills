@@ -18,8 +18,10 @@ birdclaw --json db stats
 ```
 
 ```bash
-sqlite3 ~/.birdclaw/birdclaw.sqlite "pragma quick_check;"
+sqlite3 "file:$HOME/.birdclaw/birdclaw.sqlite?mode=ro" "pragma quick_check;"
 ```
+
+Prefer the `birdclaw` CLI where it covers the query; open SQLite only through a `?mode=ro` URI. The DB is in WAL mode, so a read-only open fails with `unable to open database file` when no `-wal` file exists. Fall back to `?immutable=1` only when no Birdclaw writer (sync, import, backfill) is running; immutable reads can be inconsistent during writes.
 
 ## Picking the Right Approach
 
@@ -150,7 +152,7 @@ Recommended checks:
 Useful SQL sketch for rule tuning:
 
 ```bash
-sqlite3 ~/.birdclaw/birdclaw.sqlite "
+sqlite3 "file:$HOME/.birdclaw/birdclaw.sqlite?mode=ro" "
 select id, created_at, like_count, text
 from tweets
 where created_at >= '2020-01-01' and created_at < '2021-01-01'
