@@ -20,13 +20,13 @@
     "test:installer": "python3 -m unittest discover -s tests"
   },
   "devDependencies": {
-    "@fisch0920/config": "^2.1.4",
-    "@types/node": "^26.6.1",
-    "lint-staged": "^17.5.1",
-    "npm-run-all2": "^9.0.3",
-    "oxfmt": "^0.68.0",
-    "oxlint": "^1.83.0",
-    "oxlint-tsgolint": "^7.0.2002",
+    "@fisch0920/config": "^2.5.0",
+    "@types/node": "^26.6.6",
+    "lint-staged": "^17.6.0",
+    "npm-run-all2": "^9.0.4",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "oxlint-tsgolint": "^7.0.2007",
     "simple-git-hooks": "^2.14.0",
     "typescript": "^7.0.2"
   },

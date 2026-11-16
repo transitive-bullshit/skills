@@ -17,7 +17,10 @@ dependencies = ["requests>=2.32", "numpy>=2.0"]
 
 [dependency-groups]
 dev = ["pytest>=8"]
-ml = ["torch>=2.5", "mlx-whisper>=0.4; sys_platform == 'darwin' and platform_machine == 'arm64'"]
+ml = [
+  "torch>=2.5",
+  "mlx-whisper>=0.4; sys_platform == 'darwin' and platform_machine == 'arm64'"
+]
 experiments = [{ include-group = "ml" }, "librosa>=0.11"]
 
 [tool.uv]
